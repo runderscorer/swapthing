@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  date: 2014-05-27 22:42:42
+  description: MyText
+  max_spend: 1
+  participants: 1
+
+two:
+  name: MyString
+  date: 2014-05-27 22:42:42
+  description: MyText
+  max_spend: 1
+  participants: 1
