@@ -1,0 +1,13 @@
+<h2>Your Parties:</h2>
+<ul>
+  <% if @parties.blank? %>
+    <p>You have yet to create a party. Click <%= link_to 'here', new_party_path %> to get the party started.</p>
+  <% else %>
+    <% @parties.each do |party| %>
+      <li>
+        <%= "#{party.name}" %> | <%= link_to 'Edit', edit_party_path(party) %> | <%= link_to 'Delete', party, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>
+<%= link_to 'Add New Party', new_party_path %>

@@ -1,0 +1,6 @@
+<%= simple_form_for @party, url:{ action: 'create' } do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :date %>
+  <%= f.button :submit %>
+<% end %>
