@@ -1,0 +1,11 @@
+<h2>Edit your event details below:</h2>
+<ul>
+  <%= simple_form_for @event do |f| %>
+    <li><%= f.input :name %></li>
+    <li><%= f.input :description %></li>
+    <li><%= f.input :max_spend %></li>
+    <li><%= f.input :date %></li>
+    <%= f.submit %>
+  <% end %>
+</ul>
+<%= link_to 'Invite People', new_user_invitation_path %>
