@@ -1,4 +1,7 @@
 class Users::InvitationsController < Devise::InvitationsController
+  before_action :authenticate_user!
+  before_action :check_user_roles, only: [:new, :create]
+
   def index
   end
 
@@ -10,12 +13,17 @@ class Users::InvitationsController < Devise::InvitationsController
     @user = User.invite!({email: user_params[:email]}, current_user) do |u|
       u.skip_invitation = true
     end
-
     email = NotificationMailer.invitation_instructions(@user).deliver
+    if @user.update_attributes(invited_by_id: current_user, invitation_sent_at: Time.now)
+      @event = Event.find(session[:event_id])
+      Role.create(user_id: @user, event_id: @event)
 
-    Role.create(user_id: @user, event_id: params[:event_id])
-
-    redirect_to new_user_invitation_path
+      redirect_to new_user_invitation_path
+      flash[:notice] = 'Your invitation was sent successfully'
+    else
+      flash[:warn] = 'There was a problem sending your invitation'
+      redirect_to new_user_invitation_path
+    end
   end
 
   def update

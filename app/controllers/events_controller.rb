@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @events = Event.all_by_user(current_user)
   end
@@ -11,26 +13,27 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      @event = @event.roles.create(user_id: current_user.id, event_id: params[:event_id])
+      Role.create(user_id: current_user.id, event_id: @event.id)
       redirect_to events_path
     end
   end
 
   def edit
     @event = Event.find(params[:id])
+    session[:event_id] = @event.id
   end
 
   def update
     @event = Event.find(params[:id])
 
     if @event.update_attributes(event_params)
-      @event = @event.roles.create(user_id: current_user.id, event_id: params[:event_id])
       redirect_to events_path
     end
   end
 
   def destroy
     @event = Event.find(params[:id])
+    roles = Role.where(event_id: @event.id).each {|role| role.destroy}
     @event.destroy
     redirect_to events_path
   end
