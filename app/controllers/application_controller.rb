@@ -8,7 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def check_user_roles
-    events = current_user.roles.map {|role| Event.find(role.event_id)}
-    binding.pry
+    events = current_user.roles.map {|role| role.event_id}
+    unless events.include? session[:event_id]
+      redirect_to events_path
+      Rails.logger.debug 'User does not have access to this event'
+    end
   end
 end
