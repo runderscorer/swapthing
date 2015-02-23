@@ -16,7 +16,7 @@ class Users::InvitationsController < Devise::InvitationsController
     email = NotificationMailer.invitation_instructions(@user).deliver
     if @user.update_attributes(invited_by_id: current_user, invitation_sent_at: Time.now)
       @event = Event.find(session[:event_id])
-      Role.create(user_id: @user, event_id: @event)
+      Role.create(user_id: @user.id, event_id: @event.id)
 
       redirect_to new_user_invitation_path
       flash[:notice] = 'Your invitation was sent successfully'
