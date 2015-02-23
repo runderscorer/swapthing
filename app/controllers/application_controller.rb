@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     new_user_invitation_path
   end
 
+  def after_sign_in_path_for(resource_or_scope)
+    events_path
+  end
+
   def check_user_roles
     events = current_user.roles.map {|role| role.event_id}
     unless events.include? session[:event_id]
