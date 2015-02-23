@@ -5,7 +5,10 @@ Swapthing::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-  resources :events, :roles
+  resources :events do
+    resources :participants, only: [:index, :show]
+  end
+  resources :roles
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
