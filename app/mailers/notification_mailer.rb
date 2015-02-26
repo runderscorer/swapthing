@@ -3,7 +3,6 @@ class NotificationMailer < ActionMailer::Base
 
   def invitation_instructions(user)
     @user = user
-    @token = user.raw_invitation_token
     invitation_link = accept_user_invitation_url(invitation_token: @token)
 
     mail to: @user.email,

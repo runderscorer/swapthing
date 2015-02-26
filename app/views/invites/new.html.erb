@@ -1,0 +1,5 @@
+<h2>Invite someone</h2>
+<%= simple_form_for @invite, url: {action: 'create'} do |f| %>
+<%= f.input :email %>
+<%= f.submit 'Invite' %>
+<% end %>

@@ -6,7 +6,6 @@ class Users::InvitationsController < Devise::InvitationsController
   end
 
   def new
-    @user = User.new
   end
 
   def create

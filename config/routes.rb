@@ -1,5 +1,5 @@
 Swapthing::Application.routes.draw do
-  devise_for :users, controllers: { invitations: 'users/invitations'}
+  devise_for :users, controllers: { registrations: 'users/registrations'}
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -7,6 +7,7 @@ Swapthing::Application.routes.draw do
   root 'home#index'
   resources :events do
     resources :participants, only: [:index, :show]
+    resources :invites
   end
   resources :roles
   # Example of regular route:

@@ -8,5 +8,5 @@
     <%= f.submit %>
   <% end %>
 </ul>
-<%= link_to 'Invite People', new_user_invitation_path %>
+<%= link_to 'Invite People', new_event_invite_path(@event) %>
 <%= link_to 'View Participants', event_participants_path(@event) %>
