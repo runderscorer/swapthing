@@ -6,7 +6,7 @@ Swapthing::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
   resources :events do
-    resources :participants, only: [:index, :show]
+    resources :participants, only: [:index, :show, :create]
     resources :invites
   end
   resources :roles
