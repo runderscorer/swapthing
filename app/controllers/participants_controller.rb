@@ -7,22 +7,21 @@ class ParticipantsController < ApplicationController
 
   def create
     event = Event.find(session[:event_id])
-    assign_partners(event.roles)
+    assign_partners(event.partnerships)
     redirect_to event_participants_path
   end
 
   def assign_partners(participants)
-    participant_ids = participants.map! { |participant| participant.user_id }
-    participants.each do |participant|
-      partner = participant_ids.sample
-      if participant.user_id != partner
-        participant.partner_id = partner
-        participant.save
-        participant_ids.delete(partner)
-      else
-        redo
+    participant_ids = participants.map! { |participant| participant.giver_id }
+    begin
+      participants.each do |participant|
+        getter = participant_ids.sample
+          participant.getter_id = getter
+          participant.save
+          participant_ids.delete(getter)
       end
+    rescue
     end
   end
-  
+
 end
