@@ -1,6 +1,7 @@
 class Partnership < ActiveRecord::Base
   belongs_to :event
   belongs_to :user
+  has_one    :wishlist
 
   validate :cannot_get_self
 
