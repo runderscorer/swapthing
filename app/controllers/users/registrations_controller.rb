@@ -14,8 +14,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
     
     unless @token.blank?
       invite = Invite.find_by token: @token
-      partnership = Partnership.new(giver_id: @user.id, event_id: invite.event_id)
-      partnership.save
+      membership = Membership.new(user_id: @user.id, event_id: invite.event_id)
+      membership.save
     end
 
   end
