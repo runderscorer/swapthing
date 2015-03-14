@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
     root_path
   end
 
-  def check_user_partnerships
-    events = current_user.partnerships.map {|partnership| partnership.event_id}
+  def check_user_memberships
+    events = current_user.memberships.map {|membership| membership.event_id}
     unless events.include? session[:event_id]
       redirect_to events_path
       Rails.logger.debug 'User does not have access to this event'

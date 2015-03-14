@@ -1,4 +1,4 @@
 class Wishlist < ActiveRecord::Base
-  belongs_to :membership
-  has_many   :items
+  belongs_to :user, through: :memberships
+  has_many   :gifts
 end
