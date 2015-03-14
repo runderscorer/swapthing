@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150314233739) do
+ActiveRecord::Schema.define(version: 20150314234628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150314233739) do
     t.integer "giver_id"
     t.integer "getter_id"
     t.integer "event_id"
-    t.integer "wishlist_id"
   end
 
   create_table "users", force: true do |t|
