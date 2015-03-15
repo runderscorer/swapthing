@@ -1,4 +1,4 @@
-class ParticipantsController < ApplicationController
+class PartnershipsController < ApplicationController
 
   def index
     event = Event.find(session[:event_id])
@@ -7,8 +7,14 @@ class ParticipantsController < ApplicationController
 
   def create
     event = Event.find(session[:event_id])
+    @participants = event.users
+
+    @participants.each do |participant|
+      Partnership.create(event_id: event.id, giver_id: participant.id)
+    end
+
     assign_partners(event.partnerships)
-    redirect_to event_participants_path
+    redirect_to event_partnerships_path
   end
 
   def assign_partners(participants)
