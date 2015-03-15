@@ -3,7 +3,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :roles
   has_many :events
   has_many :memberships
   has_many :invitations, class_name: 'Invite', foreign_key: 'sender_id'

@@ -13,7 +13,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     if @event.save
-      Role.create(user_id: current_user.id, event_id: @event.id)
+      Membership.create(user_id: current_user.id, event_id: @event.id)
       redirect_to events_path
     end
   end
@@ -33,7 +33,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
-    roles = Role.where(event_id: @event.id).each {|role| role.destroy}
+    memberships = Membership.where(event_id: @event.id).each {|membership| membership.destroy}
     @event.destroy
     redirect_to events_path
   end

@@ -1,6 +1,6 @@
 class Users::InvitationsController < Devise::InvitationsController
   before_action :authenticate_user!
-  before_action :check_user_roles, only: [:new, :create]
+  before_action :check_user_memberships, only: [:new, :create]
 
   def index
   end
@@ -15,7 +15,7 @@ class Users::InvitationsController < Devise::InvitationsController
     email = NotificationMailer.invitation_instructions(@user).deliver
     if @user.update_attributes(invited_by_id: current_user, invitation_sent_at: Time.now)
       @event = Event.find(session[:event_id])
-      Role.create(user_id: @user.id, event_id: @event.id)
+      Membership.create(user_id: @user.id, event_id: @event.id)
 
       redirect_to new_user_invitation_path
       flash[:notice] = 'Your invitation was sent successfully'

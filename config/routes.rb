@@ -9,7 +9,6 @@ Swapthing::Application.routes.draw do
     resources :participants, only: [:index, :show, :create]
     resources :invites
   end
-  resources :roles
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
