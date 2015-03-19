@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_user_memberships, except: [:index, :new, :create]
+  around_action :check_user_memberships, except: [:index, :new, :create]
   
   def index
     @events = Event.all_by_user(current_user)
@@ -44,4 +44,15 @@ class EventsController < ApplicationController
   def event_params
     params.require(:event).permit(:name, :date, :description, :max_spend)
   end
+
+  def check_user_memberships
+    accessible_events = current_user.memberships.map {|membership| membership.event_id}
+    if accessible_events.include? params[:id].to_i
+      yield
+    else
+      redirect_to events_path
+      Rails.logger.debug 'User does not have access to this event'
+    end
+  end
+
 end
