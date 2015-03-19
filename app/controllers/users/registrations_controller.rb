@@ -15,7 +15,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     unless @token.blank?
       invite = Invite.find_by token: @token
       membership = Membership.new(user_id: @user.id, event_id: invite.event_id)
-      membership.save
+      if membership.save
+        wishlist = Wishlist.new(membership_id: membership.id)
+        wishlist.save
+      end
     end
 
   end
