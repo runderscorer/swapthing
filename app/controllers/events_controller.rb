@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
+  before_action :check_user_memberships, except: [:index, :new, :create]
   
   def index
     @events = Event.all_by_user(current_user)

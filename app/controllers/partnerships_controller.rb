@@ -1,8 +1,8 @@
 class PartnershipsController < ApplicationController
 
   def index
-    event = Event.find(session[:event_id])
-    @participants = event.users
+    @event = Event.find(session[:event_id])
+    @participants = @event.users
   end
 
   def create
@@ -35,6 +35,7 @@ class PartnershipsController < ApplicationController
         end
       end
     rescue
+      retry
     end
   end
 

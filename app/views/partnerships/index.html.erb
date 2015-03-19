@@ -5,4 +5,5 @@
 </ul>
 <%= simple_form_for :partnerships, method: :post do |f| %>
 <%= f.submit 'Assign Partners' %>
+<%= link_to 'Back to Event', edit_event_path(@event) %>
 <% end %>
