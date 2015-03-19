@@ -9,6 +9,10 @@ Swapthing::Application.routes.draw do
     resources :partnerships, only: [:index, :show, :create]
     resources :invites
   end
+
+  resources :wishlists do
+    resources :gifts
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
