@@ -1,1 +1,6 @@
-wishlists
+<h2>Wishlists</h2>
+<ul>
+<% @wishlists.each do |wishlist| %>
+  <li><%= wishlist.id %></li>
+<% end %>
+</ul>
