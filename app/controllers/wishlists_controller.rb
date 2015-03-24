@@ -9,4 +9,9 @@ class WishlistsController < ApplicationController
 
   def create
   end
+
+  private
+
+  def wishlist_params
+    params.require(:wishlist).permit(:id, :membership_id, items_attributes: [:id, :name, :description, :price, :notes, :url])
 end
