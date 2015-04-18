@@ -1,0 +1,24 @@
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Notes</th>
+    <th>URL</th>
+  </tr>
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.price.blank? ? '' : item.price %></td>
+    <td><%= item.description.blank? ? '' : item.description %></td>
+    <td><%= item.notes.blank? ? '' : item.notes %></td>
+    <td><%= item.url.blank? ? '' : item.url %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+  </tr>
+<% end %>
+</table>
+<%= simple_form_for @wishlist, url: wishlist_path(@wishlist) do |f| %>
+  <% f.fields_for :items do |i| %>
+    <%= render 'item_fields', f: i %>
+  <% end %>
+<% end %>

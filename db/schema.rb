@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319051148) do
+ActiveRecord::Schema.define(version: 20150417235048) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(version: 20150319051148) do
 
   create_table "wishlists", force: true do |t|
     t.integer "membership_id"
+    t.string  "name"
   end
 
 end

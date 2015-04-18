@@ -1,6 +1,6 @@
 <h2>Wishlists</h2>
 <ul>
 <% @wishlists.each do |wishlist| %>
-  <li><%= wishlist.id %></li>
+  <li><%= link_to "#{wishlist.name}", edit_wishlist_path(wishlist) %></li>
 <% end %>
 </ul>

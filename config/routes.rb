@@ -11,8 +11,11 @@ Swapthing::Application.routes.draw do
   end
 
   resources :wishlists do
-    resources :gifts
+    resources :items
   end
+
+  resources :items
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
