@@ -14,8 +14,6 @@ Swapthing::Application.routes.draw do
     resources :items
   end
 
-  resources :items
-  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

@@ -1,12 +1,15 @@
 class WishlistsController < ApplicationController
   before_action :get_items, only: [:show, :edit, :update]
-  before_action :get_wishlist, only: [:edit, :update, :destroy]
+  before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
 
   def index
     @wishlists = current_user.wishlists
   end
 
   def create
+  end
+
+  def show
   end
 
   def edit
