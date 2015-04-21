@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
     @item = @wishlist.items.build(item_params)
 
     if @item.save
-      redirect_to root_path
+      redirect_to wishlist_path(@wishlist)
     end
   end
 
