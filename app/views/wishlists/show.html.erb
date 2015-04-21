@@ -17,4 +17,5 @@
 <% end %>
 </table>
 
-<%= link_to 'Add Item', new_wishlist_item_path(@wishlist) %>
+<%= render 'items/new' %>
+<%= link_to 'Add Item', new_wishlist_item_path(@wishlist), id: 'add_item' %>

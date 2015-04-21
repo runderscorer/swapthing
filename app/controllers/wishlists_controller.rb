@@ -10,6 +10,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @item = @wishlist.items.build
   end
 
   def edit
