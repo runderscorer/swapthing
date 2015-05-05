@@ -17,26 +17,10 @@ class PartnershipsController < ApplicationController
       partnerships = event.partnerships
     end
 
-    assign_partners(partnerships)
+    partners = PartnerService.new(partnerships)
+    partners.assign
+    
     redirect_to event_partnerships_path
-  end
-
-  def assign_partners(participants)
-    begin
-      participant_ids = participants.map { |participant| participant.giver_id }
-      participants.each do |participant|
-        getter = participant_ids.sample
-        participant.getter_id = getter
-        if participant.getter_id != participant.giver_id
-          participant.save
-          participant_ids.delete(getter)
-        else
-          redo
-        end
-      end
-    rescue
-      retry
-    end
   end
 
 end

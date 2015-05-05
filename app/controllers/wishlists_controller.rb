@@ -1,6 +1,7 @@
 class WishlistsController < ApplicationController
   before_action :get_items, only: [:show, :edit, :update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
+  # around_action :check_user_memberships, except: [:index, :new, :create]
 
   def index
     @wishlists = current_user.wishlists
@@ -40,4 +41,13 @@ class WishlistsController < ApplicationController
     @items = Wishlist.find(params[:id]).items
   end
 
+  def check_user_memberships
+    accessible_wishlists = current_user.memberships.map {|membership| membership.wishlist_id}
+    if accessible_wishlists.include? params[:id].to_i
+      yield
+    else
+      redirect_to wishlists_path
+      Rails.logger.debug 'User does not have access to this wishlist'
+    end
+  end
 end
