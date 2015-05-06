@@ -17,8 +17,7 @@ class PartnershipsController < ApplicationController
       partnerships = event.partnerships
     end
 
-    partners = PartnerService.new(partnerships)
-    partners.assign
+    AssignPartners.call(partnerships)
     
     redirect_to event_partnerships_path
   end
