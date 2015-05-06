@@ -9,4 +9,12 @@ class NotificationMailer < ActionMailer::Base
          subject: "You have been invited to use Swap-Thing!"
   end
 
+  def partner_assignment_mail(partnership)
+    email = partnership.giver.email
+    @giver = partnership.giver
+    @getter = partnership.getter
+
+    mail to: email,
+         subject: 'You have been assigned a partner! Time to dance!'
+  end
 end

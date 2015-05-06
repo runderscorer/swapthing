@@ -3,8 +3,6 @@ class AssignPartners
   def self.call(partnerships)
     begin
       @partnerships = partnerships
-      @event = Event.find partnerships.collect(&:event_id).uniq
-      @givers = partnerships.collect(&:giver_id)
       participant_ids = @partnerships.map { |partnership| partnership.giver_id }
       @partnerships.each do |partnership|
         getter = participant_ids.sample

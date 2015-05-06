@@ -18,7 +18,10 @@ class PartnershipsController < ApplicationController
     end
 
     AssignPartners.call(partnerships)
-    
+    partnerships.each do |partnership|
+      NotificationMailer.partner_assignment_mail(partnership).deliver
+    end
+
     redirect_to event_partnerships_path
   end
 
