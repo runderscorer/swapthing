@@ -10,8 +10,10 @@ Swapthing::Application.routes.draw do
     resources :invites
   end
 
-  resources :wishlists do
-    resources :items
+  resources :users do
+    resources :wishlists do
+      resources :items
+    end
   end
 
   # Example of regular route:

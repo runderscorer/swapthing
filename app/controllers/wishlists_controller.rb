@@ -1,11 +1,8 @@
 class WishlistsController < ApplicationController
   before_action :get_items, only: [:show, :edit, :update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :get_user, only: [:show, :edit, :update]
   # around_action :check_user_memberships, except: [:index, :new, :create]
-
-  def index
-    @wishlists = current_user.wishlists
-  end
 
   def create
   end
@@ -20,7 +17,7 @@ class WishlistsController < ApplicationController
 
   def update
     if @wishlist.update_attributes(wishlist_params)
-      redirect_to wishlists_path
+      redirect_to user_wishlist_path(@user.id, @wishlist)
     else
       puts 'Error! Error!'
       redirect_to wishlists_path
