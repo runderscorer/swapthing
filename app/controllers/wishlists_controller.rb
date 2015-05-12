@@ -8,16 +8,17 @@ class WishlistsController < ApplicationController
   end
 
   def show
-    @item = @wishlist.items.build
   end
 
   def edit
-    @wishlist.items.build if @wishlist.items.blank?
+    @item = @wishlist.items.build
+    @items = @wishlist.items
   end
 
   def update
     if @wishlist.update_attributes(wishlist_params)
-      redirect_to user_wishlist_path(@user.id, @wishlist)
+      binding.pry
+      redirect_to edit_user_wishlist_path(@user.id, @wishlist)
     else
       puts 'Error! Error!'
       redirect_to wishlists_path

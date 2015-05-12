@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :get_item, except: [:new, :create]
   before_action :get_wishlist, only: [:new, :create]
-  before_action :get_user, only: [:create]
+  before_action :get_user, only: [:new, :create]
 
   def new
     @item = @wishlist.items.build
@@ -11,7 +11,7 @@ class ItemsController < ApplicationController
     @item = @wishlist.items.build(item_params)
 
     if @item.save
-      redirect_to user_wishlist_path(@user.id, @wishlist.id)
+      redirect_to edit_user_wishlist_path(@user.id, @wishlist.id)
     end
   end
 
