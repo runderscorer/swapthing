@@ -12,7 +12,6 @@ class WishlistsController < ApplicationController
 
   def edit
     @item = @wishlist.items.build
-    @items = @wishlist.items
   end
 
   def update
