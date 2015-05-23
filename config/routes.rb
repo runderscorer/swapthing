@@ -10,6 +10,8 @@ Swapthing::Application.routes.draw do
     resources :invites
   end
 
+  resources :wishlists, only: [:show]
+  
   resources :users do
     resources :wishlists do
       resources :items
