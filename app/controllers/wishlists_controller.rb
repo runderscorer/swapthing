@@ -30,11 +30,12 @@ class WishlistsController < ApplicationController
   end
 
   def get_wishlist
-    @wishlist = Wishlist.find(params[:id])
+    @wishlist = Wishlist.find_by(id: params[:id])
+    redirect_to root_url unless @wishlist
   end
 
   def get_items
-    @items = Wishlist.find(params[:id]).items
+    @items = Wishlist.find(params[:id]).items unless @wishlist.blank?
   end
 
   def check_user_memberships
@@ -46,4 +47,5 @@ class WishlistsController < ApplicationController
       Rails.logger.debug 'User does not have access to this wishlist'
     end
   end
+
 end
