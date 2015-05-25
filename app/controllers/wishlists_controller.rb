@@ -8,6 +8,7 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    
   end
 
   def edit
@@ -16,7 +17,6 @@ class WishlistsController < ApplicationController
 
   def update
     if @wishlist.update_attributes(wishlist_params)
-      binding.pry
       redirect_to edit_user_wishlist_path(@user.id, @wishlist)
     else
       puts 'Error! Error!'
