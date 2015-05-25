@@ -8,7 +8,6 @@ class WishlistsController < ApplicationController
   end
 
   def show
-    
   end
 
   def edit
