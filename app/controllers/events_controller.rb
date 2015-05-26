@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  around_action :check_user_memberships, except: [:index, :new, :create]
+  # around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
   
   def index
@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   end
 
   def show
+    @partnership = current_user.partnerships.find_by(event_id: params[:id])
   end
 
   def create

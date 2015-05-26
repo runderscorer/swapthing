@@ -14,7 +14,7 @@
     <% if current_user.wishlist.blank? %>
       <li><%= link_to 'Create Wishlist', new_user_wishlist_path(current_user.id) %></li>
     <% else %>
-      <li><%= link_to 'Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id) %>
+      <li><%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id) %>
     <% end %>
 <% else %>
   <li><%= link_to 'Sign Up', new_user_registration_path %></li>
