@@ -1,0 +1,6 @@
+<%= simple_form_for @wishlist, url: user_wishlists_path do |f| %>
+<%= f.label :name, 'Wishlist Name' %>
+<%= f.input :name, label: false %>
+<%= f.input :user_id, as: :hidden %>
+<%= f.submit 'Create Wishlist' %>
+<% end %>

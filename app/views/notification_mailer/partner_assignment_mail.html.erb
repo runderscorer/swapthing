@@ -6,6 +6,6 @@
 
 <p>You can take a look at <%= @getter.email %>'s wishlist by clicking on the link below:</p>
 
-<p><%= link_to "#{@getter.email}'s Wishlist", @getter.wishlist %></p>
+<p><%= link_to "#{@getter.email}'s Wishlist", wishlist_path(@getter.wishlist.id) %></p>
 
 <p>Happy shopping!</p>

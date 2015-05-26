@@ -1,10 +1,17 @@
 class WishlistsController < ApplicationController
   before_action :get_items, only: [:show, :edit, :update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
-  before_action :get_user, only: [:show, :edit, :update]
+  before_action :get_user, only: [:new, :create, :show, :edit, :update]
   # around_action :check_user_memberships, except: [:index, :new, :create]
+  def new
+    @wishlist = Wishlist.new(user_id: @user.id)
+  end
 
   def create
+    @wishlist = Wishlist.new(wishlist_params)
+    @wishlist.save
+
+    redirect_to edit_user_wishlist_path(@user.id, @wishlist)
   end
 
   def show
@@ -26,7 +33,7 @@ class WishlistsController < ApplicationController
   private
 
   def wishlist_params
-    params.require(:wishlist).permit(:id, :name, :membership_id, items_attributes: [:id, :name, :description, :price, :notes, :url])
+    params.require(:wishlist).permit(:id, :user_id, :name, :membership_id, items_attributes: [:id, :name, :description, :price, :notes, :url])
   end
 
   def get_wishlist
