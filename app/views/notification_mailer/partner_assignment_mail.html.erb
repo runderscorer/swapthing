@@ -2,10 +2,10 @@
 
 <p>(...drumroll...)</p>
 
-<p>It's <%= @getter.email %>!</p>
+<p>It's <%= @getter.full_name %> (<%= @getter.email %>)!</p>
 
-<p>You can take a look at <%= @getter.email %>'s wishlist by clicking on the link below:</p>
+<p>Click on the link below to log in to your Swap Thing account to view <%= @getter.fname %>'s wishlist.</p>
 
-<p><%= link_to "#{@getter.email}'s Wishlist", wishlist_path(@getter.wishlist.id) %></p>
+<p><%= link_to "Start swapping", root_url %></p>
 
-<p>Happy shopping!</p>
+<p>Happy swapping!</p>
