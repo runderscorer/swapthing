@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Wishlist?</th>
+  </tr>
+  <% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.wishlist.present? ? 'Ready' : 'Not Ready' %></td>
+  </tr>
+  <% end %>
+</table>
+<%= simple_form_for :partnerships, method: :post do |f| %>
+<%= f.submit 'Assign Partners' %>
+<%= link_to 'Back to Event', edit_event_path(@event) %>
+<% end %>

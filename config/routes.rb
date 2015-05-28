@@ -8,6 +8,7 @@ Swapthing::Application.routes.draw do
   resources :events do
     resources :partnerships, only: [:index, :show, :create]
     resources :invites
+    resources :users, only: [:index]
   end
 
   resources :wishlists, only: [:show]
