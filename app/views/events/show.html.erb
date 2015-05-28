@@ -4,7 +4,7 @@
   <% unless @event.max_spend.blank? %>
     <li><%= @event.max_spend %></li>
   <% end %>
-  <li><%= @event.date %></li>
+  <li><%= @event.date.strftime("%B %d, %Y") %></li>
   <% if @partnership && @partnership.getter.wishlist%>
     <li><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></li>
   <% end %>
