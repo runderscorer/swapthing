@@ -5,7 +5,7 @@
     <li><%= @event.max_spend %></li>
   <% end %>
   <li><%= @event.date %></li>
-  <% if @partnership %>
+  <% if @partnership && @partnership.getter.wishlist%>
     <li><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></li>
   <% end %>
 </ul>

@@ -1,10 +1,5 @@
 class PartnershipsController < ApplicationController
 
-  def index
-    @event = Event.find(session[:event_id])
-    @participants = @event.users
-  end
-
   def create
     event = Event.find(session[:event_id])
     participants = event.users
@@ -22,7 +17,7 @@ class PartnershipsController < ApplicationController
       NotificationMailer.partner_assignment_mail(partnership).deliver
     end
 
-    redirect_to event_partnerships_path
+    redirect_to event_users_path
   end
 
 end
