@@ -1,13 +1,17 @@
-<table>
-  <tr>
-    <th>Email</th>
-    <th>Wishlist?</th>
-  </tr>
+<table class='u-full-width'>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Wishlist?</th>
+    </tr>
+  </thead>
   <% @users.each do |user| %>
-  <tr>
-    <td><%= user.email %></td>
-    <td><%= user.wishlist.present? ? 'Ready' : 'Not Ready' %></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= user.email %></td>
+      <td><%= user.wishlist.present? ? 'Ready' : 'Not Ready' %></td>
+    </tr>
+  </tbody>
   <% end %>
 </table>
 <%= simple_form_for :partnerships, url: event_partnerships_path(@event), method: :post  do |f| %>
