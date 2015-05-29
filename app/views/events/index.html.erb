@@ -1,13 +1,19 @@
 <h2>Your events:</h2>
-<ul>
-  <% if @events.blank? %>
-    <p>You have yet to create a event. Click <%= link_to 'here', new_event_path %> to get the event started.</p>
-  <% else %>
+<% if @events.blank? %>
+  <p>You have yet to create a event. Click <%= link_to 'here', new_event_path %> to get the event started.</p>
+<% else %>
+  <table class='u-full-width'>
+    <thead></thead>
+    <tbody>
     <% @events.each do |event| %>
-      <li>
-        <%= "#{event.name}" %> | <%= link_to 'View', event_path(event) %> | <%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
+      <td><%= event.name %></td>
+      <td><%= link_to 'View', event_path(event) %></td>
+      <td><%= link_to 'Edit', edit_event_path(event) %></td>
+      <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tbody>
   <% end %>
-</ul>
-<%= link_to 'Add New event', new_event_path %>
+  </table>
+<% end %>
+<div class='twelve columns'>
+  <%= link_to 'Add New event', new_event_path %>
+</div>

@@ -40,3 +40,7 @@ body {
 .navbar-link:hover {
   color: #0091EA;
 }
+
+table a {
+  text-decoration: none;
+}
