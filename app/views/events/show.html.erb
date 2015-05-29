@@ -9,4 +9,5 @@
     <li><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></li>
   <% end %>
 </ul>
-<%= link_to 'Edit Event', edit_event_path(@event) %>
+<%= link_to 'Edit Event', edit_event_path(@event), class: 'button' %>
+<%= link_to 'Back to Events', events_path %>
