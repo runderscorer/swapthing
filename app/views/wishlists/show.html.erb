@@ -1,2 +1,24 @@
 <h2><%= @wishlist.user.full_name %>'s Wishlist</h2>
-<%= render 'wishlist' %>
+
+<table class='u-full-width'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th>URL</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @wishlist.items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.price.blank? ? '' : item.price %></td>
+      <td><%= item.description.blank? ? '' : item.description %></td>
+      <td><%= item.notes.blank? ? '' : item.notes %></td>
+      <td><%= item.url.blank? ? '' : (link_to "#{item.url}", item.url) %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

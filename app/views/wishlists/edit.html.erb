@@ -1,5 +1,31 @@
 <h2>Wishlist Items</h2>
-<%= render 'wishlist' %>
+
+<table class='u-full-width'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Price</th>
+      <th>Description</th>
+      <th>Notes</th>
+      <th>URL</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @wishlist.items.each do |item| %>
+    <tr>
+      <td><%= item.name %></td>
+      <td><%= item.price.blank? ? '' : item.price %></td>
+      <td><%= item.description.blank? ? '' : item.description %></td>
+      <td><%= item.notes.blank? ? '' : item.notes %></td>
+      <td><%= item.url.blank? ? '' : (link_to "#{item.url}", item.url) %></td>
+      <td><%= link_to 'Edit', edit_user_wishlist_item_path(params[:user_id], params[:id], item.id) %></td>
+      <td><%= link_to 'Delete', user_wishlist_item_path(params[:user_id], params[:id], item.id), method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Create Item', new_user_wishlist_item_path(params[:user_id], params[:id]), class: 'button' %>
 
