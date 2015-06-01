@@ -1,4 +1,5 @@
-<%= render 'items/new' %>
-
 <h2>Wishlist Items</h2>
 <%= render 'wishlist' %>
+
+<%= link_to 'Create Item', new_user_wishlist_item_path(params[:user_id], params[:id]), class: 'button' %>
+
