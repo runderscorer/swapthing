@@ -45,3 +45,15 @@ body {
 table a {
   text-decoration: none;
 }
+
+.new-invite {
+  padding-top: 2rem;
+}
+
+.new-invite div input[type='email'] {
+  width: 400px;
+}
+
+.new-invite div {
+  display: inline-block;
+}
