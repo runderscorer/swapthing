@@ -4,12 +4,10 @@ class PartnershipsController < ApplicationController
   def create
     participants = @event.users
 
-    if @event.partnerships.blank?
-      partnerships = participants.map! do |participant|
-        Partnership.new(event_id: @event.id, giver_id: participant.id)
-      end
-    else
-      partnerships = @event.partnerships
+    @event.partnerships.delete_all if @event.partnerships.present?
+
+    partnerships = participants.map! do |participant|
+      Partnership.new(event_id: @event.id, giver_id: participant.id)
     end
 
     AssignPartners.call(partnerships)
