@@ -1,6 +1,7 @@
 class InvitesController < ApplicationController
 
   def new
+    @users = Event.find(params[:event_id]).users
     @invite = Invite.new
   end
 

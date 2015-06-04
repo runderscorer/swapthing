@@ -1,13 +1,10 @@
 <h2>Edit your event details below:</h2>
-<ul>
-  <%= simple_form_for @event do |f| %>
-    <li><%= f.input :name %></li>
-    <li><%= f.input :description %></li>
-    <li><%= f.input :max_spend %></li>
-    <li><%= f.input :date %></li>
-    <%= f.submit class: 'button-primary' %>
-  <% end %>
-</ul>
-<%= link_to 'Invite People', new_event_invite_path(@event), class: 'button' %>
+<%= simple_form_for @event do |f| %>
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= f.input :max_spend %>
+  <%= f.input :date %>
+  <%= f.submit class: 'button-primary' %>
+<% end %>
 <%= link_to 'View Users', event_users_path(@event), class: 'button' %>
 <%= link_to 'Back to Events', events_path %>
