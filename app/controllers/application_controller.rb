@@ -11,4 +11,8 @@ class ApplicationController < ActionController::Base
   def get_user
     @user = current_user
   end
+
+  def get_event
+    @event = Event.find(session[:event_id])
+  end
 end

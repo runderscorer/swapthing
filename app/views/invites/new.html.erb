@@ -1,21 +1,49 @@
 <h2>Invite someone</h2>
-<table class='u-full-width'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @users.each do |user| %>
-    <tr>
-      <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<fieldset>
+  <h4>Registered Users</h4>
+  <table class='u-full-width'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.full_name %></td>
+        <td><%= user.email %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</fieldset>
+
 <%= simple_form_for @invite, url: {action: 'create'} do |f| %>
 <%= f.input :email %>
 <%= f.submit 'Invite' %>
+<% end %>
+
+<% unless @pending_invites.blank? %>
+<fieldset>
+  <h4>Pending Invitations</h4>
+  <table class='u-full-width'>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Date Sent</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @pending_invites.each do |invite| %>
+      <tr>
+        <td><%= invite.email %></td>
+        <td><%= invite.created_at.to_date %></td>
+        <td><%= link_to 'Remove', '#' %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</fieldset>
 <% end %>

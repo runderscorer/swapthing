@@ -1,7 +1,9 @@
 class InvitesController < ApplicationController
+  before_filter :get_event
 
   def new
-    @users = Event.find(params[:event_id]).users
+    @users = @event.users
+    @pending_invites = @event.invites.pending
     @invite = Invite.new
   end
 

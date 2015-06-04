@@ -10,7 +10,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   def create
     super()
-binding.pry
     @token = params[:invite_token]
     
     unless @token.blank?

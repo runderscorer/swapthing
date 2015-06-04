@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
+  before_action :set_event_session_id, only: [:show, :edit]
   
   def index
     @events = Event.all_by_user(current_user)
@@ -57,7 +58,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def get_event
-    @event = Event.find(params[:id])
+  def set_event_session_id
+    session[:event_id] = params[:id]
   end
 end

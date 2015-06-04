@@ -5,6 +5,10 @@ class Invite < ActiveRecord::Base
 
   before_create :generate_token
 
+  def self.pending
+    where accepted_at: nil
+  end
+
   private
 
   def generate_token
