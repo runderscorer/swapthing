@@ -1,15 +1,15 @@
 class PartnershipsController < ApplicationController
+  before_filter :get_event
 
   def create
-    event = Event.find(session[:event_id])
-    participants = event.users
+    participants = @event.users
 
-    if event.partnerships.blank?
+    if @event.partnerships.blank?
       partnerships = participants.map! do |participant|
-        Partnership.new(event_id: event.id, giver_id: participant.id)
+        Partnership.new(event_id: @event.id, giver_id: participant.id)
       end
     else
-      partnerships = event.partnerships
+      partnerships = @event.partnerships
     end
 
     AssignPartners.call(partnerships)

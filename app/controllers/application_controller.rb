@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   end
 
   def get_event
-    @event = Event.find(session[:event_id])
+    if params[:event_id].present?
+      @event = Event.find(params[:event_id])
+    else
+      @event = Event.find(params[:id])
+    end
   end
 end

@@ -9,6 +9,7 @@
       <td><%= event.name %></td>
       <td><%= link_to 'View', event_path(event) %></td>
       <td><%= link_to 'Edit', edit_event_path(event) %></td>
+      <td><%= link_to 'Invite People', new_event_invite_path(event_id: event.id) %></td>
       <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tbody>
   <% end %>

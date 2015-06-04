@@ -10,7 +10,7 @@ class InvitesController < ApplicationController
   def create
     @invite = Invite.new(invite_params)
     @invite.sender_id = current_user.id
-    @invite.event_id = session[:event_id]
+    @invite.event_id = @event.id
     if @invite.save
       InviteMailer.new_invitation(@invite).deliver
     end

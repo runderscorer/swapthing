@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
-  before_action :set_event_session_id, only: [:show, :edit]
+  before_action :clear_event_session, only: [:index]
   
   def index
     @events = Event.all_by_user(current_user)
@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @partnership = current_user.partnerships.find_by(event_id: params[:id])
+    @partnership = current_user.partnerships.find_by(event_id: @event.id)
   end
 
   def create
@@ -26,7 +26,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-    session[:event_id] = @event.id
   end
 
   def update
@@ -58,7 +57,7 @@ class EventsController < ApplicationController
     end
   end
 
-  def set_event_session_id
-    session[:event_id] = params[:id]
+  def clear_event_session
+    session[:event_id].delete if session[:event_id].present?
   end
 end

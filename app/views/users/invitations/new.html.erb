@@ -3,7 +3,7 @@
   <%= devise_error_messages! %>
 
 <% resource.class.invite_key_fields.each do |field| -%>
-  <%= hidden_field_tag :event_id, session[:event_id] %>
+  <%= hidden_field_tag :event_id, @event.id %>
   <%= f.input field, placeholder: 'Email' %>
 <% end -%>
 
