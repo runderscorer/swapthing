@@ -40,7 +40,7 @@
       <tr>
         <td><%= invite.email %></td>
         <td><%= invite.created_at.to_date %></td>
-        <td><%= link_to 'Remove', '#' %></td>
+        <td><%= link_to 'Remove', event_invite_path(id: invite.id), method: :delete %></td>
       </tr>
       <% end %>
     </tbody>
