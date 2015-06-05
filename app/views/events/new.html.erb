@@ -1,6 +1,11 @@
 <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :date %>
+  <%= f.label nil, 'Event Name' %>
+  <%= f.input :name, label: false %>
+  <%= f.label nil, 'Description' %>
+  <%= f.input :description, label: false %>
+  <%= f.label nil, 'Event Date' %>
+  <%= f.input :date, label: false %>
+  <%= f.label nil, 'Max Spend Amount' %>
+  <%= f.input :max_spend, label: false %>
   <%= f.submit class: 'button-primary' %>
 <% end %>

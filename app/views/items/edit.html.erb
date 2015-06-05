@@ -1,9 +1,9 @@
 <h2>Edit Item</h2>
 <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
   <%= f.input :name %>
-  <%= f.input :description %>
+  <%= f.input :description, as: :text %>
   <%= f.input :price %>
-  <%= f.input :notes %>
+  <%= f.input :notes, as: :text %>
   <%= f.input :url %>
   <%= f.submit %>
 <% end %>

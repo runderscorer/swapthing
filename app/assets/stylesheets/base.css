@@ -3,6 +3,14 @@ body {
   color: #373B44;
 }
 
+input[type='text'], input[type='email'], input[type='url'] {
+  width: 400px;
+}
+
+textarea {
+  height: 150px;
+  width: 400px;
+}
 .navbar-spacer {
   height: 7rem;
   width: 100%;
