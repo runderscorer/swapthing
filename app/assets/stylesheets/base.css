@@ -57,3 +57,7 @@ table a {
 .new-invite div {
   display: inline-block;
 }
+
+.event-details div {
+  margin-bottom: 3rem;
+}

@@ -1,0 +1,10 @@
+<h2>Edit Profile</h2>
+<%= simple_form_for @user do |f| %>
+<%= f.label nil, 'First Name' %>
+<%= f.input :fname, label: false %>
+<%= f.label nil, 'Last Name' %>
+<%= f.input :lname, label: false %>
+<%= f.label nil, 'Email' %>
+<%= f.input :email, label: false %>
+<%= f.submit class: 'button-primary' %>
+<% end %>

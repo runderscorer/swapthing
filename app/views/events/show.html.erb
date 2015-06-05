@@ -1,13 +1,20 @@
-<h2><%= @event.name %></h2>
-<ul>
-  <li><%= @event.description %></li>
+<div class='event-details'>
+  <h2><%= @event.name %></h2>
+  <label>Description:</label>
+  <div><%= @event.description %></div>
+
   <% unless @event.max_spend.blank? %>
-    <li><%= @event.max_spend %></li>
+    <label>Maximum Spend Amount:</label>
+    <div><%= number_to_currency @event.max_spend, precision: 0 %></div>
   <% end %>
-  <li><%= @event.date.strftime("%B %d, %Y") %></li>
+
+  <label>Event Date:</label>
+  <div><%= @event.date.strftime("%B %d, %Y") %></div>
+
   <% if @partnership && @partnership.getter.wishlist%>
-    <li><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></li>
+    <label>Your Gift Exchange Partner:</label>
+    <div><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></div>
   <% end %>
-</ul>
-<%= link_to 'Edit Event', edit_event_path(@event), class: 'button' %>
-<%= link_to 'Back to Events', events_path %>
+  <%= link_to 'Edit Event', edit_event_path(@event), class: 'button' %>
+  <%= link_to 'Back to Events', events_path %>
+</div>

@@ -15,7 +15,7 @@
       <div class='container'>
         <ul class='navbar-list'>
         <% if user_signed_in? %>
-          <li class='navbar-item'><%= link_to "Hi, #{current_user.fname}!", '#', class: 'navbar-link' %></li>
+          <li class='navbar-item'><%= link_to "Hi, #{current_user.fname}!", edit_user_path(current_user.id), class: 'navbar-link' %></li>
           <li class='navbar-item'><%= link_to 'Events', events_path, class: 'navbar-link' %>
           <% if current_user.wishlist.blank? %>
             <li class='navbar-item'><%= link_to 'Create Wishlist', new_user_wishlist_path(current_user.id), class: 'navbar-link' %></li>
