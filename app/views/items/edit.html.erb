@@ -1,10 +1,10 @@
 <h2>Edit Item</h2>
 <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description, as: :text %>
-  <%= f.input :price %>
-  <%= f.input :notes, as: :text %>
-  <%= f.input :url %>
+  <%= f.input :name, label: false %>
+  <%= f.input :description, as: :text, label: false %>
+  <%= f.input :price, label: false %>
+  <%= f.input :notes, as: :text, label: false %>
+  <%= f.input :url, label: false %>
   <%= f.submit %>
 <% end %>
 

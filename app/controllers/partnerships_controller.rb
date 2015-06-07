@@ -3,18 +3,15 @@ class PartnershipsController < ApplicationController
 
   def create
     participants = @event.users
-
     @event.partnerships.delete_all if @event.partnerships.present?
 
-    partnerships = participants.map! do |participant|
-      Partnership.new(event_id: @event.id, giver_id: participant.id)
-    end
+    partnerships = @event.users.map! {|user| @event.partnerships.new(giver_id: user.id)}
 
     AssignPartners.call(partnerships)
+
     partnerships.each do |partnership|
       NotificationMailer.partner_assignment_mail(partnership).deliver
     end
-
     redirect_to event_users_path
   end
 
