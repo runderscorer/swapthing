@@ -1,8 +1,8 @@
 .card {
     font-family: 'Lato',sans-serif;
   display: inline-block;
-  width: 400px;
-  height: 550px;
+  width: 280px;
+  height: 400px;
   border-radius: 20px;
   background: #fcfcfc;
   margin: 15px;
@@ -16,13 +16,19 @@
   height: 60%;
   overflow: hidden;
   position: relative;
+  background-image: url(/assets/gifts.png);
+  background-position: center;
 }
 .prod_image:after {
   content: '';
   position: absolute;
-  border-bottom: 65px solid #fe6037;
-  border-top: 0;
-  border-left: 350px solid transparent;
+  height: 17%;
+  width: 100%;
+  background-color: #fe6037;
+  opacity: .6;
+  /*border-bottom: 65px solid #fe6037;*/
+  /*border-top: 0;*/
+  /*border-left: 350px solid transparent;*/
   bottom: 0;
   right: 0px;
 }

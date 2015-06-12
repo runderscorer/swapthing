@@ -31,7 +31,7 @@
 .container {
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 1250px;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -55,8 +55,8 @@
   .column,
   .columns {
     margin-left: 4%; }
-  .column:first-child,
-  .columns:first-child {
+  .column:nth-child(4n-7),
+  .columns:nth-child(4n-7) {
     margin-left: 0; }
 
   .one.column,
