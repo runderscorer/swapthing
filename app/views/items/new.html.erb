@@ -1,9 +1,14 @@
 <h2>Add Item</h2>
 <%= simple_form_for [@user, @wishlist, @item] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :notes %>
-    <%= f.input :url %>
+  <%= f.label 'Name' %>
+  <%= f.input :name, label: false %>
+  <%= f.label 'Description' %>
+  <%= f.input :description, as: :text, label: false %>
+  <%= f.label 'Price' %>
+  <%= f.input :price, label: false %>
+  <%= f.label 'Notes' %>
+  <%= f.input :notes, as: :text, label: false %>
+  <%= f.label nil, 'URL' %>
+  <%= f.input :url, label: false %>
     <%= f.submit 'Add Item', class: 'button-primary' %>
 <% end %>

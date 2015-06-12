@@ -19,7 +19,13 @@
           </div>
         </a>
       </div> -->
+      <div class='edit_wishlist_item'>
+        <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o'), edit_user_wishlist_item_path(wishlist_id: params[:id], id: item.id) %>
+      </div>
     </li>
   </div>
 <% end %>
 </ul>
+<div class='actions'>
+  <%= link_to 'Create Item', new_user_wishlist_item_path(wishlist_id: params[:id]), class: 'button' %>
+</div>

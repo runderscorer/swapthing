@@ -54,7 +54,7 @@
     width: 80%; }
   .column,
   .columns {
-    margin-left: 4%; }
+    margin-left: 3%; }
   .column:nth-child(4n-7),
   .columns:nth-child(4n-7) {
     margin-left: 0; }
@@ -288,6 +288,7 @@ label > .label-body {
 /* Lists
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 ul {
+  overflow: hidden;
   list-style: circle inside; }
 ol {
   list-style: decimal inside; }

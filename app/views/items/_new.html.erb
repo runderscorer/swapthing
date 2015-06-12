@@ -1,9 +1,0 @@
-<h2>Add Item</h2>
-<%= simple_form_for [@user, @wishlist, @item] do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description %>
-    <%= f.input :price %>
-    <%= f.input :notes %>
-    <%= f.input :url %>
-    <%= f.submit 'Add Item', class: 'button-primary' %>
-<% end %>
