@@ -1,15 +1,19 @@
 <h2><%= @event.name %></h2>
+
+<%= @user.show_partner %>
+
+<h3>Participants</h3>
 <table class='u-full-width'>
   <thead>
     <tr>
-      <th>Email</th>
+      <th>Name</th>
       <th>Wishlist?</th>
     </tr>
   </thead>
   <% @users.each do |user| %>
   <tbody>
     <tr>
-      <td><%= user.email %></td>
+      <td><%= user.full_name %></td>
       <td><%= user.wishlist.present? ? 'Ready' : 'Not Ready' %></td>
     </tr>
   </tbody>

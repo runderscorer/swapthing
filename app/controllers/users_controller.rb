@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = @event.users
+    @user = User.find(current_user).decorate
   end
 
   def edit

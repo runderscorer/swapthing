@@ -1,0 +1,33 @@
+#events {
+
+}
+
+#events a {
+  text-decoration: none;
+}
+
+.event {
+  border-bottom: 1px solid #e6e6e6;
+  margin-top: 1.5em;
+  overflow: hidden;
+}
+
+.event-name {
+  font-size: 2em;
+  font-weight: 700;
+  margin-bottom: 1em;
+}
+
+.add-new {
+  margin-top: 1em;
+  text-align: right;
+}
+
+.actions {
+  margin: 2em 0em 1em 0em;
+  overflow: hidden;
+}
+
+.event-description span {
+  font-style: italic;
+}

@@ -3,11 +3,12 @@
   display: inline-block;
   width: 270px;
   height: 400px;
-  border-radius: 20px;
+  border-radius: 4px;
   background: #fcfcfc;
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e6e6e6;
+  /*box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);*/
 }
 
 .prod_image {
@@ -87,6 +88,40 @@
   bottom: 5%;
 }
 
+.create_new {
+  height: 240px;
+  text-align: center;
+}
+
+.card_img {
+  height: inherit;
+  background-image: url(/assets/gifts.png);
+  background-position: center;
+  opacity: 0.8;
+}
+
+.create_new span {
+  height: inherit;
+}
+
+.create_new span a {
+  display: block;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  height: inherit;
+  border: inherit;
+  font-size: 15px;
+  letter-spacing: .3rem;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+
+.button_text {
+  position: absolute;
+  top: 46%;
+  left: 24%;
+}
 /*.btn {
   width: 150px;
   height: 150px;

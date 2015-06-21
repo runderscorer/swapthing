@@ -12,13 +12,6 @@
         <div class='prod_name'><%= item.name %></div>
         <div class='prod_notes'><%= item.notes %><div>
       </div>
-  <!--     <div class='btn_wrap'>
-        <a href="#">
-          <div class='btn'>
-            <i class='fa fa-share'></i>
-          </div>
-        </a>
-      </div> -->
       <div class='edit_wishlist_item'>
         <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o'), edit_user_wishlist_item_path(wishlist_id: params[:id], id: item.id) %>
       </div>
@@ -26,6 +19,6 @@
   </div>
 <% end %>
 </ul>
-<div class='actions'>
+<div class='add-new'>
   <%= link_to 'Create Item', new_user_wishlist_item_path(wishlist_id: params[:id]), class: 'button' %>
 </div>

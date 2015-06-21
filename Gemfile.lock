@@ -45,6 +45,11 @@ GEM
     devise_invitable (1.3.5)
       actionmailer (>= 3.2.6, < 5)
       devise (>= 3.2.0)
+    draper (2.1.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
     erubis (2.7.0)
     execjs (2.1.0)
     font-awesome-sass (4.3.2.1)
@@ -91,6 +96,7 @@ GEM
     rake (10.3.2)
     rdoc (4.1.1)
       json (~> 1.4)
+    request_store (1.1.0)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -135,6 +141,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   devise_invitable (~> 1.3.4)
+  draper
   font-awesome-sass
   jbuilder (~> 1.2)
   jquery-rails

@@ -12,7 +12,7 @@ textarea {
   width: 400px;
 }
 .navbar-spacer {
-  height: 7rem;
+  height: 4rem;
   width: 100%;
 }
 
@@ -21,7 +21,8 @@ textarea {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #80CBC4;
+  background-color: #373B44;
+  z-index: 1000;
 }
 
 .navbar-list {
@@ -39,10 +40,10 @@ textarea {
   text-transform: uppercase;
   font-size: 11px;
   font-weight: 600;
-  letter-spacing: .2rem;
+  letter-spacing: .3rem;
   margin-right: 35px;
   text-decoration: none;
-  line-height: 6.5rem;
+  line-height: 4rem;
   color: #fff;
 }
 
