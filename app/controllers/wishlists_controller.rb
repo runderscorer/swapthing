@@ -3,6 +3,7 @@ class WishlistsController < ApplicationController
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
   before_action :get_user, only: [:new, :create, :show, :edit, :update]
   # around_action :check_user_memberships, except: [:index, :new, :create]
+  
   def new
     @wishlist = Wishlist.new(user_id: @user.id)
   end
@@ -36,7 +37,7 @@ class WishlistsController < ApplicationController
   end
 
   def get_wishlist
-    @wishlist = Wishlist.find_by(id: params[:id])
+    @wishlist = Wishlist.find_by(id: params[:id]).decorate
     redirect_to root_url unless @wishlist
   end
 
