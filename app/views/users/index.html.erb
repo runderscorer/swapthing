@@ -15,7 +15,7 @@
   <% end %>
 </table>
 <%= simple_form_for :partnerships, url: event_partnerships_path(@event), method: :post  do |f| %>
-<%= f.submit 'Assign Partners' %>
+<%= f.submit @event.show_assign_or_reassign %>
 <%= link_to 'Invite People', new_event_invite_path(@event), class: 'button' %>
 <%= link_to 'Back to Events', events_path %>
 <% end %>

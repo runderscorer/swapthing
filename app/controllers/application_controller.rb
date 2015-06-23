@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
 
   def get_event
     if params[:event_id].present?
-      @event = Event.find(params[:event_id])
+      @event = Event.find(params[:event_id]).decorate
     else
       @event = Event.find(params[:id])
     end
