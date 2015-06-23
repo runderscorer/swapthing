@@ -1,0 +1,7 @@
+<tr>
+  <td><%= user.full_name %></td>
+  <td>
+    <%= user.wishlist ? (link_to 'Wishlist', wishlist_path(user.wishlist)) : 'Not Ready' %>
+  </td>
+  <td></td>
+</tr>

@@ -1,0 +1,7 @@
+<tr class='partner-row'>
+  <td><%= partner.full_name %></td>
+  <td>
+    <%= partner.wishlist ? (link_to 'Wishlist', wishlist_path(partner.wishlist)) : 'Not Ready' %>
+  </td>
+  <td>Your Partner</td>
+</tr>
