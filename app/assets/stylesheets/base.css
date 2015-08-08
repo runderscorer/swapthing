@@ -3,7 +3,7 @@ body {
   color: #373B44;
 }
 
-input[type='text'], input[type='email'], input[type='url'] {
+input[type='text'], input[type='email'], input[type='url'], input[type='password'] {
   width: 400px;
 }
 
