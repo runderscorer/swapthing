@@ -11,13 +11,18 @@
   /*box-shadow: 0px 6px 5px rgba(0, 0, 0, 0.1);*/
 }
 
+.card > a {
+  color: #A8D3CB;
+}
+
 .prod_image {
-  width: 100%;
-  height: 60%;
+  width: 270px;
+  height: 240px;
   overflow: hidden;
   position: relative;
-  background-image: url(/assets/gifts.png);
-  background-position: center;
+/*  background-image: url(/assets/gifts.png);
+  background-position: center;*/
+  background-color: #fff;
 }
 .prod_image:after {
   content: '';
@@ -37,6 +42,31 @@
   position: absolute;
   right: -120px;
   bottom: -150px;
+}
+
+.prod_image .image img {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fa-10x {
+  font-size: 10em !important;
+}
+/*.prod_image .no_image:after {
+  position: relative;
+  content: '\f06b';
+  font-family: FontAwesome;
+  font-size: 10em;
+  left: 27%;
+  transform: translateX(-50%);
+}*/
+
+.prod_image .no_image i {
+  position: relative;
+  top: 50%;
+  left: 26%;
+  transform: translateY(-50%);
 }
 
 .prod_price {

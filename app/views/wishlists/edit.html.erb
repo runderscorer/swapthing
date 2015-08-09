@@ -1,5 +1,5 @@
 <h2>Wishlist Items</h2>
-<%= render 'wishlist', wishlist: @wishlist %>
+<%= render 'items', wishlist: @wishlist %>
 <div class='add-new'>
   <%= link_to 'Create Item', new_user_wishlist_item_path(wishlist_id: params[:id]), class: 'button' %>
 </div>
