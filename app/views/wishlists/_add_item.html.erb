@@ -1,0 +1,12 @@
+  <div class='three columns'>
+    <%= link_to new_user_wishlist_item_path(wishlist_id: params[:id]) do %>
+    <li class='card'>
+      <div class='prod_image'>
+        <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-plus-circle fa-10x') %></span>
+      </div>
+      <div class='prod_info'>
+        <span class='add_new'>Add Item</span>
+      </div>
+    </li>
+    <% end %>
+  </div>

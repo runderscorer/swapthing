@@ -3,8 +3,10 @@ class WishlistDecorator < Draper::Decorator
   delegate_all
 
   def show_edit_link(item)
-    if params[:user_id].present?
-      render 'edit_link', item: item
-    end
+    render 'edit_link', item: item if params[:user_id].present?
+  end
+
+  def show_add_item_card
+    render 'add_item' if params[:user_id].present?
   end
 end
