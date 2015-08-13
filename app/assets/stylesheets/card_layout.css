@@ -15,6 +15,12 @@
   color: #A8D3CB;
 }
 
+.card .edit_icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
 .prod_image {
   width: 270px;
   height: 240px;
@@ -52,11 +58,20 @@
   font-size: 10em !important;
 }
 
+.prod_image {
+  text-align: center;
+}
+
+.prod_image .event_name {
+  font-size: 2.5em;
+  text-transform: uppercase;
+  font-weight: 100;
+  line-height: 1.1em;
+  margin: 15px;
+}
+
 .prod_image .no_image i {
-  position: relative;
-  top: 50%;
-  left: 26%;
-  transform: translateY(-50%);
+  line-height: 1.6;
 }
 
 .prod_price {
@@ -73,12 +88,17 @@
   position: relative;
   width: 100%;
   margin-top: 25px;
+  text-align: center;
+}
+
+.prod_info i {
+  position: absolute;
+  bottom: 2px;
 }
 
 .prod_source, .prod_name {
   text-transform: uppercase;
   font-weight: 900;
-  margin-left: 10px;
 }
 
 .prod_source {
@@ -92,9 +112,6 @@
 }
 
 .prod_notes {
-  width: 70%;
-  margin-left: 10px;
-  margin-top: 5px;
   color: #777;
   font-weight: 300;
   font-style: italic;
@@ -109,11 +126,10 @@
   bottom: 5%;
 }
 
-.add_new {
-  position: absolute;
-  top: 40px;
-  left: 83px;
+.prod_info span {
   font-color: #444;
   font-size: 1.5em;
   text-transform: uppercase;
+  line-height: 4.5;
+  display: inline-block;
 }

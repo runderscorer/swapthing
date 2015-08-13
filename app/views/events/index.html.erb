@@ -1,36 +1,66 @@
  <div id='events'>
-  <% if @events.blank? %>
-    <p>You have yet to create a event. Click <%= link_to 'here', new_event_path %> to get the event started.</p>
-  <% else %>
+  <h2>EVENTS</h2>
+  <ul>
+    <div class='three columns'>
+      <%= link_to new_event_path(wishlist_id: params[:id]) do %>
+      <li class='card'>
+        <div class='prod_image'>
+          <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-plus-circle fa-10x') %></span>
+        </div>
+        <div class='prod_info'>
+          <span>Add Event</span>
+        </div>
+      </li>
+      <% end %>
+    </div>
     <% @events.each do |event| %>
-    <div class='event u-full-width'>
-      <div class='event-date'>
-        <span><%= event.date.strftime('%b %d %Y') %></span>
-      </div>
-      <div class='event-name'>
-        <span><%= event.name %></span>
-      </div>
-      <div class='event-description six columns'>
-        <span><%= event.description %></span>
-      </div>
-      <div class='six columns'>
-        <div class='actions'>
-          <div class='four columns'>
-            <span><%= link_to 'Edit', edit_event_path(event) %></span>
-          </div>
-          <div class='four columns'>
-            <span><%= link_to 'Users', event_users_path(event.id) %></span>
-          </div>
-          <div class='four columns'>
-            <span><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+    <div class='three columns'>
+      <li class='card'>
+        <div class='prod_image'>
+          <div class='event_name'><%= event.name %></div>
+          <span class='event_date'><%= event.date.strftime('%b %d %Y') %></span>
+        </div>
+        <div class='prod_info'>
+          <span><%= link_to 'View Event', event_path(event) %></span>
+        </div>
+      </li>
+    </div>
+    <% end %>
+  </ul>
+  <% if false %>
+    <% if @events.blank? %>
+      <p>You have yet to create a event. Click <%= link_to 'here', new_event_path %> to get the event started.</p>
+    <% else %>
+      <% @events.each do |event| %>
+      <div class='event u-full-width'>
+        <div class='event-date'>
+          <span><%= event.date.strftime('%b %d %Y') %></span>
+        </div>
+        <div class='event-name'>
+          <span><%= event.name %></span>
+        </div>
+        <div class='event-description six columns'>
+          <span><%= event.description %></span>
+        </div>
+        <div class='six columns'>
+          <div class='actions'>
+            <div class='four columns'>
+              <span><%= link_to 'Edit', edit_event_path(event) %></span>
+            </div>
+            <div class='four columns'>
+              <span><%= link_to 'Users', event_users_path(event.id) %></span>
+            </div>
+            <div class='four columns'>
+              <span><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+            </div>
           </div>
         </div>
       </div>
+      <% end %>
+      <div class='add-new'>
+        <span><%= link_to 'Add New Event', new_event_path, class: 'button' %></span>
+      </div>
     </div>
     <% end %>
-    <div class='add-new'>
-      <span><%= link_to 'Add New Event', new_event_path, class: 'button' %></span>
-    </div>
-  </div>
   <% end %>
 </div>
