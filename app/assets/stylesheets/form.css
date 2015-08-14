@@ -1,0 +1,56 @@
+.form_container {
+  background-color: #fff;
+  width: 40%;
+  padding: 40px 20px 20px 20px;
+  /*border: 1px solid #e6e6e6;*/
+  box-shadow: #A8D3CB 15px 15px;
+}
+
+.form_container .fields_container {
+  position: relative;
+  width: 100%;
+}
+
+.form_container .fields_container input[type=text], input[type=url], textarea {
+  border-radius: 0;
+  width: 100%;
+}
+
+.form_container .fields_container .event_max_spend, .item_price {
+  width: 60%;
+  display: inline-block;
+}
+
+.form_container .fields_container input#event_max_spend, input#item_price {
+  border-radius: 0;
+  width: 100%;
+}
+
+.form_container .fields_container input.button-primary {
+  display: inline-block;
+  float: right;
+}
+
+.form_container input[type=submit] {
+  border-radius: 0;
+}
+
+::-webkit-input-placeholder {
+   color: #d3d3d3;
+   font-weight: 100;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #d3d3d3;
+   font-weight: 100;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #d3d3d3;
+   font-weight: 100;  
+}
+
+:-ms-input-placeholder {  
+   color: #d3d3d3;
+   font-weight: 100;  
+}
