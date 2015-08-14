@@ -36,6 +36,8 @@ gem 'draper'
 
 gem 'paperclip', '~> 4.3.0'
 
+gem 'pickadate-rails', '~> 3.5.6.0'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
