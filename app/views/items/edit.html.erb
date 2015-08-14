@@ -1,18 +1,14 @@
 <h2>Edit Item</h2>
-<%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
-  <%= f.label 'Name' %>
-  <%= f.input :name, label: false %>
-  <%= f.label 'Description' %>
-  <%= f.input :description, as: :text, label: false %>
-  <%= f.label 'Price' %>
-  <%= f.input :price, label: false %>
-  <%= f.label 'Notes' %>
-  <%= f.input :notes, as: :text, label: false %>
-  <%= f.label nil, 'URL' %>
-  <%= f.input :url, label: false %>
-  <%= f.label nil, 'Image URL' %>
-  <%= f.input :image_url, label: false %>
-  <%= f.submit %>
-<% end %>
-
-<%= link_to 'Back to Wishlist', edit_user_wishlist_path(params[:user_id], params[:wishlist_id]) %>
+<div class='form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
+    <%= f.input :name, label: false, placeholder: 'Item Name' %>
+    <%= f.input :description, as: :text, label: false, placeholder: 'Description' %>
+    <%= f.input :notes, as: :string, label: false, placeholder: 'Notes' %>
+    <%= f.input :url, label: false, placeholder: 'Item URL' %>
+    <%= f.input :image_url, label: false, placeholder: 'Item Image URL' %>
+    <%= f.input :price, label: false, placeholder: 'Price' %>
+    <%= f.submit class: 'button-primary' %>
+  <% end %>
+  </div>
+</div>

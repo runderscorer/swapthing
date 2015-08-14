@@ -26,7 +26,7 @@
   width: 100%;
 }
 
-.form_container .fields_container input.button-primary {
+.form_container .fields_container input[type=submit] {
   display: inline-block;
   float: right;
 }

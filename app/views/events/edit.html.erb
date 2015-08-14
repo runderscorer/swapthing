@@ -1,9 +1,12 @@
 <h2>Edit Event Details</h2>
-<%= simple_form_for @event do |f| %>
-  <%= f.input :name %>
-  <%= f.input :description %>
-  <%= f.input :max_spend %>
-  <%= f.input :date %>
-  <%= f.submit class: 'button-primary' %>
-<% end %>
-<%= link_to 'Back to Events', events_path %>
+<div class='form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for @event do |f| %>
+    <%= f.input :name, label: false, placeholder: 'Event Name' %>
+    <%= f.input :description, label: false, placeholder: 'Details' %>
+    <%= f.input :date, as: :string, label: false, placeholder: 'Event Date' %>
+    <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
+    <%= f.submit class: 'button-primary' %>
+  <% end %>
+  </div>
+</div>
