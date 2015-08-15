@@ -15,11 +15,27 @@ textarea {
   height: 150px;
   width: 400px;
 }
+
+a {
+  color: #27f09b;
+}
+
+a:hover {
+  color: #0fd581;
+}
 .navbar-spacer {
   height: 4rem;
   width: 100%;
 }
 
+input[type=submit].button-primary {
+  background-color: #27f09b;
+  border: none;
+}
+
+input[type=submit].button-primary:hover {
+  background-color: #0fd581;
+}
 .navbar {
   position: fixed;
   top: 0;
@@ -52,7 +68,7 @@ textarea {
 }
 
 .navbar-link:hover {
-  color: #0091EA;
+  color: #0fd581;
 }
 
 table a {
