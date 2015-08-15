@@ -1,6 +1,6 @@
 body {
-  background-color: #f9f9f9;
-  color: #373B44;
+  background-color: $background_color;
+  color: $body_color;
 }
 
 input[type='text'], input[type='email'], input[type='url'], input[type='password'] {
@@ -8,7 +8,7 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 }
 
 h2 {
-  color: #A8D3CB;
+  color: $accent_color;
 }
 
 textarea {
@@ -17,7 +17,7 @@ textarea {
 }
 
 a {
-  color: #27f09b;
+  color: $action_primary;
 }
 
 a:hover {
@@ -28,8 +28,17 @@ a:hover {
   width: 100%;
 }
 
+input:not([type=submit]), textarea {
+  background-color: $background_color;
+  border: none;
+}
+
+input:not([type=submit]):focus, textarea:focus {
+  border: none;
+}
+
 input[type=submit].button-primary {
-  background-color: #27f09b;
+  background-color: $action_primary;
   border: none;
 }
 
@@ -41,7 +50,7 @@ input[type=submit].button-primary:hover {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #373B44;
+  background-color: $body_color;
   z-index: 1000;
 }
 
@@ -68,7 +77,7 @@ input[type=submit].button-primary:hover {
 }
 
 .navbar-link:hover {
-  color: #0fd581;
+  color: $action_secondary;
 }
 
 table a {
