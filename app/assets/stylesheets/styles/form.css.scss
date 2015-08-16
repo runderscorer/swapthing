@@ -32,10 +32,24 @@
   float: right;
 }
 
-.form_container input[type=submit] {
+input:not([type=submit]), textarea {
+  background-color: $background_color;
+  border: none;
+}
+
+input:not([type=submit]):focus, textarea:focus {
+  border: none;
+}
+
+input[type=submit].button-primary {
+  background-color: $action_primary;
+  border: none;
   border-radius: 0;
 }
 
+input[type=submit].button-primary:hover {
+  background-color: #0fd581;
+}
 ::-webkit-input-placeholder {
    color: #d3d3d3;
    font-weight: 100;

@@ -3,6 +3,10 @@ body {
   color: $body_color;
 }
 
+.container {
+  width: 100%;
+}
+
 input[type='text'], input[type='email'], input[type='url'], input[type='password'] {
   width: 400px;
 }
@@ -28,23 +32,6 @@ a:hover {
   width: 100%;
 }
 
-input:not([type=submit]), textarea {
-  background-color: $background_color;
-  border: none;
-}
-
-input:not([type=submit]):focus, textarea:focus {
-  border: none;
-}
-
-input[type=submit].button-primary {
-  background-color: $action_primary;
-  border: none;
-}
-
-input[type=submit].button-primary:hover {
-  background-color: #0fd581;
-}
 .navbar {
   position: fixed;
   top: 0;
