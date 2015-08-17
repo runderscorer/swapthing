@@ -1,8 +1,7 @@
 <ul>
 <%= @wishlist.show_add_item_card %>
 <% @wishlist.items.each do |item| %>
-  <div class='three columns'>
-    <li class='card'>
+  <div class='three columns card'>
       <a href=<%= item.url unless item.url.blank? %> >
         <div class='primary'>
           <% if item.image.present? %>
@@ -19,7 +18,6 @@
         <div class='prod_notes'><%= item.notes %></div>
       </div>
       <%= @wishlist.show_edit_link item %>
-    </li>
   </div>
 <% end %>
 </ul>
