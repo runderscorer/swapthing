@@ -13,7 +13,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @partnership = current_user.partnerships.find_by(event_id: @event.id)
+    @partner = GetPartner.call current_user, @event
   end
 
   def create
@@ -42,29 +42,7 @@ class EventsController < ApplicationController
   end
 
   private
-def SimpleSymbols(str)
-  abc = ('a'..'z').to_a
-  
-  if (abc.include? str[0]) || (abc.include? str[str.length - 1])
-    @answer = 'false'
-  else
-    0.upto(str.length - 1) do |i|
-      if abc.include? str[i]
-        @answer = check_neighbors(i, str)
-      end
-    end
-  end
-  # code goes here
-  @answer 
-end
 
-def check_neighbors(index, string)
-  if (string[index - 1] == '+') && (string[index + 1] == '+')
-    return 'true'
-  else
-    return 'false'
-  end
-end
   def event_params
     params.require(:event).permit(:name, :date, :description, :max_spend)
   end

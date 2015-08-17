@@ -10,4 +10,8 @@ class UserDecorator < Draper::Decorator
       render 'user_row', user: user
     end
   end
+
+  def show_partner(user)
+
+  end
 end
