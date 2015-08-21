@@ -13,7 +13,8 @@ class EventsController < ApplicationController
   end
 
   def show
-    @partner = GetPartner.call current_user, @event
+    @current_user = current_user.decorate
+    # @partner = GetPartner.call current_user, @event
   end
 
   def create

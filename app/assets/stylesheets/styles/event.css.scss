@@ -54,19 +54,16 @@
   text-decoration: none;
 }
 
-.ev_users div:first-of-type {
-  padding-top: 75px;
+.ev_users .partner_info {
+  margin-top: 50px;
 }
 
-.ev_users .partner_info {
+.ev_users .partner_info p:first-of-type {
   font-size: 3em;
 }
 
 .ev_users .partner_info:before {
-  position: absolute;
-  top: 150px;
-  left: 85px;
+  position: relative;
   content: 'Your Partner Is';
-  font-size: 16px;
   font-weight: 100;
 }

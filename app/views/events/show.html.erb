@@ -18,13 +18,8 @@
   <div class='three columns event_details ev_users'>
     <i class='fa fa-user fa-4x'></i>
     <div class='partner_info'>
-      <% if @partner && @partner.wishlist%>
-        <p><%= @partner.fname %></p>
+      <%= @current_user.show_partner(@event) %>
     </div>
-      <p>
-        <%= link_to "#{@partner.fname}'s Wishlist", wishlist_path(@partner.wishlist.id) %>
-      </p>
-    <% end %>
   </div>
 </ul>
 
