@@ -22,24 +22,3 @@
     </div>
   </div>
 </ul>
-
-<% if false %>
-  <label>Description:</label>
-  <div><%= @event.description %></div>
-
-  <% unless @event.max_spend.blank? %>
-    <label>Maximum Spend Amount:</label>
-    <div><%= number_to_currency @event.max_spend, precision: 0 %></div>
-  <% end %>
-
-  <label>Event Date:</label>
-  <div><%= @event.date.strftime("%B %d, %Y") %></div>
-
-  <% if @partnership && @partnership.getter.wishlist%>
-    <label>Your Gift Exchange Partner:</label>
-    <div><%= link_to "#{@partnership.getter.fname}'s Wishlist", wishlist_path(@partnership.getter.wishlist.id) %></div>
-  <% end %>
-  <%= link_to 'Edit Event', edit_event_path(@event), class: 'button' %>
-  <%= link_to 'Back to Events', events_path %>
-</div>
-<% end %>
