@@ -1,0 +1,10 @@
+<div class='three columns card'>
+  <%= link_to new_event_invite_path(event) do %>
+    <div class='primary'>
+      <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-plus-circle fa-10x') %></span>
+    </div>
+    <div class='secondary'>
+      <span>Invite Users</span>
+    </div>
+  <% end %>
+</div>

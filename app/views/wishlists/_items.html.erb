@@ -7,7 +7,7 @@
           <% if item.image.present? %>
             <span class='image'><%= image_tag item.image(:thumb) %></span>
           <% else %>
-            <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-gift fa-10x') %></span>
+            <%= content_tag(:i, nil, class: 'fa fa-gift fa-10x') %>
           <% end %>
           <div class='prod_price'><%= number_to_currency item.price, precision: 0 %></div>
         </div>

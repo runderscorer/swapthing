@@ -1,5 +1,18 @@
 <h2>Event Participants</h2>
 
+<ul>
+  <%= render 'invite_users', event: @event %>
+  <% @users.each do |user| %>
+  <li class='three columns card'>
+    <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
+    <div class='secondary'>
+      <span><%= user.full_name %></span>
+    </div>
+  </li>
+  <% end %>
+</ul>
+
+<% if false %>
 <table class='u-full-width'>
   <thead>
     <tr>
@@ -10,7 +23,7 @@
   </thead>
   <% @users.each do |user| %>
   <tbody>
-    <%= @user.show_partner(user) %>
+    <%= @user.show_partner(params[:event_id]) %>
   </tbody>
   <% end %>
 </table>
@@ -18,4 +31,5 @@
 <%= f.submit @event.show_assign_or_reassign %>
 <%= link_to 'Invite People', new_event_invite_path(@event), class: 'button' %>
 <%= link_to 'Back to Events', events_path %>
+<% end %>
 <% end %>

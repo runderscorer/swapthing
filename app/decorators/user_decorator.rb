@@ -11,8 +11,8 @@ class UserDecorator < Draper::Decorator
     end
   end
 
-  def show_partner(event)
-    partner = GetPartner.call(self, event.id)
+  def show_partner(event_id)
+    partner = GetPartner.call(self, event_id)
     if partner && partner.wishlist
       content_tag(:p, partner.fname) +
       content_tag(:p) do
