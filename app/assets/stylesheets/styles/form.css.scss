@@ -18,7 +18,7 @@
   resize: none;
 }
 
-.fields_container div:last-of-type {
+.fields_container form > div:last-of-type {
   width: 60%;
   display: inline-block;
 }
