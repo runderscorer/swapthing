@@ -4,7 +4,8 @@
   padding: 40px 20px 20px 20px;
   margin: auto;
   margin-bottom: 30px;
-  box-shadow: #A8D3CB 15px 15px;
+  border-radius: 4px;
+  /*box-shadow: #A8D3CB 15px 15px;*/
 }
 
 .form_container .fields_container {
@@ -68,6 +69,31 @@ input[type=submit].button-primary:hover {
   text-transform: uppercase;
   font-weight: 700;
   margin-top: 50px;
+}
+
+.sign_in_container {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 30px;
+  margin: -175px 0 0 -175px;
+  top: 45%;
+  left: 50%;
+  position: absolute;
+  height: 350px;
+  width: 350px;
+  text-align: center;
+}
+
+.sign_in_container input {
+  width: 100%;
+}
+
+.sign_in_container span a {
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
 }
 
 ::-webkit-input-placeholder {
