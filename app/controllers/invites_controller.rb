@@ -2,9 +2,8 @@ class InvitesController < ApplicationController
   before_filter :get_event
 
   def new
-    @users = @event.users
-    @pending_invites = @event.invites.pending
     @invite = Invite.new
+    @unready_users = @event.users.includes(:wishlist).where(wishlists: {id: nil})
   end
 
   def create

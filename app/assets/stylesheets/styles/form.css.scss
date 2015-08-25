@@ -23,6 +23,10 @@
   display: inline-block;
 }
 
+.fields_container table {
+  width: 100%;
+}
+
 .event_max_spend:before, .item_price:before {
   content: '$';
   position: absolute;

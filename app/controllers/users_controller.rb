@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :get_event, only:[:index]
 
   def index
-    @users = @event.users
+    @users = @event.users.joins(:wishlist)
     @user = User.find(current_user).decorate
   end
 

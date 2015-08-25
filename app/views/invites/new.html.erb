@@ -1,54 +1,21 @@
 <h2>Invite someone</h2>
-
-<fieldset class='new-invite'>
-<%= simple_form_for @invite, url: {action: 'create'} do |f| %>
-  <div><%= f.input :email, label: false, placeholder: 'Enter Email' %></div>
-  <div><%= f.submit 'Invite' %></div>
-<% end %>
-</fieldset>
-
-<% unless @pending_invites.blank? %>
-<fieldset>
-  <h4>Pending Invites</h4>
-  <table class='u-full-width'>
-    <thead>
-      <tr>
-        <th>Email</th>
-        <th>Date Sent</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @pending_invites.each do |invite| %>
-      <tr>
-        <td><%= invite.email %></td>
-        <td><%= invite.created_at.to_date %></td>
-        <td><%= link_to 'Remove', event_invite_path(id: invite.id), method: :delete %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</fieldset>
-<% end %>
-
-<fieldset>
-  <h4>Registered Users</h4>
-  <table class='u-full-width'>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-    <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.full_name %></td>
-        <td><%= user.email %></td>
-      </tr>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for @invite, url: {action: 'create'} do |f| %>
+    <%= f.input :email, label: false, placeholder: 'Enter Email' %>
+    <%= f.submit 'Invite', class: 'button-primary' %>
+  <% end %>
+    <p>Unready Participants</p>
+    <table>
+    <% @unready_users.each do |user| %>
+    <tr>
+      <td><%= user.full_name %></td>
+      <td><%= user.email %></td>
+      <td><%= link_to 'Remind', '#' %></td>
+    </tr>
     <% end %>
-    </tbody>
-  </table>
-</fieldset>
+    </table>
+  </div>
+</div>
 
 
