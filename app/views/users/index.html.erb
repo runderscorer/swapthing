@@ -1,6 +1,7 @@
 <h2>Event Participants</h2>
 <ul>
   <%= render 'invite_users', event: @event %>
+  <%= render 'shuffle_partners' %>
   <% @users.each do |user| %>
   <li class='three columns card'>
     <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>

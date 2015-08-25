@@ -1,7 +1,8 @@
 class PartnershipsController < ApplicationController
-  before_filter :get_event
 
   def create
+    event_id = params[:event_id]
+    @event = Event.find event_id
     participants = @event.users
     @event.partnerships.delete_all if @event.partnerships.present?
 
