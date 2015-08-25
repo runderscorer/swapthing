@@ -5,7 +5,7 @@
     <%= f.input :email, label: false, placeholder: 'Enter Email' %>
     <%= f.submit 'Invite', class: 'button-primary' %>
   <% end %>
-    <p>Unready Participants</p>
+    <p class='subheader'>Unready Participants</p>
     <table>
     <% @unready_users.each do |user| %>
     <tr>

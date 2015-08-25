@@ -9,5 +9,14 @@
     <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
     <%= f.submit class: 'button-primary' %>
   <% end %>
+  <p class='subheader'>Partnerships</p>
+  <table>
+    <% @event.partnerships.each do |partnership| %>
+    <tr>
+      <td><%= partnership.giver.full_name %></td>
+      <td><%= partnership.getter.full_name %></td>
+    </tr>
+    <% end %>
+  </table>
   </div>
 </div>

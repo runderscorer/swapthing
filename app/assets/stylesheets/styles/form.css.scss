@@ -3,7 +3,7 @@
   width: 100%;
   padding: 40px 20px 20px 20px;
   margin: auto;
-  /*border: 1px solid #e6e6e6;*/
+  margin-bottom: 30px;
   box-shadow: #A8D3CB 15px 15px;
 }
 
@@ -62,6 +62,12 @@ input[type=submit].button-primary {
 
 input[type=submit].button-primary:hover {
   background-color: $action_secondary;
+}
+
+.subheader {
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 50px;
 }
 
 ::-webkit-input-placeholder {
