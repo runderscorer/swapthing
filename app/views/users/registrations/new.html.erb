@@ -1,26 +1,18 @@
 <h2>Sign up</h2>
+<div class='form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for(@user, url: registration_path(@user)) do |f| %>
+    <%= f.input :fname, label: false, placeholder: 'First Name' %>
+    <%= f.input :lname, label: false, placeholder: 'Last Name' %>
+    <%= f.input :email, label: false, placeholder: 'Email' %>
+    <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
+    <div><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Retype Password' %></div>
 
-<%= simple_form_for(@user, url: registration_path(@user)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <%= f.label 'First Name' %>
-  <%= f.input :fname, label: false %>
-
-  <%= f.label 'Last Name' %>
-  <%= f.input :lname, label: false %>
-
-  <%= f.label 'Email' %>
-  <%= f.input :email, label: false %>
-
-  <%= f.label 'Password' %>
-  <%= f.password_field :password, autocomplete: "off" %>
-
-  <%= f.label 'Retype Password' %>
-  <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
-    <% unless @token.blank? %>
-    <%= hidden_field_tag :invite_token, @token %>
-    <% end %>
-    
-  <div><%= f.submit 'Sign up', class: 'button-primary' %></div>
-<% end %>
+      <% unless @token.blank? %>
+      <%= hidden_field_tag :invite_token, @token %>
+      <% end %>
+      
+    <%= f.submit 'Sign up', class: 'button-primary' %>
+  <% end %>
+  </div>
+</div>
