@@ -1,14 +1,16 @@
 <h2>Edit Item</h2>
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
-    <%= f.input :name, label: false, placeholder: 'Item Name' %>
-    <%= f.input :description, as: :text, label: false, placeholder: 'Description' %>
-    <%= f.input :notes, as: :string, label: false, placeholder: 'Notes' %>
-    <%= f.input :url, label: false, placeholder: 'Item URL' %>
-    <%= f.input :image_url, label: false, placeholder: 'Item Image URL' %>
-    <%= f.input :price, label: false, placeholder: 'Price' %>
-    <%= f.submit class: 'button-primary' %>
-  <% end %>
+<div class='card long'>
+  <div class='twelve columns form_container'>
+    <div class='fields_container'>
+    <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Item Name' %>
+      <%= f.input :description, as: :text, label: false, placeholder: 'Description' %>
+      <%= f.input :notes, as: :string, label: false, placeholder: 'Notes' %>
+      <%= f.input :url, label: false, placeholder: 'Item URL' %>
+      <%= f.input :image_url, label: false, placeholder: 'Item Image URL' %>
+      <%= f.input :price, label: false, placeholder: 'Price' %>
+      <%= f.submit class: 'button-primary' %>
+    <% end %>
+    </div>
   </div>
 </div>

@@ -1,12 +1,14 @@
 <h2>Add Event</h2>
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
-    <%= f.input :name, label: false, placeholder: 'Name' %>
-    <%= f.input :description, label: false, placeholder: 'Details' %>
-    <%= f.text_field :date, label: false, placeholder: 'Event Date' %>
-    <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
-    <%= f.submit 'Add Event', class: 'button-primary' %>
-  <% end %>
+<div class='card long'>
+  <div class='twelve columns form_container'>
+    <div class='fields_container'>
+    <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Name' %>
+      <%= f.input :description, label: false, placeholder: 'Details' %>
+      <%= f.text_field :date, label: false, placeholder: 'Event Date' %>
+      <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
+      <%= f.submit 'Add Event', class: 'button-primary' %>
+    <% end %>
+    </div>
   </div>
 </div>

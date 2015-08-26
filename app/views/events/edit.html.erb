@@ -1,22 +1,28 @@
 <h2>Edit Event Details</h2>
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= simple_form_for @event do |f| %>
-    <%= f.input :name, label: false, placeholder: 'Event Name' %>
-    <%= f.input :description, label: false, placeholder: 'Details' %>
-    <%= f.text_field :date, label: false, placeholder: 'Event Date',
-                      value: f.object.date.strftime("%m/%d/%y") %>
-    <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
-    <%= f.submit class: 'button-primary' %>
-  <% end %>
-  <p class='subheader'>Partnerships</p>
-  <table>
-    <% @event.partnerships.each do |partnership| %>
-    <tr>
-      <td><%= partnership.giver.full_name %></td>
-      <td><%= partnership.getter.full_name %></td>
-    </tr>
+<div class='card long'>
+  <div class='twelve columns form_container'>
+    <div class='fields_container'>
+    <%= simple_form_for @event do |f| %>
+      <%= f.input :name, label: false, placeholder: 'Event Name' %>
+      <%= f.input :description, label: false, placeholder: 'Details' %>
+      <%= f.text_field :date, label: false, placeholder: 'Event Date',
+                        value: f.object.date.strftime("%m/%d/%y") %>
+      <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
+      <%= f.submit class: 'button-primary' %>
     <% end %>
-  </table>
+    </div>
   </div>
+  <% if @event.partnerships.present? %>
+  <div class='tabled_view'>
+    <p class='subheader'>Partnerships</p>
+    <table>
+      <% @event.partnerships.each do |partnership| %>
+      <tr>
+        <td><%= partnership.giver.full_name %></td>
+        <td><%= partnership.getter.full_name %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+  <% end %>
 </div>

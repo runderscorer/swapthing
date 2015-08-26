@@ -1,11 +1,13 @@
 <h2>Edit Profile</h2>
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= simple_form_for @user do |f| %>
-    <%= f.input :fname, label: false, placeholder: 'First Name' %>
-    <%= f.input :lname, label: false, placeholder: 'Last Name' %>
-    <%= f.input :email, label: false, placeholder: 'Email' %>
-    <%= f.submit class: 'button-primary' %>
-  <% end %>
+<div class='card long'>
+  <div class='twelve columns form_container'>
+    <div class='fields_container'>
+    <%= simple_form_for @user do |f| %>
+      <%= f.input :fname, label: false, placeholder: 'First Name' %>
+      <%= f.input :lname, label: false, placeholder: 'Last Name' %>
+      <%= f.input :email, label: false, placeholder: 'Email' %>
+      <%= f.submit class: 'button-primary' %>
+    <% end %>
+    </div>
   </div>
 </div>

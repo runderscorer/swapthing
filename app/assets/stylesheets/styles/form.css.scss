@@ -3,8 +3,6 @@
   width: 100%;
   padding: 40px 20px 20px 20px;
   margin: auto;
-  margin-bottom: 30px;
-  border-radius: 4px;
   /*box-shadow: #A8D3CB 15px 15px;*/
 }
 
@@ -94,6 +92,13 @@ input[type=submit].button-primary:hover {
   text-decoration: none;
   font-size: 11px;
   font-weight: 700;
+}
+
+.tabled_view {
+  padding: 20px;
+  margin-bottom: 20px;
+  background-color: #fcfcfc;
+  overflow: auto;
 }
 
 ::-webkit-input-placeholder {

@@ -1,10 +1,15 @@
 <h2>Invite someone</h2>
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= simple_form_for @invite, url: {action: 'create'} do |f| %>
-    <%= f.input :email, label: false, placeholder: 'Enter Email' %>
-    <%= f.submit 'Invite', class: 'button-primary' %>
-  <% end %>
+<div class='card long'>
+  <div class='twelve columns form_container'>
+    <div class='fields_container'>
+    <%= simple_form_for @invite, url: {action: 'create'} do |f| %>
+      <%= f.input :email, label: false, placeholder: 'Enter Email' %>
+      <%= f.submit 'Invite', class: 'button-primary' %>
+    <% end %>
+    </div>
+  </div>
+  <% if @unready_users.present? %>
+  <div class='tabled_view'>
     <p class='subheader'>Unready Participants</p>
     <table>
     <% @unready_users.each do |user| %>
@@ -16,6 +21,7 @@
     <% end %>
     </table>
   </div>
+  <% end %>
 </div>
 
 
