@@ -19,4 +19,10 @@ class ApplicationController < ActionController::Base
       @event = Event.find(params[:id])
     end
   end
+
+  def admin_check
+    id = params[:event_id] || params[:id]
+    event = Event.find(id)
+    redirect_to root_path unless event.admin == current_user
+  end
 end

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :get_event, only:[:index]
+  before_action :admin_check
 
   def index
     @users = @event.users.joins(:wishlist)

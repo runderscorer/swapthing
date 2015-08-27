@@ -1,5 +1,6 @@
 class InvitesController < ApplicationController
   before_filter :get_event
+  before_action :admin_check
 
   def new
     @invite = Invite.new

@@ -2,6 +2,7 @@ class EventsController < ApplicationController
   before_action :authenticate_user!
   around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
+  before_action :admin_check, only: [:edit]
   before_action :clear_event_session, only: [:index]
   
   def index
