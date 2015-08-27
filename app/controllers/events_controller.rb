@@ -3,6 +3,7 @@ class EventsController < ApplicationController
   around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
   before_action :admin_check, only: [:edit]
+  before_action :format_date, only: [:create, :update]
   before_action :clear_event_session, only: [:index]
   
   def index
@@ -46,7 +47,7 @@ class EventsController < ApplicationController
   private
 
   def event_params
-    params.require(:event).permit(:name, :date, :description, :max_spend)
+    params.require(:event).permit(:name, :date, :description, :max_spend, :admin_id)
   end
 
   def check_user_memberships
@@ -61,5 +62,9 @@ class EventsController < ApplicationController
 
   def clear_event_session
     session[:event_id].delete if session[:event_id].present?
+  end
+
+  def format_date
+    params[:event][:date] = Date.strptime(event_params[:date], '%m/%d/%y')
   end
 end

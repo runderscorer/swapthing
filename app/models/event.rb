@@ -8,4 +8,8 @@ class Event < ActiveRecord::Base
   def self.all_by_user(user)
     joins(:memberships).where(memberships: { user_id: user.id }).order(:created_at)
   end
+
+  def format_date
+    self.date = Date.strptime(self.date, '%m/%d/%y')
+  end
 end
