@@ -5,11 +5,12 @@ class WishlistsController < ApplicationController
   # around_action :check_user_memberships, except: [:index, :new, :create]
   
   def new
-    @wishlist = Wishlist.new(user_id: @user.id)
+    # @wishlist = Wishlist.new(user_id: @user.id)
+    create
   end
 
   def create
-    @wishlist = Wishlist.new(wishlist_params)
+    @wishlist = Wishlist.new(user_id: @user.id, name: "user_#{@user.id}_wishlist")
     @wishlist.save
 
     redirect_to edit_user_wishlist_path(@user.id, @wishlist)
