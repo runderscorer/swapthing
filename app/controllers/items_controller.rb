@@ -12,6 +12,8 @@ class ItemsController < ApplicationController
 
     if @item.save
       redirect_to edit_user_wishlist_path(@user.id, @wishlist.id)
+    else
+      render :new
     end
   end
 
