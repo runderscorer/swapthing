@@ -93,3 +93,10 @@ table a {
 .tabled_view table {
   width: 100%;
 }
+
+.field_with_errors {
+  margin-bottom: 1em;
+}
+.field_with_errors span {
+  color: #F2473F;
+}

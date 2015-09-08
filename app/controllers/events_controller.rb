@@ -25,6 +25,9 @@ class EventsController < ApplicationController
     if @event.save
       Membership.create(user_id: current_user.id, event_id: @event.id)
       redirect_to events_path
+    else
+      flash[:alert] = "Hi, Tina"
+      render :new
     end
   end
 
@@ -65,6 +68,6 @@ class EventsController < ApplicationController
   end
 
   def format_date
-    params[:event][:date] = Date.strptime(event_params[:date], '%m/%d/%y')
+    params[:event][:date] = Date.strptime(event_params[:date], '%m/%d/%y') unless params[:event][:date].blank?
   end
 end
