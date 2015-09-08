@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :invites
   has_many :memberships
   belongs_to :admin, class_name: 'User', foreign_key: 'admin_id'
-  validates_presence_of :name, :description, :date, :max_spend, message: "Required field."
+  validates_presence_of :name, :description, :date, :max_spend
 
   def self.all_by_user(user)
     joins(:memberships).where(memberships: { user_id: user.id }).order(:created_at)

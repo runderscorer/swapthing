@@ -15,8 +15,10 @@ class UsersController < ApplicationController
     @user = current_user
     @user.update_attributes(user_params)
 
-    if @user.save!
+    if @user.save
       redirect_to events_path
+    else 
+      render :edit
     end
   end
 

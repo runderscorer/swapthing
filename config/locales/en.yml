@@ -21,3 +21,26 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: 'Invalid email address.'
+        event:
+          attributes:
+            name: 
+              blank: 'Required field.'
+            description: 
+              blank: 'Required field.'
+            max_spend: 
+              blank: 'Required field.'
+            date: 
+              blank: 'Required field.'
+        item: 
+          attributes:
+            name: 
+              blank: 'Required field.'
+            price: 
+              blank: 'Required field.'
