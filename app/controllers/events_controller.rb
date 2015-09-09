@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     if @event.update_attributes(event_params)
       redirect_to events_path
     else
-      flash.now[:error] = 'Your event was not saved. Please review the errors below.'
+      flash.now[:error] = 'Your event was not updated. Please review the errors below.'
       render :edit
     end
   end

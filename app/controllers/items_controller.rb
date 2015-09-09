@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     if @item.update_attributes(item_params)
       redirect_to edit_user_wishlist_path(params[:user_id], params[:wishlist_id])
     else
-      flash.now[:error] = 'Your item was not saved. Please review the errors below.'
+      flash.now[:error] = 'Your item was not updated. Please review the errors below.'
       render :edit
     end
   end
