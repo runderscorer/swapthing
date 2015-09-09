@@ -111,10 +111,10 @@ table a {
   border-bottom: 1px solid #ccc;
   margin:0;
   padding: 2px 0 0 0;;
-  position: absolute;
-  height: 32px;
+  position: fixed;
+  height: 38px;
   width: 100%;
-  z-index: 999;
+  z-index: 9999;
   top: 0;
   -webkit-box-shadow:0 0 10px 0 black;
      -moz-box-shadow:0 0 10px 0 black;

@@ -44,3 +44,5 @@ en:
           blank: 'Required field.'
         item: 
           blank: 'Required field.'
+        invite:
+          blank: 'Required field.'
