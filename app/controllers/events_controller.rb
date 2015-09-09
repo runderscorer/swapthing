@@ -26,7 +26,7 @@ class EventsController < ApplicationController
       Membership.create(user_id: current_user.id, event_id: @event.id)
       redirect_to events_path
     else
-      flash[:alert] = "Hi, Tina"
+      flash.now[:error] = 'Your event was not saved. Please review the errors below.'
       render :new
     end
   end
@@ -37,6 +37,9 @@ class EventsController < ApplicationController
   def update
     if @event.update_attributes(event_params)
       redirect_to events_path
+    else
+      flash.now[:error] = 'Your event was not saved. Please review the errors below.'
+      render :edit
     end
   end
 
