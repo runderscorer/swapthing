@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       sign_in current_user, bypass: true
       redirect_to events_path
     else 
+      flash.now[:error] = 'Your profile was not updated. Please review the errors below.'
       render :edit
     end
   end
