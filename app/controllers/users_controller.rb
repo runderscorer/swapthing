@@ -16,6 +16,7 @@ class UsersController < ApplicationController
     @user.update_attributes(user_params)
 
     if @user.save
+      sign_in current_user, bypass: true
       redirect_to events_path
     else 
       render :edit
@@ -26,6 +27,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:fname, :lname, :email)
+    params.require(:user).permit(:fname, :lname, :email, :password, :password_confirmation)
   end
 end

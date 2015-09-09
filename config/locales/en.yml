@@ -26,21 +26,16 @@ en:
       models:
         user:
           attributes:
+            password:
+              too_short: 'Password must be at least 8 characters.'
+            password_confirmation: 
+              confirmation: 'Passwords do not match.'
+            current_password:
+              blank: 'Required field.'
+              invalid: 'Incorrect password.'
             email:
               invalid: 'Invalid email address.'
         event:
-          attributes:
-            name: 
-              blank: 'Required field.'
-            description: 
-              blank: 'Required field.'
-            max_spend: 
-              blank: 'Required field.'
-            date: 
-              blank: 'Required field.'
+          blank: 'Required field.'
         item: 
-          attributes:
-            name: 
-              blank: 'Required field.'
-            price: 
-              blank: 'Required field.'
+          blank: 'Required field.'

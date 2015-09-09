@@ -14,6 +14,8 @@ Swapthing::Application.routes.draw do
   resources :wishlists, only: [:show]
   
   resources :users do
+    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
+    put 'users' => 'devise/registrations#update', :as => 'user_registration'            
     resources :wishlists do
       resources :items
     end
