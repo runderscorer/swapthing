@@ -1,5 +1,5 @@
 Swapthing::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations'}
+  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,8 +14,8 @@ Swapthing::Application.routes.draw do
   resources :wishlists, only: [:show]
   
   resources :users do
-    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
-    put 'users' => 'devise/registrations#update', :as => 'user_registration'            
+    get 'users/edit' => 'users/registrations#edit', :as => 'edit_user_registration'    
+    put 'users' => 'users/registrations#update', :as => 'user_registration'            
     resources :wishlists do
       resources :items
     end

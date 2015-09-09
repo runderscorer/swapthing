@@ -97,6 +97,27 @@ table a {
 .field_with_errors {
   margin-bottom: 1em;
 }
+
 .field_with_errors span {
   color: #F2473F;
+}
+
+.error-top {
+  font-size: 1.2em;
+  font-weight: normal;
+  text-align: center;
+  color: #fff;
+  background-color: #ff0000;
+  border-bottom: 1px solid #ccc;
+  margin:0;
+  padding: 2px 0 0 0;;
+  position: absolute;
+  height: 32px;
+  width: 100%;
+  z-index: 999;
+  top: 0;
+  -webkit-box-shadow:0 0 10px 0 black;
+     -moz-box-shadow:0 0 10px 0 black;
+          box-shadow:0 0 10px 0 black;
+  filter: alpha(opacity=90);
 }

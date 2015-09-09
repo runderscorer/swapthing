@@ -6,8 +6,8 @@
       <%= f.input :fname, label: false, placeholder: 'First Name' %>
       <%= f.input :lname, label: false, placeholder: 'Last Name' %>
       <%= f.input :email, label: false, placeholder: 'Email' %>
-      <%= f.password_field :password, autocomplete: "off", placeholder: 'Password' %>
-      <div><%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Retype Password' %></div>
+      <%= f.input :password, autocomplete: "off", label: false, placeholder: 'Password' %>
+      <div><%= f.input :password_confirmation, autocomplete: "off", label: false, placeholder: 'Retype Password' %></div>
 
         <% unless @token.blank? %>
         <%= hidden_field_tag :invite_token, @token %>

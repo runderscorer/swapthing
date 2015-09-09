@@ -21,17 +21,22 @@
 
 en:
   hello: "Hello world"
+  devise:
+    failure:
+      not_found_in_database: 'Invalid email or password.'
   activerecord:
     errors:
       models:
         user:
+          blank: 'Required field.'
           attributes:
             password:
               too_short: 'Password must be at least 8 characters.'
+              blank: 'Required field.'
             password_confirmation: 
               confirmation: 'Passwords do not match.'
-            current_password:
               blank: 'Required field.'
+            current_password:
               invalid: 'Incorrect password.'
             email:
               invalid: 'Invalid email address.'
