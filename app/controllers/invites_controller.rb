@@ -15,7 +15,7 @@ class InvitesController < ApplicationController
       InviteMailer.new_invitation(@invite).deliver
       redirect_to new_event_invite_path
     else
-      flash[:error] = 'Please enter a valid email address.'
+      flash.now[:error] = 'Please enter a valid email address.'
       render :new
     end
   end
