@@ -102,12 +102,11 @@ table a {
   color: $error_red;
 }
 
-.error-top {
+.flash-message {
   font-size: 1.2em;
   font-weight: normal;
   text-align: center;
   color: #fff;
-  background-color: $error_red;
   border-bottom: 1px solid #ccc;
   margin:0;
   padding: 2px 0 0 0;;
@@ -120,4 +119,14 @@ table a {
      -moz-box-shadow:0 0 10px 0 black;
           box-shadow:0 0 10px 0 black;
   filter: alpha(opacity=90);
+}
+
+.notice-top {
+  @extend .flash-message;
+  background-color: $action_primary;
+}
+
+.error-top {
+  @extend .flash-message;
+  background-color: $error_red;
 }
