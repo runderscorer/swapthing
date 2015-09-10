@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 </head>
 <body>
-  <% [:error, :alert, :notice].each do |key| %>
+  <% [:error].each do |key| %>
     <% unless flash[key].blank? %>
       <div class='error-top'>
         <%= flash[key] %>

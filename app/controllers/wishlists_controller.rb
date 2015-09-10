@@ -26,7 +26,6 @@ class WishlistsController < ApplicationController
     if @wishlist.update_attributes(wishlist_params)
       redirect_to edit_user_wishlist_path(@user.id, @wishlist)
     else
-      puts 'Error! Error!'
       redirect_to wishlists_path
     end
   end

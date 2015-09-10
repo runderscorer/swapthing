@@ -99,7 +99,7 @@ table a {
 }
 
 .field_with_errors span {
-  color: #F2473F;
+  color: $error_red;
 }
 
 .error-top {
@@ -107,7 +107,7 @@ table a {
   font-weight: normal;
   text-align: center;
   color: #fff;
-  background-color: #F2473F;
+  background-color: $error_red;
   border-bottom: 1px solid #ccc;
   margin:0;
   padding: 2px 0 0 0;;
