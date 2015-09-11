@@ -11,20 +11,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def update
-    @user = current_user
-    @user.update_attributes(user_params)
-
-    if @user.save
-      sign_in current_user, bypass: true
-      redirect_to events_path
-    else 
-      flash.now[:error] = 'Your profile was not updated. Please review the errors below.'
-      render :edit
-    end
-  end
-
-
   private
 
   def user_params

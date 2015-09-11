@@ -24,7 +24,7 @@ class EventsController < ApplicationController
 
     if @event.save
       Membership.create(user_id: current_user.id, event_id: @event.id)
-      flash[:notice] = 'Your event has been saved.'
+      flash[:notice] = 'Great! Your event has been saved.'
       redirect_to events_path
     else
       flash.now[:error] = 'Your event was not saved. Please review the errors below.'
@@ -37,7 +37,7 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(event_params)
-      flash[:notice] = 'Your event has been updated.'
+      flash[:notice] = 'Great! Your event has been updated.'
       redirect_to events_path
     else
       flash[:error] = 'Your event was not updated. Please review the errors below.'

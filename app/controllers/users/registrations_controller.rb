@@ -22,6 +22,28 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = current_user
+
+    if user_params[:password].present?
+      @user.update_attributes(user_params)
+    else
+      @user.update_without_password(user_params)
+    end
+    
+    if @user.save
+      sign_in current_user, bypass: true
+      flash[:notice] = 'Cool! Your profile has been updated.'
+      redirect_to events_path
+    else 
+      flash.now[:error] = 'Your profile was not updated. Please review the errors below.'
+      render :edit
+    end
+  end
+
   def after_sign_up_path_for(resource)
     events_path
   end

@@ -13,6 +13,7 @@ class InvitesController < ApplicationController
     @invite.event_id = @event.id
     if @invite.save
       InviteMailer.new_invitation(@invite).deliver
+      flash[:notice] = "Sweet! #{@invite.email} has been invited."
       redirect_to new_event_invite_path
     else
       flash.now[:error] = 'Please enter a valid email address.'

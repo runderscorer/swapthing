@@ -11,6 +11,7 @@ class ItemsController < ApplicationController
     @item = @wishlist.items.new(item_params)
 
     if @item.save
+      flash[:notice] = "Alright! #{@item.name} has been added to your wishlist."
       redirect_to edit_user_wishlist_path(@user.id, @wishlist.id)
     else
       flash.now[:error] = 'Your item was not saved. Please review the errors below.'
@@ -23,6 +24,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update_attributes(item_params)
+      flash[:notice] = "Alright! #{@item.name} has been updated."
       redirect_to edit_user_wishlist_path(params[:user_id], params[:wishlist_id])
     else
       flash.now[:error] = 'Your item was not updated. Please review the errors below.'

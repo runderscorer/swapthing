@@ -13,6 +13,7 @@ class PartnershipsController < ApplicationController
     partnerships.each do |partnership|
       NotificationMailer.partner_assignment_mail(partnership).deliver
     end
+    flash[:notice] = 'High five! Partners have been assigned.'
     redirect_to event_users_path
   end
 
