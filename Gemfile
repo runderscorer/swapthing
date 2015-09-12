@@ -7,7 +7,6 @@ gem 'pg'
 gem 'devise'
 gem 'devise_invitable', '~> 1.3.4'
 gem 'simple_form'
-gem 'pry'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -45,6 +44,16 @@ end
 
 group :production, :staging do
   gem 'rails_12factor'
+end
+
+group :development, :test do
+  gem 'pry'
+  gem 'launchy', '~> 2.2.0'
+  gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'rspec-rails', '~> 2.14.0'
+  gem 'shoulda-matchers', '~> 2.3.0'
+  gem 'capybara', '~> 2.4.4'
+  gem 'capybara-webkit','~> 1.7.0'
 end
 
 # Use ActiveModel has_secure_password
