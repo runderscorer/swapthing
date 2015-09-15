@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :events
+  has_many :events, class_name: 'Event', foreign_key: 'admin_id'
   has_many :memberships
   has_many :partnerships, class_name: 'Partnership', foreign_key: 'giver_id'
   has_one  :wishlist

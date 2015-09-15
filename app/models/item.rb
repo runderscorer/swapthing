@@ -2,7 +2,7 @@ class Item < ActiveRecord::Base
   belongs_to :wishlist  
   has_attached_file :image, :styles => { :thumb => "270x240>" }
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
-  validates_presence_of :name, :price
+  validates_presence_of :name, :price, :wishlist_id
   before_save :image_remote_url
 
   def short_url

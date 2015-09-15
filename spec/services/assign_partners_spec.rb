@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AssignPartners do
 
-  it 'should assign two different people per partnership' do
+  it 'should assign a different giver and getter to each partnership' do
     partnerships = FactoryGirl.build_list(:partnership, 10)
     AssignPartners.call partnerships
 
