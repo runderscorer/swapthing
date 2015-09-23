@@ -15,6 +15,14 @@ class NotificationMailer < ActionMailer::Base
     @getter = partnership.getter
 
     mail to: email,
-         subject: 'You have been assigned a partner! Time to dance!'
+         subject: "You've been assigned a party for your gift exchange - Time to party!"
+  end
+
+  def reminder_mail(user_id, event_id)
+    email = User.find(user_id).email
+    @event = Event.find(event_id)
+
+    mail to: email,
+         subject: "A friendly reminder to add items to your wishlist."
   end
 end

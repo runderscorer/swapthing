@@ -10,13 +10,13 @@
   </div>
   <% if @unready_users.present? %>
   <div class='tabled_view'>
-    <p class='subheader'>Unready Participants</p>
+    <p class='subheader'>These invitees don't have any items in their wishlists yet.</p>
     <table>
     <% @unready_users.each do |user| %>
     <tr>
       <td><%= user.full_name %></td>
       <td><%= user.email %></td>
-      <td><%= link_to 'Remind', '#' %></td>
+      <td><%= link_to 'Remind', reminder_path(user_id: user.id, event_id: @event.id) %></td>
     </tr>
     <% end %>
     </table>

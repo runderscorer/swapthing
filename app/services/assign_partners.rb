@@ -1,5 +1,4 @@
 class AssignPartners
-
   def self.call(partnerships)
     # the rules are that every participant must have a partner
     # and that participants cannot be assigned to themselves
@@ -17,5 +16,4 @@ class AssignPartners
       end
     end
   end
-
 end

@@ -21,6 +21,8 @@ Swapthing::Application.routes.draw do
     end
   end
 
+  get '/reminder', to: 'invites#reminder'
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

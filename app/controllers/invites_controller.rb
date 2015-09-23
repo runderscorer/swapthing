@@ -27,6 +27,18 @@ class InvitesController < ApplicationController
     redirect_to new_event_invite_path
   end
 
+  def reminder
+    user_email = User.find(params[:user_id]).email
+
+    if NotificationMailer.reminder_mail(params[:user_id], params[:event_id]).deliver
+      flash[:notice] = "Awesome! An reminder has been sent to #{user_email}."
+    else
+      flash[:error] = "Uh oh. Something went wrong. Try again."
+    end
+
+    redirect_to new_event_invite_path @event
+  end
+
   private
 
   def get_unready_users
