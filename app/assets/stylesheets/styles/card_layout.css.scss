@@ -14,6 +14,7 @@
 
 .card > a {
   color: $action_primary;
+  text-decoration: none;
 }
 
 .card .edit_icon {
@@ -107,13 +108,18 @@
   font-size: 20px;
 }
 
-.prod_notes {
+.prod_notes, .hint {
   color: #777;
   font-weight: 300;
   font-style: italic;
   letter-spacing: 0.5px;
   line-height: 1.3em;
   font-size: 13px;
+}
+
+.hint {
+  text-align: center;
+  margin-top: -20px;
 }
 
 .edit_wishlist_item {

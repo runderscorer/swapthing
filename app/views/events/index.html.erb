@@ -1,16 +1,7 @@
  <div id='events'>
   <h2>My Events</h2>
   <ul>
-    <div class='three columns card'>
-      <%= link_to new_event_path(wishlist_id: params[:id]) do %>
-      <div class='primary'>
-        <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-plus-circle fa-10x') %></span>
-      </div>
-      <div class='secondary'>
-        <span>Add Event</span>
-      </div>
-      <% end %>
-    </div>
+    <%= render 'add_event' %>
     <% @events.each do |event| %>
     <div class='three columns card'>
       <div class='primary'>
