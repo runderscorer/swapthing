@@ -2,13 +2,14 @@
   font-family: 'Lato',sans-serif;
   display: inline-block;
   width: 100%;
+  min-width: 265px;
   height: 400px;
   background: #fcfcfc;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
   border: 1px solid #e6e6e6;
-  margin-bottom: 30px;
+  margin: 15px 30px 15px 0;
 }
 
 .card > a {

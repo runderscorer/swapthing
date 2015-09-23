@@ -36,9 +36,7 @@ a:hover {
 }
 
 .navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
+  height: 40px;
   width: 100%;
   background-color: $body_color;
   z-index: 1000;
@@ -68,6 +66,54 @@ a:hover {
 
 .navbar-link:hover {
   color: $action_secondary;
+}
+
+.navbar-menu {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .3rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 4rem;
+  color: #fff;
+  display: none;
+}
+
+.mobile-menu {
+  width: 100%;
+  background-color: $action-primary;
+  margin: 0;
+}
+
+.mobile-menu li {
+  border-bottom: 1px solid $action-secondary;
+  list-style: none;
+  margin-bottom: 0;
+}
+
+.mobile-menu a {
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .3rem;
+  margin-right: 35px;
+  text-decoration: none;
+  line-height: 4rem;
+  color: #fff;
+  margin-left: 2em;
+}
+
+.st-wrapper {
+  transition: transform .3s;
+  -webkit-transition: -webkit-transform .3s;
+  transform: translateY(-123px);
+  -webkit-transform: translateY(-123px);
+}
+
+.st-wrapper.with-top-menu {
+  transform: translateY(0);
+  -webkit-transform: translateY(0);
 }
 
 table a {
@@ -129,4 +175,14 @@ table a {
 .error-top {
   @extend .flash-message;
   background-color: $error_red;
+}
+
+@media (max-width: 505px) {
+  .navbar-item, .navbar-link {
+    display: none;
+  }
+
+  .navbar-menu {
+    display: inline-block;
+  }
 }
