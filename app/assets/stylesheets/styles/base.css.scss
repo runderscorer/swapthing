@@ -30,6 +30,7 @@ a {
 a:hover {
   color: #0fd581;
 }
+
 .navbar-spacer {
   height: 4rem;
   width: 100%;
@@ -74,10 +75,13 @@ a:hover {
   font-weight: 600;
   letter-spacing: .3rem;
   margin-right: 35px;
-  text-decoration: none;
   line-height: 4rem;
-  color: #fff;
   display: none;
+}
+
+.navbar-menu a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .mobile-menu {
@@ -194,5 +198,33 @@ table a {
   }
   .mobile-menu {
     display: none;
+  }
+
+  .column, .columns {
+    width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+  .column, .columns {
+    width: 30%;
+  }
+}
+
+@media (max-width: 629px) {
+  .three.column, .three.columns {
+    width: 100%;
+  }
+}
+
+@media (max-width: 937px) and (min-width: 630px) {
+  .three.column, .three.columns {
+    width: 45%;
+  }
+}
+
+@media (max-width: 1220px) and (min-width: 938px) {
+  .three.column, .three.columns {
+    width: 30%;
   }
 }
