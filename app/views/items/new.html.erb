@@ -4,7 +4,6 @@
     <div class='fields_container'>
       <%= simple_form_for [@user, @wishlist, @item] do |f| %>
         <%= f.input :name, label: false, placeholder: 'Item Name' %>
-        <%= f.input :description, as: :text, label: false, placeholder: 'Description' %>
         <%= f.input :notes, label: false, placeholder: 'Notes' %>
         <%= f.input :url, label: false, placeholder: 'Item URL' %>
         <%= f.input :image_url, label: false, placeholder: 'Item Image URL' %>
