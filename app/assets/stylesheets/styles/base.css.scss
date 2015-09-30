@@ -10,8 +10,10 @@ html, body {
   width: 100%;
 }
 
-input[type='text'], input[type='email'], input[type='url'], input[type='password'] {
+input[type='text'], input[type='email'], input[type='url'], input[type='password'], input[type='number'] {
   width: 400px;
+  height: 3em;
+  border-radius: 3px;
 }
 
 h2 {
@@ -188,6 +190,17 @@ table a {
 
   .navbar-menu {
     display: inline-block;
+  }
+
+  body .fields_container form > div:last-of-type {
+    width: 100%;
+    display: block;
+  }
+
+  body .form_container .fields_container input[type=submit] {
+    display: block;
+    float: none;
+    width: 100%;
   }
 }
 
