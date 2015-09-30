@@ -202,6 +202,17 @@ table a {
     float: none;
     width: 100%;
   }
+
+  body .sign_in_container {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+  }
 }
 
 @media (min-width: 505px) {
