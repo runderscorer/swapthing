@@ -229,6 +229,12 @@ table a {
   }
 }
 
+@media (min-width: 938px) {
+  .three.column.event_details, .three.columns.event_details {
+    width: 45%;
+  }
+}
+
 @media (max-width: 880px) {
   .column, .columns {
     width: 30%;
@@ -239,6 +245,10 @@ table a {
   .three.column, .three.columns {
     width: 100%;
   }
+
+  .three.column.event_details, .three.columns.event_details {
+    width: 100%;
+  }  
 }
 
 @media (max-width: 937px) and (min-width: 630px) {
@@ -251,4 +261,5 @@ table a {
   .three.column, .three.columns {
     width: 30%;
   }
+
 }
