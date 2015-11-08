@@ -9,8 +9,10 @@ class InvitesController < ApplicationController
 
   def create
     @invite = Invite.new(invite_params)
-    @invite.sender_id = current_user.id
-    @invite.event_id = @event.id
+    token = SecureRandom.urlsafe_base64
+
+    @invite.update_attributes! sender_id: current_user.id, event_id: @event.id, token: token
+
     if @invite.save
       InviteMailer.new_invitation(@invite).deliver
       flash[:notice] = "Sweet! #{@invite.email} has been invited."
