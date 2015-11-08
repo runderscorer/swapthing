@@ -3,11 +3,21 @@
   <div class='twelve columns form_container'>
     <div class='fields_container'>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.input :fname, label: false, placeholder: 'First Name' %>
-        <%= f.input :lname, label: false, placeholder: 'Last Name' %>
-        <%= f.input :email, label: false, placeholder: 'Email' %>
-        <%= f.input :password, label: false, placeholder: 'New Password' %>
-        <%= f.input :password_confirmation, label: false, placeholder: 'Retype New Password' %>
+        <%= f.label :fname, 'First Name' %>
+        <%= f.input :fname, placeholder: 'First Name', label: false %>
+
+        <%= f.label :fname, 'Last Name' %>
+        <%= f.input :lname, placeholder: 'Last Name', label: false %>
+        
+        <%= f.label :fname, 'Email' %>
+        <%= f.input :email, placeholder: 'awesome@email.com', label: false %>
+        
+        <%= f.label :fname, 'Password' %>
+        <%= f.input :password, label: false %>
+        
+        <%= f.label :fname, 'Confirm Password' %>
+        <%= f.input :password_confirmation, label: false %>
+
         <%= f.submit class: 'button-primary' %>
       <% end %>
     </div>

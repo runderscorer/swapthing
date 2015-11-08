@@ -3,11 +3,19 @@
   <div class='twelve columns form_container'>
     <div class='fields_container'>
     <%= simple_form_for @event do |f| %>
-      <%= f.input :name, label: false, placeholder: 'Event Name' %>
-      <%= f.input :description, label: false, placeholder: 'Details' %>
-      <%= f.text_field :date, label: false, placeholder: 'Event Date',
-                        value: f.object.date.strftime("%m/%d/%y") %>
-      <%= f.input :max_spend, label: false, placeholder: 'Spending Cap' %>
+      <%= f.label :name, 'Event Name' %>
+      <%= f.input :name, label: false, placeholder: 'My Great Event' %>
+
+      <%= f.label :description, 'Description' %>
+      <%= f.input :description, label: false, placeholder: 'Our annual gift exchange' %>      
+
+      <%= f.label :date, 'Date' %>
+      <%= f.input :date, as: :string, label: false, placeholder: '01/01/15', 
+                  value: f.object.date.strftime("%m/%d/%y") %>
+
+      <%= f.label :max_spend, 'Spending Limit' %>
+      <%= f.input :max_spend, label: false, placeholder: '50' %>
+
       <%= f.submit class: 'button-primary' %>
     <% end %>
     </div>
