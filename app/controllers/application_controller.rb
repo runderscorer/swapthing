@@ -25,4 +25,8 @@ class ApplicationController < ActionController::Base
     event = Event.find(id)
     redirect_to root_path unless event.admin == current_user
   end
+
+  def valid_email_format email
+    email.scan(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/).any?
+  end
 end

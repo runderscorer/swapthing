@@ -2,25 +2,31 @@ class InvitesController < ApplicationController
   before_filter :get_event
   before_action :admin_check
   before_action :get_unready_users
+  before_action only: [:create] do 
+    validate_emails params[:emails]
+  end
 
   def new
     @invite = Invite.new
   end
 
   def create
-    @invite = Invite.new(invite_params)
-    token = SecureRandom.urlsafe_base64
+    emails = params[:emails].split(',').map(&:strip)
 
-    @invite.update_attributes! sender_id: current_user.id, event_id: @event.id, token: token
+    emails.each do |email|
+      invite = Invite.new(email: email)
+      token = SecureRandom.urlsafe_base64
 
-    if @invite.save
-      InviteMailer.new_invitation(@invite).deliver
-      flash[:notice] = "Sweet! #{@invite.email} has been invited."
-      redirect_to new_event_invite_path
-    else
-      flash.now[:error] = 'Please enter a valid email address.'
-      render :new
+      invite.update_attributes! sender_id: current_user.id, event_id: @event.id, token: token
+
+      if invite.save
+        InviteMailer.new_invitation(invite).deliver
+        flash[:notice] = "Sweet! Your invitations have been sent."
+      else
+        flash[:error] = 'Uh oh. Something went wrong. Try again.'
+      end
     end
+    redirect_to new_event_invite_path
   end
 
   def destroy
@@ -50,4 +56,14 @@ class InvitesController < ApplicationController
   def invite_params
     params.require(:invite).permit(:sender_id, :recipient_id, :accepted_at, :event_id, :created_at, :token, :email)
   end
+
+  def validate_emails emails
+    emails.split(',').map(&:strip).each do |email|
+      if !valid_email_format email
+        flash[:error] = 'Please enter a valid email address.'
+        redirect_to new_event_invite_path and return 
+      end
+    end
+  end
+
 end

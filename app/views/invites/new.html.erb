@@ -1,10 +1,13 @@
-<h2>Invite someone</h2>
+<h2>Invite people</h2>
+<p>Invite multiple people by including commas between email addresses.</p>
 <div class='card long'>
   <div class='twelve columns form_container'>
     <div class='fields_container'>
-    <%= simple_form_for @invite, url: {action: 'create'} do |f| %>
-      <%= f.input :email, label: false, placeholder: 'Enter Email' %>
-      <%= f.submit 'Invite', class: 'button-primary' %>
+    <%= form_tag event_invites_path do |f| %>
+      <%= label_tag :emails, 'Enter Email Addresses' %>
+      <%= text_field_tag :emails, nil, label: false, placeholder: 'sample@email.com, sample_2@email.com' %>
+
+      <%= submit_tag 'Invite', class: 'button-primary' %>
     <% end %>
     </div>
   </div>
