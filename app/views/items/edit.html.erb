@@ -1,23 +1,23 @@
 <h2>Edit Item</h2>
-<div class='card long'>
-  <div class='twelve columns form_container'>
-    <div class='fields_container'>
-    <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
-        <%= f.label :name, 'Item Name' %>
-        <%= f.input :name, label: false, placeholder: 'Terminator 2' %>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for @item, url: user_wishlist_item_path do |f| %>
+      <%= f.label :name, 'Item Name' %>
+      <%= f.input_field :name, label: false, placeholder: 'Terminator 2' %>
 
-        <%= f.label :notes, 'Notes'  %>
-        <%= f.input :notes, label: false, placeholder: 'Special edition Bluray' %>
+      <%= f.label :notes, 'Notes'  %>
+      <%= f.input_field :notes, label: false, placeholder: 'Special edition Bluray' %>
 
-        <%= f.label :url, 'URL' %>
-        <%= f.input :url, label: false, placeholder: 'www.amazon.com/movies/terminator_2' %>
+      <%= f.label :url, 'URL' %>
+      <%= f.input_field :url, label: false, placeholder: 'www.amazon.com/movies/terminator_2' %>
 
-        <%= f.label :image_url, 'Image URL' %>
-        <%= f.input :image_url, label: false, placeholder: 'www.amazon.com/movies/terminator_2.jpg' %>
+      <%= f.label :image_url, 'Image URL' %>
+      <%= f.input_field :image_url, label: false, placeholder: 'www.amazon.com/movies/terminator_2.jpg' %>
 
-        <%= f.label :price, 'Price' %>
-        <%= f.input :price, label: false, placeholder: '20' %>
-    <% end %>
-    </div>
+      <%= f.label :price, 'Price' %>
+      <%= f.input_field :price, label: false, placeholder: '20' %>
+
+      <%= f.submit 'Edit Item', class: 'button-primary' %>
+  <% end %>
   </div>
 </div>

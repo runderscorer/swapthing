@@ -1,24 +1,22 @@
 <h2>Add Event</h2>
-<div class='card long'>
-  <div class='twelve columns form_container'>
-    <div class='fields_container'>
-    <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
-      <%= f.input :admin_id, as: :hidden, input_html: { value: current_user.id } %>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
+    <%= f.input_field :admin_id, as: :hidden, input_html: { value: current_user.id } %>
 
-      <%= f.label :name, 'Event Name' %>
-      <%= f.input :name, label: false, placeholder: 'My Great Event' %>
+    <%= f.label :name, 'Event Name' %>
+    <%= f.input_field :name, label: false, placeholder: 'My Great Event' %>
 
-      <%= f.label :description, 'Description' %>
-      <%= f.input :description, label: false, placeholder: 'Our annual gift exchange' %>
+    <%= f.label :description, 'Description' %>
+    <%= f.input_field :description, label: false, placeholder: 'Our annual gift exchange' %>
 
-      <%= f.label :date, 'Date' %>
-      <%= f.input :date, as: :string, label: false, placeholder: '01/01/15' %>
+    <%= f.label :date, 'Date' %>
+    <%= f.input_field :date, as: :string, label: false, placeholder: '01/01/15' %>
 
-      <%= f.label :max_spend, 'Spending Limit' %>
-      <%= f.input :max_spend, label: false, placeholder: '50' %>
+    <%= f.label :max_spend, 'Spending Limit' %>
+    <%= f.input_field :max_spend, label: false, placeholder: '50' %>
 
-      <%= f.submit 'Add Event', class: 'button-primary' %>
-    <% end %>
-    </div>
+    <%= f.submit 'Add Event', class: 'button-primary' %>
+  <% end %>
   </div>
 </div>

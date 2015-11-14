@@ -1,25 +1,23 @@
 <h2>Edit Profile</h2>
-<div class='card long'>
-  <div class='twelve columns form_container'>
-    <div class='fields_container'>
-      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <%= f.label :fname, 'First Name' %>
-        <%= f.input :fname, placeholder: 'First Name', label: false %>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= f.label :fname, 'First Name' %>
+      <%= f.input_field :fname, placeholder: 'First Name', label: false %>
 
-        <%= f.label :fname, 'Last Name' %>
-        <%= f.input :lname, placeholder: 'Last Name', label: false %>
-        
-        <%= f.label :fname, 'Email' %>
-        <%= f.input :email, placeholder: 'awesome@email.com', label: false %>
-        
-        <%= f.label :fname, 'Password' %>
-        <%= f.input :password, label: false %>
-        
-        <%= f.label :fname, 'Confirm Password' %>
-        <%= f.input :password_confirmation, label: false %>
+      <%= f.label :lname, 'Last Name' %>
+      <%= f.input_field :lname, placeholder: 'Last Name', label: false %>
+      
+      <%= f.label :email, 'Email' %>
+      <%= f.input_field :email, placeholder: 'awesome@email.com', label: false %>
+      
+      <%= f.label :password, 'Password' %>
+      <%= f.input_field :password, label: false %>
+      
+      <%= f.label :password_confirmation, 'Confirm Password' %>
+      <%= f.input_field :password_confirmation, label: false %>
 
-        <%= f.submit class: 'button-primary' %>
-      <% end %>
-    </div>
+      <%= f.submit class: 'button-primary' %>
+    <% end %>
   </div>
 </div>

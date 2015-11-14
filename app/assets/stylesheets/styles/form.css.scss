@@ -1,6 +1,7 @@
 .form_container {
   background-color: #fff;
   width: 100%;
+  max-width: 715px;
   padding: 40px 20px 20px 20px;
   margin: auto;
   /*box-shadow: #A8D3CB 15px 15px;*/
@@ -15,11 +16,6 @@
   border-radius: 0;
   width: 100%;
   resize: none;
-}
-
-.fields_container form > div:last-of-type {
-  width: 60%;
-  display: inline-block;
 }
 
 .fields_container table {
@@ -42,6 +38,7 @@
 .form_container .fields_container input[type=submit] {
   display: inline-block;
   float: right;
+  margin-top: 20px;
 }
 
 input:not([type=submit]), textarea {

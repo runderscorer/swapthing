@@ -142,6 +142,12 @@ table a {
   margin-bottom: 3rem;
 }
 
+.tabled_view {
+  display: block;
+  width: 100%;
+  max-width: 675px;
+}
+
 .tabled_view table {
   width: 100%;
 }
@@ -232,6 +238,25 @@ table a {
 
   .column, .columns {
     width: 100%;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  label {
+    display: inline-block;
+    width: 20%;
+    text-align: left;
+    vertical-align: top;
+    margin-right: 20px;
+  }
+
+  .fields_container input:not([type=submit]), textarea {
+    display: inline-block;
+    width: 75% !important;
+  }
+
+  .fields_container input[type=submit] {
+    margin-right: 1.5%;
   }
 }
 
