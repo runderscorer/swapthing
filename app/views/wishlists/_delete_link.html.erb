@@ -1,0 +1,3 @@
+<div class='delete_icon'>
+  <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), user_wishlist_item_path(wishlist_id: params[:id], id: item.id), method: :delete %>
+</div>

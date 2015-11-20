@@ -17,6 +17,7 @@
         <div class='prod_name'><%= item.name %></div>
         <div class='prod_notes'><%= item.notes %></div>
       </div>
+      <%= @wishlist.show_delete_link item %>
       <%= @wishlist.show_edit_link item %>
   </div>
 <% end %>
