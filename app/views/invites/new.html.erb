@@ -1,30 +1,30 @@
 <h2>Invite people</h2>
-<p>Invite multiple people by including commas between email addresses.</p>
-<div class='card long'>
-  <div class='twelve columns form_container'>
-    <div class='fields_container'>
-    <%= form_tag event_invites_path do |f| %>
-      <%= label_tag :emails, 'Enter Email Addresses' %>
-      <%= text_field_tag :emails, nil, label: false, placeholder: 'sample@email.com, sample_2@email.com' %>
+<p class='hint left'>Invite multiple people by including commas between email addresses.</p>
 
-      <%= submit_tag 'Invite', class: 'button-primary' %>
-    <% end %>
-    </div>
-  </div>
-  <% if @unready_users.present? %>
-  <div class='tabled_view'>
-    <p class='subheader'>These invitees don't have any items in their wishlists yet.</p>
-    <table>
-    <% @unready_users.each do |user| %>
-    <tr>
-      <td><%= user.full_name %></td>
-      <td><%= user.email %></td>
-      <td><%= link_to 'Remind', reminder_path(user_id: user.id, event_id: @event.id) %></td>
-    </tr>
-    <% end %>
-    </table>
-  </div>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+  <%= form_tag event_invites_path do |f| %>
+    <%= label_tag :emails, 'Enter Email Addresses' %>
+    <%= text_field_tag :emails, nil, label: false, placeholder: 'sample@email.com, sample_2@email.com' %>
+
+    <%= submit_tag 'Invite', class: 'button-primary' %>
   <% end %>
+  </div>
 </div>
+
+<% if @unready_users.present? %>
+<div class='twelve columns tabled_view'>
+  <p class='subheader'>These invitees don't have any items in their wishlists yet.</p>
+  <table>
+  <% @unready_users.each do |user| %>
+  <tr>
+    <td><%= user.full_name %></td>
+    <td><%= user.email %></td>
+    <td><%= link_to 'Remind', reminder_path(user_id: user.id, event_id: @event.id) %></td>
+  </tr>
+  <% end %>
+  </table>
+</div>
+<% end %>
 
 
