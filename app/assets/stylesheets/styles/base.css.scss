@@ -225,6 +225,10 @@ table a {
     width: 80%;
     height: auto;
   }
+
+  .columns {
+    width: 100%;
+  }
 }
 
 @media (min-width: 505px) {
@@ -263,12 +267,6 @@ table a {
 @media (min-width: 938px) {
   .three.column.event_details, .three.columns.event_details {
     width: 45%;
-  }
-}
-
-@media (max-width: 880px) {
-  .column, .columns {
-    width: 30%;
   }
 }
 
