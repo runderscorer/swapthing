@@ -1,5 +1,10 @@
 class PartnershipsController < ApplicationController
+  before_action :get_event, only: [:index]
 
+  def index
+    @partnerships = @event.partnerships
+  end
+  
   def create
     event_id = params[:event_id]
     @event = Event.find event_id

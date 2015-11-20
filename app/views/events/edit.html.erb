@@ -19,17 +19,3 @@
     <% end %>
     </div>
   </div>
-
-  <% if @event.partnerships.present? %>
-  <div class='tabled_view'>
-    <p class='subheader'>Partnerships</p>
-    <table>
-      <% @event.partnerships.each do |partnership| %>
-      <tr>
-        <td><%= partnership.giver.full_name %></td>
-        <td><%= partnership.getter.full_name %></td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-  <% end %>

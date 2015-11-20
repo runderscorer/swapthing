@@ -1,0 +1,19 @@
+<h2>Partnerships</h2>
+<p class='hint left'>This is how your event participants are partnered together.</p>
+
+<% if @event.partnerships.present? %>
+<div class='tabled_view'>
+  <table>
+    <tr>
+      <th>Giver</th>
+      <th>Getter</th>
+    </tr>
+    <% @event.partnerships.each do |partnership| %>
+    <tr>
+      <td><%= partnership.giver.full_name %></td>
+      <td><%= partnership.getter.full_name %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+<% end %>
