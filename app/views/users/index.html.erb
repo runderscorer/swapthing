@@ -1,7 +1,9 @@
 <h2>Event Participants</h2>
+<% unless @event.partnerships.blank? %>
 <p class='hint left'>
   Click <%= link_to 'here', event_partnerships_path %> if you need to view your event's partnerships
 </p>
+<% end %>
 
 <ul>
   <%= render 'invite_users', event: @event %>
