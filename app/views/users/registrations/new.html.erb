@@ -1,20 +1,23 @@
 <h2>Sign up</h2>
-<div class='card long'>
-  <div class='twelve columns form_container'>
-    <div class='fields_container'>
-    <%= simple_form_for(@user, url: registration_path(@user)) do |f| %>
-      <%= f.input :fname, label: false, placeholder: 'First Name' %>
-      <%= f.input :lname, label: false, placeholder: 'Last Name' %>
-      <%= f.input :email, label: false, placeholder: 'Email' %>
-      <%= f.input :password, autocomplete: "off", label: false, placeholder: 'Password' %>
-      <div><%= f.input :password_confirmation, autocomplete: "off", label: false, placeholder: 'Retype Password' %></div>
+<div class='twelve columns form_container'>
+  <div class='fields_container'>
+  <%= simple_form_for(@user, url: registration_path(@user)) do |f| %>
+    <%= f.label :fname, 'First Name' %>
+    <%= f.input_field :fname, label: false, placeholder: 'First Name' %>
+    <%= f.label :lname, 'Last Name' %>
+    <%= f.input_field :lname, label: false, placeholder: 'Last Name' %>
+    <%= f.label :email, 'Email' %>
+    <%= f.input_field :email, label: false, placeholder: 'Email' %>
+    <%= f.label :password, 'Password' %>
+    <%= f.input_field :password, autocomplete: "off", label: false, placeholder: 'Password must be at least 8 characters' %>
+    <%= f.label :password_confirmation, 'Confirm Password' %>
+    <%= f.input_field :password_confirmation, autocomplete: "off", label: false, placeholder: 'Retype Password' %>
 
-        <% unless @token.blank? %>
-        <%= hidden_field_tag :invite_token, @token %>
-        <% end %>
-        
-      <%= f.submit 'Sign up', class: 'button-primary' %>
-    <% end %>
-    </div>
+      <% unless @token.blank? %>
+      <%= hidden_field_tag :invite_token, @token %>
+      <% end %>
+      
+    <%= f.submit 'Sign up', class: 'button-primary' %>
+  <% end %>
   </div>
 </div>
