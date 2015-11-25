@@ -1,11 +1,11 @@
+<p>Hi, <%= @partnership.giver.fname %>!</p>
+
 <p>Are you ready to find out who your mystery partner is?</p>
 
 <p>(...drumroll...)</p>
 
-<p>It's <%= @getter.full_name %> (<%= @getter.email %>)!</p>
+<p>It's <%= @partnership.getter.full_name %> (<%= @partnership.getter.email %>)!</p>
 
-<p>Click on the link below to log in to your Swap Thing account to view <%= @getter.fname %>'s wishlist.</p>
+<p>Click on the link below to log in to your Swap Thing account to view <%= @partnership.getter.fname %>'s wishlist.</p>
 
 <p><%= link_to "Start swapping", root_url %></p>
-
-<p>Happy swapping!</p>

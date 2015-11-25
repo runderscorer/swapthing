@@ -1,6 +1,9 @@
 <p>Hello, party person!</p>
 
-<p>You're invited to use Swap-Thing! <%= root_url %>, you can accept it through the link below.</p>
+<p>
+  You've been invited by <%= @invite.sender.fname %> to use Swap Thing for "<%= @invite.event.name %>". 
+  Accept the invitation by clicking the link below:
+</p>
 
 <p><%= link_to 'Accept invitation', new_user_registration_url(:invite_token => @token) %></p>
 

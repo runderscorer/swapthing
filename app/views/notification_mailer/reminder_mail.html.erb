@@ -2,11 +2,11 @@
 
 <p>
   Please add items to your wishlist so that <%= @event.admin.fname %> can start randomly assigning 
-  partners for <%= @event.name %>.
+  partners for "<%= @event.name %>".
 </p>
 
-<p><%= @event.name %> is happening on <%= @event.date.strftime('%A, %B %d') %>, so make haste!</p>
+<p>"<%= @event.name %>" is happening on <%= @event.date.strftime('%A, %B %d') %>, so make haste!</p>
 
 <p>What are you waiting for? Click on the link below to log in to your Swap Thing account.</p>
 
-<p><%= link_to "Take me to Swap-Thing!", root_url %></p>
+<p><%= link_to "Take me to Swap Thing!", root_url %></p>

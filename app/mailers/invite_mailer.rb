@@ -3,8 +3,9 @@ class InviteMailer < ActionMailer::Base
 
   def new_invitation(invite)
     @token = invite.token
+    @invite = invite
 
     mail to: invite.email,
-         subject: "You have been invited to use Swap-Thing!"
+         subject: "You have been invited to use Swap Thing!"
   end
 end
