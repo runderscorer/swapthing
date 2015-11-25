@@ -2,7 +2,7 @@
 <div class='twelve columns form_container'>
   <div class='fields_container'>
   <%= simple_form_for @event, url:{ action: 'create' } do |f| %>
-    <%= f.input_field :admin_id, as: :hidden, input_html: { value: current_user.id } %>
+    <%= f.input_field :admin_id, as: :hidden, value: current_user.id %>
 
     <%= f.label :name, 'Event Name' %>
     <%= f.input_field :name, label: false, placeholder: 'My Great Event' %>

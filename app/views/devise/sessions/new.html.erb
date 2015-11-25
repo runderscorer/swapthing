@@ -1,10 +1,14 @@
 <div class='sign_in_container'>
+  <% if params[:popular] %>
+    <p class='hint popular'>You're popular! Sign in to accept your event invitation.</p>
+  <% end %>
   <div class='sign_in'>
     <h2 class='title_top'>Swap</h2>
     <h2 class='title_bottom'>thing</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <%= f.input :email, label: false, placeholder: 'Email', autofocus: true %>
       <%= f.input :password, label: false, placeholder: 'Password', autocomplete: "off" %>
+      <%= hidden_field_tag 'popular', nil, { value: params[:popular] } %>
       <%= f.submit "Sign in", class: 'button-primary' %>
       <span><%= link_to 'Sign up', new_user_registration_path %></span>
     <% end %>

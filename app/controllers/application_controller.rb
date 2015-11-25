@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
 
   def after_sign_in_path_for(resource_or_scope)
+    if params[:popular] == 'true'
+      CreateAdditionalMembership.call current_user.email
+    end
+
     root_path
   end
 
