@@ -179,6 +179,14 @@ table a {
   filter: alpha(opacity=90);
 }
 
+.flash-message:after {
+  content: '\f00d';
+  font-family: 'FontAwesome';
+  position: absolute;
+  right: 15px;
+  top: 5px;
+}
+
 .notice-top {
   @extend .flash-message;
   background-color: $action_primary;
@@ -187,6 +195,10 @@ table a {
 .error-top {
   @extend .flash-message;
   background-color: $error_red;
+}
+
+.notice-top:hover, .error-top:hover {
+  cursor: pointer;
 }
 
 .left {
