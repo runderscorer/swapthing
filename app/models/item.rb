@@ -1,6 +1,11 @@
 class Item < ActiveRecord::Base
   belongs_to :wishlist  
-  has_attached_file :image, :styles => { :thumb => "270x240>" }
+  has_attached_file :image, 
+                    :styles => { thumb: "270x240>", original: "500x500" },
+                    :storage => :s3,
+                    :s3_credentials => Proc.new {|a| a.instance.s3_credentials},
+                    :path => "images/:id/:style/:filename"
+
   validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
   validates_presence_of :name, :price, :wishlist_id
   before_save :image_remote_url
@@ -19,5 +24,9 @@ class Item < ActiveRecord::Base
     else
       self.image = nil
     end
+  end
+
+  def s3_credentials
+    { bucket: 'swap-thing', access_key_id: ENV['S3_ACCESS_KEY'], secret_access_key: ENV['S3_SECRET_ACCESS_KEY'] }
   end
 end
