@@ -206,6 +206,11 @@ table a {
   margin-top: 20px;
 }
 
+span.image img {
+  width: 270px;
+  height: auto;
+}
+
 @media (max-width: 505px) {
   .navbar-item, .navbar-link {
     display: none;

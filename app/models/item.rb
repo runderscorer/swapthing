@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :wishlist  
   has_attached_file :image, 
-                    :styles => { thumb: "270x240>", original: "500x500" },
+                    :styles => { thumb: "270x240>", original: "500x500>" },
                     :storage => :s3,
                     :s3_credentials => Proc.new {|a| a.instance.s3_credentials},
                     :path => "images/:id/:style/:filename"

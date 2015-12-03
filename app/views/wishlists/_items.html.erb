@@ -5,7 +5,7 @@
       <a href=<%= item.url unless item.url.blank? %> >
         <div class='primary'>
           <% if item.image.present? %>
-            <span class='image'><%= image_tag item.image(:thumb) %></span>
+            <span class='image'><%= image_tag item.image(:original) %></span>
           <% else %>
             <%= content_tag(:i, nil, class: 'fa fa-gift fa-10x') %>
           <% end %>
