@@ -7,10 +7,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new
     @token = params[:invite_token]
 
-    exisiting_user = User.find_by email: Invite.find_by(token: @token).email
+    if @token
+      exisiting_user = User.find_by email: Invite.find_by(token: @token).email
 
-    if exisiting_user
-      redirect_to new_user_session_path popular: true
+      if exisiting_user
+        redirect_to new_user_session_path popular: true
+      end
+    else
+      super()
     end
   end
 
