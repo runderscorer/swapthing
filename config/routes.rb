@@ -1,5 +1,9 @@
 Swapthing::Application.routes.draw do
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+
+  devise_scope :user do
+    get '/forgot_password' => 'users/sessions#forgot_password', :as => 'forgot_password'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

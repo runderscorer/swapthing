@@ -10,7 +10,10 @@
       <%= f.input :password, label: false, placeholder: 'Password', autocomplete: "off" %>
       <%= hidden_field_tag 'popular', nil, { value: params[:popular] } %>
       <%= f.submit "Sign in", class: 'button-primary' %>
-      <span><%= link_to 'Sign up', new_user_registration_path %></span>
+      <div>
+        <span><%= link_to 'Sign up', new_user_registration_path %></span>
+        <span><%= link_to 'Forgot password?', forgot_password_path %></span>
+      </div>
     <% end %>
   </div>
 </div>
