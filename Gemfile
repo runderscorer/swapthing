@@ -7,6 +7,7 @@ gem 'pg'
 gem 'devise'
 gem 'devise_invitable'
 gem 'simple_form'
+gem 'dotenv-rails'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
@@ -38,7 +39,7 @@ gem 'paperclip'
 
 gem 'pickadate-rails'
 
-gem 'aws-sdk-v1'
+gem 'aws-sdk'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
