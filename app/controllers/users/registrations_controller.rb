@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     super()
     @token = params[:invite_token]
-    
+
     unless @token.blank?
       invite = Invite.find_by token: @token
       invite.accepted_at = Time.now
@@ -43,12 +43,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
     else
       @user.update_without_password(user_params)
     end
-    
+
     if @user.save
       sign_in current_user, bypass: true
       flash[:notice] = 'Cool! Your profile has been updated.'
       redirect_to events_path
-    else 
+    else
       flash.now[:error] = 'Your profile was not updated. Please review the errors below.'
       render :edit
     end
@@ -67,6 +67,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.for(:sign_up).push(:fname, :lname)
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:fname, :lname])
   end
 end
