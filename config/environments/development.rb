@@ -18,11 +18,12 @@ Swapthing::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-      address: "smtp.gmail.com",
-      port: 587,
-      domain: "gmail.com",
-      user_name: "mydevappmailer@gmail.com",
-      password: "!auction123"
+    address: "smtp.mailgun.org",
+    port: 587,
+    domain: ENV['MAILGUN_DOMAIN'],
+    user_name: ENV['MAILGUN_USERNAME'],
+    password: ENV['MAILGUN_PASSWORD'],
+    authentication: :plain
   }
   config.action_mailer.perform_deliveries = true
 

@@ -1,5 +1,5 @@
 class NotificationMailer < ActionMailer::Base
-  default from: 'help@swap-thing.com'
+  default from: 'swapthing <mail@letsswapthings.com>'
 
   def invitation_instructions(user)
     @user = user

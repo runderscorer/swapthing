@@ -1,5 +1,5 @@
 class InviteMailer < ActionMailer::Base
-  default from: 'help@swap-thing.com'
+  default from: 'swapthing <mail@letsswapthings.com>'
 
   def new_invitation(invite)
     @token = invite.token
