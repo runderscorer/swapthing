@@ -11,7 +11,7 @@ class PartnershipsController < ApplicationController
     participants = @event.users
     @event.partnerships.delete_all if @event.partnerships.present?
 
-    partnerships = @event.users.map! {|user| @event.partnerships.new(giver_id: user.id)}
+    partnerships = @event.users.map {|user| @event.partnerships.new(giver_id: user.id)}
 
     AssignPartners.call(partnerships)
 
