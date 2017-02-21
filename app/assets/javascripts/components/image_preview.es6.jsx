@@ -3,15 +3,17 @@ class ImagePreview extends React.Component {
     const { imageUrl } = this.props;
 
     if (imageUrl) {
-      return <img src={imageUrl} style={{ maxHeight: '300px' }} />
-    } else {
-      return <p>No image preview</p>
+      return(
+        <div className='image_url_preview'>
+          <img src={imageUrl} style={{ maxHeight: '300px' }} />
+        </div>
+      );
     }
   }
 
   render () {
     return(
-      <div class='image_url_preview'>
+      <div>
         {this.displayImagePreview()}
       </div>
     );

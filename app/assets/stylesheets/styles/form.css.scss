@@ -121,6 +121,14 @@ input[type=submit].button-primary:hover {
   border-radius: 3px;
 }
 
+.image_url_preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  padding: 5px;
+}
+
 ::-webkit-input-placeholder {
    color: $inactive_color;
    font-weight: 100;
