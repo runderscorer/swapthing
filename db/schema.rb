@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20161210135339) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string   "name",         limit: 255
+    t.string   "name"
     t.datetime "date"
     t.text     "description"
     t.integer  "max_spend"
@@ -27,26 +27,26 @@ ActiveRecord::Schema.define(version: 20161210135339) do
   end
 
   create_table "invites", force: :cascade do |t|
-    t.string   "sender_id",    limit: 255
-    t.string   "recipient_id", limit: 255
+    t.string   "sender_id"
+    t.string   "recipient_id"
     t.datetime "accepted_at"
-    t.string   "event_id",     limit: 255
-    t.string   "created_at",   limit: 255
-    t.string   "token",        limit: 255
-    t.string   "email",        limit: 255
+    t.string   "event_id"
+    t.string   "created_at"
+    t.string   "token"
+    t.string   "email"
   end
 
   create_table "items", force: :cascade do |t|
     t.integer  "wishlist_id"
-    t.string   "name",               limit: 255
+    t.string   "name"
     t.integer  "price"
-    t.string   "notes",              limit: 255
+    t.string   "notes"
     t.text     "url"
-    t.string   "image_file_name",    limit: 255
-    t.string   "image_content_type", limit: 255
+    t.string   "image_file_name"
+    t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.string   "image_url",          limit: 255
+    t.string   "image_url"
   end
 
   create_table "memberships", force: :cascade do |t|
@@ -63,28 +63,28 @@ ActiveRecord::Schema.define(version: 20161210135339) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: ""
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: ""
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "invitation_token",       limit: 255
+    t.string   "invitation_token"
     t.datetime "invitation_created_at"
     t.datetime "invitation_sent_at"
     t.datetime "invitation_accepted_at"
     t.integer  "invitation_limit"
+    t.string   "invited_by_type"
     t.integer  "invited_by_id"
-    t.string   "invited_by_type",        limit: 255
-    t.integer  "invitations_count",                  default: 0
-    t.string   "fname",                  limit: 255
-    t.string   "lname",                  limit: 255
+    t.integer  "invitations_count",      default: 0
+    t.string   "fname"
+    t.string   "lname"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true, using: :btree
     t.index ["invitations_count"], name: "index_users_on_invitations_count", using: :btree
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 20161210135339) do
   end
 
   create_table "wishlists", force: :cascade do |t|
-    t.string  "name",    limit: 255
+    t.string  "name"
     t.integer "user_id"
   end
 
