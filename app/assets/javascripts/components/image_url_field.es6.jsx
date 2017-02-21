@@ -1,7 +1,7 @@
 class ImageUrlField extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { imageUrl: this.props.imageUrl }
+    this.state = { imageUrl: this.props.imageUrl || '' }
 
     this.handleImageUrlChange = this.handleImageUrlChange.bind(this)
   }
