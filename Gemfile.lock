@@ -98,6 +98,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.1)
+    database_cleaner (1.5.3)
     devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -294,6 +295,7 @@ DEPENDENCIES
   capybara
   capybara-webkit
   coffee-rails
+  database_cleaner
   devise
   devise_invitable
   dotenv-rails
