@@ -63,6 +63,8 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'capybara-webkit'
+  gem 'rails-controller-testing'
+  gem 'database_cleaner'
 end
 
 # Use ActiveModel has_secure_password
