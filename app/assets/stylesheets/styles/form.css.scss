@@ -41,6 +41,12 @@
   margin-top: 20px;
 }
 
+.form_container .error {
+  color: #F2473F;
+  display: flex;
+  justify-content: center;
+}
+
 input:not([type=submit]), textarea {
   background-color: $background_color;
   border: none;
