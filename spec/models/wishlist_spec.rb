@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Wishlist do
+describe Wishlist, type: :model do
   context 'validations' do
     it { should validate_presence_of :user_id }
   end
