@@ -50,4 +50,7 @@ Swapthing::Application.configure do
       s3_region: ENV.fetch('AWS_REGION'),
     }
   }
+
+  config.react.variant = :development
+
 end

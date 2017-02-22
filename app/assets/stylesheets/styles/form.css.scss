@@ -41,6 +41,12 @@
   margin-top: 20px;
 }
 
+.form_container .error {
+  color: #F2473F;
+  display: flex;
+  justify-content: center;
+}
+
 input:not([type=submit]), textarea {
   background-color: $background_color;
   border: none;
@@ -119,6 +125,14 @@ input[type=submit].button-primary:hover {
   background-color: $action-primary;
   line-height: 4em;
   border-radius: 3px;
+}
+
+.image_url_preview {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+  background-color: #f9f9f9;
+  padding: 5px;
 }
 
 ::-webkit-input-placeholder {
