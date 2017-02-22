@@ -4,16 +4,20 @@
     <%= simple_form_for @event do |f| %>
       <%= f.label :name, 'Event Name' %>
       <%= f.input_field :name, label: false, placeholder: 'My Great Event' %>
+      <%= f.error :name %>
 
       <%= f.label :description, 'Description' %>
       <%= f.input_field :description, label: false, placeholder: 'Our annual gift exchange' %>      
+      <%= f.error :description %>
 
       <%= f.label :date, 'Date' %>
       <%= f.input_field :date, as: :string, label: false, placeholder: '01/01/15', 
                   value: f.object.date.strftime("%m/%d/%y") %>
+      <%= f.error :date %>
 
       <%= f.label :max_spend, 'Spending Limit' %>
       <%= f.input_field :max_spend, label: false, placeholder: '50' %>
+      <%= f.error :max_spend %>
 
       <%= f.submit class: 'button-primary' %>
     <% end %>
