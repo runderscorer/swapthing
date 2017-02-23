@@ -35,7 +35,7 @@ module Pages
       within('.form_container') do
         fill_in 'Item Name', with: new_name
 
-        click_button 'Edit Item'
+        click_button 'Update Item'
       end
     end
   end
