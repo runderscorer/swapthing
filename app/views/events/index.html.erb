@@ -19,7 +19,7 @@
           <%= link_to content_tag(:i, nil, class: 'fa fa-users'), event_users_path(event.id) %>
         </div>
         <div class='right_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o fa-lg'), edit_event_path(event) %>
+          <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o fa-lg'), edit_event_path(event), id: "edit-event-#{event.id}" %>
         </div>
       </div>
       <% end %>
