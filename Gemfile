@@ -65,6 +65,7 @@ group :development, :test do
   gem 'capybara-webkit'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
+  gem 'capybara-screenshot'
 end
 
 # Use ActiveModel has_secure_password
