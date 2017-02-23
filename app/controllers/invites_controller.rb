@@ -1,5 +1,5 @@
 class InvitesController < ApplicationController
-  before_filter :get_event
+  before_action :get_event
   before_action :admin_check
   before_action :get_unready_users
   before_action only: [:create] do 

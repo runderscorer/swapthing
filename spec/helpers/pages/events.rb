@@ -24,5 +24,14 @@ module Pages
         click_button 'Add Event'
       end
     end
+
+    def edit_name(event_id, name)
+      find("#edit-event-#{event_id}").click
+      within('.form_container') do
+        fill_in 'Event Name', with: name
+
+        click_button 'Update Event'
+      end
+    end
   end
 end

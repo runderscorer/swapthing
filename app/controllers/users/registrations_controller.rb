@@ -1,7 +1,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  skip_before_filter :require_no_authentication
+  skip_before_action :require_no_authentication
   before_action :authenticate_user!
-  before_filter :configure_permitted_parameters
+  before_action :configure_permitted_parameters
 
   def new
     @user = User.new
