@@ -12,13 +12,18 @@ class PartnershipsController < ApplicationController
     @event.partnerships.delete_all if @event.partnerships.present?
 
     partnerships = @event.users.map {|user| @event.partnerships.new(giver_id: user.id)}
+    
+    if partnerships.count < 2
+      flash[:error] = 'You need at least two to tango.'
+    else
+      AssignPartners.call(partnerships)
 
-    AssignPartners.call(partnerships)
-
-    partnerships.each do |partnership|
-      NotificationMailer.partner_assignment_mail(partnership).deliver
+      partnerships.each do |partnership|
+        NotificationMailer.partner_assignment_mail(partnership).deliver
+      end
+      flash[:notice] = 'High five! Partners have been assigned.'
     end
-    flash[:notice] = 'High five! Partners have been assigned.'
+
     redirect_to event_users_path
   end
 
