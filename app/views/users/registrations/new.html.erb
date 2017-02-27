@@ -20,6 +20,7 @@
 
     <%= f.label :password_confirmation, 'Confirm Password' %>
     <%= f.input_field :password_confirmation, autocomplete: "off", label: false, placeholder: 'Retype Password' %>
+    <%= f.error :password_confirmation %>
 
     <% unless @token.blank? %>
       <%= hidden_field_tag :invite_token, @token %>
