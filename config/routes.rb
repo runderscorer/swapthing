@@ -1,5 +1,9 @@
 Swapthing::Application.routes.draw do
-  devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
+  devise_for :users, controllers: { 
+    registrations: 'users/registrations', 
+    sessions: 'users/sessions',
+    passwords: 'users/passwords'
+  }
 
   devise_scope :user do
     get '/forgot_password' => 'users/sessions#forgot_password', :as => 'forgot_password'
