@@ -8,6 +8,7 @@ class Users::PasswordsController < Devise::PasswordsController
       flash[:error] = 'Bummer. There was a problem with your email address.'
       redirect_to forgot_password_path
     else
+      flash[:notice] = "Hang tight - A password reset has been sent to #{resource.email}"
       respond_with({}, location: after_sending_reset_password_instructions_path_for(resource_name))
     end
   end
