@@ -4,18 +4,27 @@
   <%= simple_form_for(@user, url: registration_path(@user)) do |f| %>
     <%= f.label :fname, 'First Name' %>
     <%= f.input_field :fname, label: false, placeholder: 'First Name' %>
+    <%= f.error :fname %>
+
     <%= f.label :lname, 'Last Name' %>
     <%= f.input_field :lname, label: false, placeholder: 'Last Name' %>
+    <%= f.error :lname %>
+
     <%= f.label :email, 'Email' %>
     <%= f.input_field :email, label: false, placeholder: 'Email' %>
+    <%= f.error :email %>
+
     <%= f.label :password, 'Password' %>
     <%= f.input_field :password, autocomplete: "off", label: false, placeholder: 'Password must be at least 8 characters' %>
+    <%= f.error :password %>
+
     <%= f.label :password_confirmation, 'Confirm Password' %>
     <%= f.input_field :password_confirmation, autocomplete: "off", label: false, placeholder: 'Retype Password' %>
+    <%= f.error :password_confirmation %>
 
-      <% unless @token.blank? %>
+    <% unless @token.blank? %>
       <%= hidden_field_tag :invite_token, @token %>
-      <% end %>
+    <% end %>
       
     <%= f.submit 'Sign up', class: 'button-primary' %>
   <% end %>
