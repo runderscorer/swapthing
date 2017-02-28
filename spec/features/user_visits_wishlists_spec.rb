@@ -45,4 +45,23 @@ describe 'User visits wishlist page' do
       expect(page).to have_content 'Twilight Zone'
     end
   end
+
+  context 'deleting an item' do
+    before do
+      user = FactoryGirl.create(:user)
+      wishlist = FactoryGirl.create(:wishlist, user_id: user.id)
+      @item = FactoryGirl.create(:item, wishlist_id: wishlist.id)
+
+      sign_in(user.email, user.password)
+    end
+
+    it 'should delete an item' do
+      wishlist_page = Pages::Wishlists.new
+      wishlist_page.index_with_items
+      expect(page).to have_content @item.name
+      wishlist_page.delete(@item.id)
+
+      expect(page).to_not have_content @item.name
+    end
+  end
 end

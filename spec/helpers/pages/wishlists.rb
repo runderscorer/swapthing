@@ -38,5 +38,9 @@ module Pages
         click_button 'Update Item'
       end
     end
+
+    def delete(item_id)
+      find("#delete-item-#{item_id}").click
+    end
   end
 end
