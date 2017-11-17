@@ -8,4 +8,4 @@
 
 <p>Click on the link below to log in to your Swap Thing account to view <%= @partnership.getter.fname %>'s wishlist.</p>
 
-<p><%= link_to "Start swapping", root_url %></p>
+<p><%= link_to "Start swapping", new_user_session_url(email: @partnership.giver.email) %></p>

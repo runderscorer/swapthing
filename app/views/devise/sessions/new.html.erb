@@ -6,7 +6,7 @@
     <h2 class='title_top'>Swap</h2>
     <h2 class='title_bottom'>thing</h2>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <%= f.input :email, label: false, placeholder: 'Email', autofocus: true %>
+      <%= f.input :email, label: false, placeholder: 'Email', autofocus: true, input_html: { value: params[:email] } %>
       <%= f.input :password, label: false, placeholder: 'Password', autocomplete: "off" %>
       <%= hidden_field_tag 'popular', nil, { value: params[:popular] } %>
       <%= f.submit "Sign in", class: 'button-primary' %>

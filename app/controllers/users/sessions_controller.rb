@@ -2,7 +2,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def new
     super
-  end 
+  end
 
   def create
     self.resource = warden.authenticate(auth_options)
@@ -18,4 +18,3 @@ class Users::SessionsController < Devise::SessionsController
   end
 
 end
-
