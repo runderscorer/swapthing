@@ -7,6 +7,6 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :description, :date, :max_spend
 
   def self.all_by_user(user)
-    joins(:memberships).where(memberships: { user_id: user.id }).order(:created_at)
+    joins(:memberships).where(memberships: { user_id: user.id }).order('date desc')
   end
 end
