@@ -40,7 +40,7 @@
 
 .ev_max div {
   padding-top: 75px;
-  font-size: 3em;  
+  font-size: 3em;
 }
 
 .ev_max {
@@ -68,4 +68,8 @@
   position: relative;
   content: 'Your Partner Is';
   font-weight: 100;
+}
+
+.partner_info button a {
+  color: $background_color;
 }
