@@ -1,24 +1,22 @@
 class ImageUrlField extends React.Component {
   constructor(props) {
     super(props)
-    this.state = { 
-      imageUrl: this.props.imageUrl || '', 
+    this.state = {
+      imageUrl: this.props.imageUrl || '',
       error: this.props.error || ''
-    }
+    };
 
-    this.handleImageUrlChange = this.handleImageUrlChange.bind(this)
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleImageUrlChange(event) {
-    this.setState({ imageUrl: event.target.value })
+  handleChange(event) {
+    this.setState({ imageUrl: event.target.value });
   }
 
   displayErrorMessage(message) {
     if (message.length) {
-      return(
-        <p className='error'>{message}</p>
-      )
-    }
+      return <p className='error'>{message}</p>;
+    };
   }
 
   render () {
@@ -27,19 +25,16 @@ class ImageUrlField extends React.Component {
     return(
       <div>
         <label name='item_image_url'>Image URL</label>
-        <input 
-          name='item[image_url]' 
-          type='text' 
+        <input
+          name='item[image_url]'
+          type='text'
           value={this.state.imageUrl}
-          onChange={this.handleImageUrlChange}
+          onChange={this.handleChange}
           placeholder='www.amazon.com/movies/terminator_2.jpg'
         />
-        
         { this.displayErrorMessage(error) }
-
         <ImagePreview imageUrl={imageUrl} />
       </div>
-    )
+    );
   }
 }
-

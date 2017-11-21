@@ -24,7 +24,6 @@
 
 .event_max_spend:before, .item_price:before {
   content: '$';
-  position: absolute;
   padding: 10px 10px;
   color: $inactive_color;
 }
@@ -128,10 +127,11 @@ input[type=submit].button-primary:hover {
 }
 
 .image_url_preview {
+  background-color: #f9f9f9;
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
-  background-color: #f9f9f9;
+  max-height: 300px;
   padding: 5px;
 }
 
@@ -142,15 +142,15 @@ input[type=submit].button-primary:hover {
 
 :-moz-placeholder { /* Firefox 18- */
    color: $inactive_color;
-   font-weight: 100;  
+   font-weight: 100;
 }
 
 ::-moz-placeholder {  /* Firefox 19+ */
    color: $inactive_color;
-   font-weight: 100;  
+   font-weight: 100;
 }
 
-:-ms-input-placeholder {  
+:-ms-input-placeholder {
    color: $inactive_color;
-   font-weight: 100;  
+   font-weight: 100;
 }

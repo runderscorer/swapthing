@@ -6,6 +6,7 @@ html, body {
 
 button {
   border-radius: 0;
+  margin-bottom: 0;
 }
 
 .container {
@@ -22,6 +23,10 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 
 h2 {
   color: $accent_color;
+}
+
+label {
+  margin-bottom: 0;
 }
 
 textarea {
@@ -216,8 +221,13 @@ span.image img {
 }
 
 .single-input {
+  align-items: center;
   display: flex;
   justify-content: space-between;
+}
+
+.single-input input {
+  margin-bottom: 0;
 }
 
 @media (max-width: 505px) {
@@ -257,12 +267,28 @@ span.image img {
     height: auto;
   }
 
+  button {
+    margin-bottom: $small-spacing;
+  }
+
   .columns {
     width: 100%;
   }
 
+  label {
+    margin-bottom: $small-spacing;
+  }
+
   .single-input {
-    flex-direction: column;
+    display: block;
+  }
+
+  .single-input input {
+    margin-bottom: $medium-spacing;
+  }
+
+  .single-input button {
+    width: 100%;
   }
 
   input[type=submit], input[type=text] {
