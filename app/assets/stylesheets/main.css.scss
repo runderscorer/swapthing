@@ -1,14 +1,15 @@
-@import 'mixins/colors.css.scss';
+@import 'mixins/variables.css.scss';
 
 @import 'normalize.css.scss';
 @import 'skeleton.css.scss';
 
 @import 'styles/base.css.scss';
+@import 'styles/brand.css.scss';
 @import 'styles/card_layout.css.scss';
 @import 'styles/event.css.scss';
 @import 'styles/form.css.scss';
+@import 'styles/list.css.scss';
 @import 'styles/users.css.scss';
-@import 'styles/brand.css.scss';
 
 @import 'pickadate/classic';
 @import 'pickadate/classic.date';

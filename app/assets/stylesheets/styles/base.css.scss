@@ -4,6 +4,10 @@ html, body {
   height: 100%;
 }
 
+button {
+  border-radius: 0;
+}
+
 .container {
   padding: 0 20px;
   height: 100%;
@@ -211,6 +215,11 @@ span.image img {
   height: auto;
 }
 
+.single-input {
+  display: flex;
+  justify-content: space-between;
+}
+
 @media (max-width: 505px) {
   .navbar-item, .navbar-link {
     display: none;
@@ -249,6 +258,14 @@ span.image img {
   }
 
   .columns {
+    width: 100%;
+  }
+
+  .single-input {
+    flex-direction: column;
+  }
+
+  input[type=submit], input[type=text] {
     width: 100%;
   }
 }

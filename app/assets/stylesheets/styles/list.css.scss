@@ -1,0 +1,18 @@
+.list-item {
+  align-items: baseline;
+  border-top: solid 1px $background_color;
+  display: flex;
+  justify-content: space-between;
+  padding: $list-padding;
+}
+
+.list-item span:last-of-type {
+  cursor: pointer;
+  font-size: $button-font-size;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.list-items {
+  margin-bottom: $medium-space;
+}

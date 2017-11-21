@@ -2,7 +2,7 @@ class InvitesController < ApplicationController
   before_action :get_event
   before_action :admin_check
   before_action :get_unready_users
-  before_action only: [:create] do 
+  before_action only: [:create] do
     validate_emails params[:emails]
   end
 
@@ -11,9 +11,7 @@ class InvitesController < ApplicationController
   end
 
   def create
-    emails = params[:emails].split(',').map(&:strip)
-
-    emails.each do |email|
+    params[:emails].each do |email|
       invite = Invite.new(email: email)
       token = SecureRandom.urlsafe_base64
 
@@ -58,10 +56,10 @@ class InvitesController < ApplicationController
   end
 
   def validate_emails emails
-    emails.split(',').map(&:strip).each do |email|
+    emails.each do |email|
       if !valid_email_format email
         flash[:error] = 'Please enter a valid email address.'
-        redirect_to new_event_invite_path and return 
+        redirect_to new_event_invite_path and return
       end
     end
   end

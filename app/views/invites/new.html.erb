@@ -1,15 +1,7 @@
 <h2>Invite people</h2>
-<p class='hint left'>Invite multiple people by including commas between email addresses.</p>
 
-<div class='twelve columns form_container'>
-  <div class='fields_container'>
-  <%= form_tag event_invites_path do |f| %>
-    <%= label_tag :emails, 'Enter Email Addresses' %>
-    <%= text_field_tag :emails, nil, label: false, placeholder: 'sample@email.com, sample_2@email.com' %>
-
-    <%= submit_tag 'Invite', class: 'button-primary' %>
-  <% end %>
-  </div>
+<div class='twelve columns form_container invites'>
+  <%= react_component 'InviteForm', eventId: @event.id, authenticityToken: form_authenticity_token %>
 </div>
 
 <% if @unready_users.present? %>
@@ -26,5 +18,3 @@
   </table>
 </div>
 <% end %>
-
-
