@@ -2,7 +2,7 @@
 <%= @wishlist.show_add_item_card %>
 <% @wishlist.items.each do |item| %>
   <div class='three columns card'>
-      <a href=<%= item.url unless item.url.blank? %> >
+      <%= link_to item.url.presence, target:'_blank' do %>
         <div class='primary'>
           <% if item.image.present? %>
             <span class='image'><%= image_tag item.image(:original) %></span>
@@ -11,7 +11,7 @@
           <% end %>
           <div class='prod_price'><%= number_to_currency item.price, precision: 0 %></div>
         </div>
-      </a>
+      <% end %>
       <div class='secondary'>
         <div class='prod_source'><%= item.short_url if item.url.present? %></div>
         <div class='prod_name'><%= item.name %></div>
