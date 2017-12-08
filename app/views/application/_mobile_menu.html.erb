@@ -5,15 +5,9 @@
   <li class='mobile-menu-item'>
     <%= link_to 'Events', events_path %>
   </li>
-  <% if current_user.wishlist.present? %>
-    <li class='mobile-menu-item'>
-      <%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id) %>
-    </li>
-  <% else %>
-    <li class='mobile-menu-item'>
-      <%= link_to 'Create Wishlist', new_user_wishlist_path(current_user.id) %>
-    </li>
-  <% end %>
+  <li class='mobile-menu-item'>
+    <%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id) %>
+  </li>
   <li class='mobile-menu-item'>
     <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete' %>
   </li>

@@ -27,8 +27,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
       invite.accepted_at = Time.now
       invite.save
 
-      membership = Membership.new(user_id: @user.id, event_id: invite.event_id)
-      membership.save
+      Membership.create(user_id: @user.id, event_id: invite.event_id)
+      Wishlist.create(user_id: @user.id)
     end
   end
 
