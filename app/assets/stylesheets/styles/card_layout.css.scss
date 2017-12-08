@@ -81,9 +81,8 @@
 }
 
 .secondary {
-  position: relative;
-  width: 100%;
-  margin-top: 25px;
+  margin-top: $medium_spacing;
+  padding: $small_spacing;
   text-align: center;
 }
 

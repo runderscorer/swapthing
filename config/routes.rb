@@ -27,5 +27,5 @@ Swapthing::Application.routes.draw do
     end
   end
 
-  get '/reminder', to: 'invites#reminder'
+  get '/wishlist_reminder', to: 'wishlists#reminder'
 end

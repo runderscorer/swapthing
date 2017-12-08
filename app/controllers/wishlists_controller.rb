@@ -2,10 +2,8 @@ class WishlistsController < ApplicationController
   before_action :get_items, only: [:show, :edit, :update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
   before_action :get_user, only: [:new, :create, :show, :edit, :update]
-  # around_action :check_user_memberships, except: [:index, :new, :create]
-  
+
   def new
-    # @wishlist = Wishlist.new(user_id: @user.id)
     create
   end
 
@@ -30,6 +28,18 @@ class WishlistsController < ApplicationController
     end
   end
 
+  def reminder
+    user_email = User.find(params[:user_id]).email
+
+    if NotificationMailer.reminder_mail(params[:user_id]).deliver
+      flash[:notice] = "Awesome! An reminder has been sent to #{user_email}."
+    else
+      flash[:error] = "Uh oh. Something went wrong. Try again."
+    end
+
+    redirect_back fallback_location: :show, id: params[:id]
+  end
+  
   private
 
   def wishlist_params

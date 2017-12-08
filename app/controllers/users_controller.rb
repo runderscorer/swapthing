@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :admin_check, only: [:index]
 
   def index
-    @pending_users = @event.invites.where(accepted_at: nil)
+    @pending_user_invites = @event.invites.where(accepted_at: nil)
     @users = @event.users.joins(:wishlist)
     @user = User.find(current_user).decorate
   end

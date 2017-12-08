@@ -3,18 +3,3 @@
 <div class='twelve columns form_container invites'>
   <%= react_component 'InviteForm', eventId: @event.id, authenticityToken: form_authenticity_token %>
 </div>
-
-<% if @unready_users.present? %>
-<div class='twelve columns tabled_view'>
-  <p class='subheader'>These invitees don't have any items in their wishlists yet.</p>
-  <table>
-  <% @unready_users.each do |user| %>
-  <tr>
-    <td><%= user.full_name %></td>
-    <td><%= user.email %></td>
-    <td><%= link_to 'Remind', reminder_path(user_id: user.id, event_id: @event.id) %></td>
-  </tr>
-  <% end %>
-  </table>
-</div>
-<% end %>

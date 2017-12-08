@@ -11,21 +11,28 @@
 
   <div class='twelve columns'>
     <% @users.each do |user| %>
-    <li class='three columns card'>
-      <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
-      <div class='secondary'>
-        <p><%= user.full_name %></p>
-      </div>
-    </li>
+      <li class='three columns card'>
+        <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
+        <div class='secondary'>
+          <p><%= user.full_name %></p>
+        </div>
+      </li>
     <% end %>
-    <% @pending_users.each do |pending_user| %>
-    <li class='three columns card pending'>
-      <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
-      <div class='secondary'>
-        <p>Pending</p>
-        <p><%= pending_user.email %></p>
-      </div>
-    </li>
+
+    <% @pending_user_invites.each do |pending_user_invite| %>
+      <li class='three columns card pending'>
+        <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
+        <div class='secondary'>
+          <p>Pending</p>
+          <p><%= pending_user_invite.email %></p>
+        </div>
+        <div class='left_icon'>
+          <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id), id: "delete-item-#{pending_user_invite.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+        <div class='right_icon'>
+          <%= link_to content_tag(:i, nil, class: 'fa fa-hand-o-right fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id) %>
+        </div>
+      </li>
     <% end %>
   </div>
 </ul>

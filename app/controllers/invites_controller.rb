@@ -1,7 +1,6 @@
 class InvitesController < ApplicationController
-  before_action :get_event
-  before_action :admin_check
-  before_action :get_unready_users
+  before_action :get_event, except: [:reminder]
+  before_action :admin_check, except: [:reminder]
   before_action only: [:create] do
     validate_emails params[:emails]
   end
@@ -30,26 +29,10 @@ class InvitesController < ApplicationController
   def destroy
     invite = Invite.find(params[:id])
     invite.destroy
-    redirect_to new_event_invite_path
-  end
-
-  def reminder
-    user_email = User.find(params[:user_id]).email
-
-    if NotificationMailer.reminder_mail(params[:user_id], params[:event_id]).deliver
-      flash[:notice] = "Awesome! An reminder has been sent to #{user_email}."
-    else
-      flash[:error] = "Uh oh. Something went wrong. Try again."
-    end
-
-    redirect_to new_event_invite_path @event
+    redirect_back fallback_location: :index, event_id: @event.id
   end
 
   private
-
-  def get_unready_users
-    @unready_users = @event.users.includes(:wishlist).where(wishlists: {id: nil})
-  end
 
   def invite_params
     params.require(:invite).permit(:sender_id, :recipient_id, :accepted_at, :event_id, :created_at, :token, :email)

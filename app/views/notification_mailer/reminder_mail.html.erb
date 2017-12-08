@@ -1,12 +1,7 @@
-<p>The game can't start without you!</p>
+<p>Psst!</p>
 
-<p>
-  Please add items to your wishlist so that <%= @event.admin.fname %> can start randomly assigning 
-  partners for "<%= @event.name %>".
-</p>
+<p>Your Swapthing partner would like you add some items to your wishlist.</p>
 
-<p>"<%= @event.name %>" is happening on <%= @event.date.strftime('%A, %B %d') %>, so make haste!</p>
+<p>Click on the link below to log in to your Swap Thing account and click <strong>My Wishlist > Add Item</strong> to get started.</p>
 
-<p>What are you waiting for? Click on the link below to log in to your Swap Thing account.</p>
-
-<p><%= link_to "Take me to Swap Thing!", root_url %></p>
+<p><%= link_to "Login to Swapthing", root_url %></p>
