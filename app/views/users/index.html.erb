@@ -14,7 +14,16 @@
     <li class='three columns card'>
       <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
       <div class='secondary'>
-        <span><%= user.full_name %></span>
+        <p><%= user.full_name %></p>
+      </div>
+    </li>
+    <% end %>
+    <% @pending_users.each do |pending_user| %>
+    <li class='three columns card pending'>
+      <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
+      <div class='secondary'>
+        <p>Pending</p>
+        <p><%= pending_user.email %></p>
       </div>
     </li>
     <% end %>
