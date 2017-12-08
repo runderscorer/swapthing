@@ -30,8 +30,8 @@
 }
 
 .long {
-  height: auto; 
-  overflow: visible; 
+  height: auto;
+  overflow: visible;
 }
 
 .primary {
@@ -128,10 +128,12 @@
   bottom: 5%;
 }
 
-.secondary span {
+.secondary p:first-of-type {
   font-color: #444;
   font-size: 1.5em;
   text-transform: uppercase;
-  line-height: 4.5;
-  display: inline-block;
+}
+
+.pending {
+  color: $accent_color;
 }

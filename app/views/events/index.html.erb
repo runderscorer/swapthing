@@ -11,7 +11,7 @@
         <span class='event_date'><%= event.date.strftime('%b %d %Y') %></span>
       </div>
       <div class='secondary'>
-        <span><%= link_to 'View Event', event_path(event) %></span>
+        <p><%= link_to 'View Event', event_path(event) %></p>
       </div>
       <% if event.admin == current_user %>
       <div class='edit_actions'>
