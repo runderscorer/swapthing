@@ -6,12 +6,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @token = params[:invite_token]
+    invite = Invite.find_by(token: @token)
 
     if @token
-      exisiting_user = User.find_by email: Invite.find_by(token: @token).email
+      exisiting_user = User.find_by email: invite.email
 
       if exisiting_user
-        redirect_to new_user_session_path popular: true
+        redirect_to new_user_session_path email: invite.email, event_id: invite.event_id
       end
     else
       super()
