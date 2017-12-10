@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   before_action :admin_check, only: [:edit]
   before_action :format_date, only: [:create, :update]
   before_action :clear_event_session, only: [:index]
-  
+
   def index
     @events = Event.all_by_user(current_user)
   end
