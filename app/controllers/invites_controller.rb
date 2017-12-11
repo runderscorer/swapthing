@@ -20,7 +20,7 @@ class InvitesController < ApplicationController
         InviteMailer.new_invitation(invite).deliver
         flash[:notice] = "Sweet! Your invitations have been sent."
       else
-        flash[:error] = 'Uh oh. Something went wrong. Try again.'
+        flash[:error] = "Uh oh. Something went wrong. Try again."
       end
     end
     redirect_to new_event_invite_path
@@ -30,6 +30,18 @@ class InvitesController < ApplicationController
     invite = Invite.find(params[:id])
     invite.destroy
     redirect_back fallback_location: :index, event_id: @event.id
+  end
+
+  def reminder
+    invite = Invite.find params[:id]
+
+    if InviteMailer.new_invitation(invite).deliver
+      flash[:notice] = "A reminder was sent to #{invite.email}."
+    else
+      flash[:error] = "Uh oh. Something went wrong. Try again."
+    end
+
+    redirect_back fallback_location: :index, event_id: invite.event_id
   end
 
   private

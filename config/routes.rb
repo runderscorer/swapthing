@@ -13,7 +13,11 @@ Swapthing::Application.routes.draw do
 
   resources :events do
     resources :partnerships, only: [:index, :show, :create]
-    resources :invites
+    resources :invites do
+      member do
+        get 'reminder'
+      end
+    end
     resources :users, only: [:index]
   end
 

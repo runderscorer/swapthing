@@ -30,7 +30,7 @@
           <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id), id: "delete-item-#{pending_user_invite.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
         <div class='right_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-hand-o-right fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id) %>
+          <%= link_to content_tag(:i, nil, class: 'fa fa-hand-o-right fa-lg'), reminder_event_invite_path(event_id: @event.id, id: pending_user_invite.id) %>
         </div>
       </li>
     <% end %>
