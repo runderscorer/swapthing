@@ -8,7 +8,10 @@ class ImagePreview extends React.Component {
     if (imageUrl && this.validFileType(imageUrl)) {
       return (
         <div className='image_url_preview'>
-          <img src={imageUrl} />
+          <label>Image Preview</label>
+          <div className='image_url_preview_image'>
+            <img src={imageUrl} />
+          </div>
         </div>
       );
     };

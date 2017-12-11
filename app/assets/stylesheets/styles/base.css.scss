@@ -294,6 +294,10 @@ span.image img {
   input[type=submit], input[type=text] {
     width: 100%;
   }
+
+  .image_url_preview {
+    flex-direction: column;
+  }
 }
 
 @media (min-width: 505px) {

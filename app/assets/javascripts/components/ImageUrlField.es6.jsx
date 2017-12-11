@@ -23,16 +23,18 @@ class ImageUrlField extends React.Component {
     const { imageUrl, error } = this.state;
 
     return(
-      <div>
-        <label name='item_image_url'>Image URL</label>
-        <input
-          name='item[image_url]'
-          type='text'
-          value={this.state.imageUrl}
-          onChange={this.handleChange}
-          placeholder='www.amazon.com/movies/terminator_2.jpg'
-        />
-        { this.displayErrorMessage(error) }
+      <div id='item_image_url'>
+        <div class='pizza'>
+          <label name='item_image_url'>Image URL</label>
+          <input
+            name='item[image_url]'
+            type='text'
+            value={this.state.imageUrl}
+            onChange={this.handleChange}
+            placeholder='www.amazon.com/movies/terminator_2.jpg'
+            />
+          { this.displayErrorMessage(error) }
+        </div>
         <ImagePreview imageUrl={imageUrl} />
       </div>
     );
