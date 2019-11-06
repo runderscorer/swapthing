@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
-ruby '2.2.2'
+ruby '2.6.5'
 
 gem 'pg'
-gem 'devise'
+gem 'devise', ">= 4.7.1"
 gem 'devise_invitable'
 gem 'simple_form'
 gem 'dotenv-rails'
@@ -67,15 +67,3 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara-screenshot'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
