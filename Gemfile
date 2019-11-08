@@ -44,7 +44,8 @@ gem 'aws-sdk'
 
 gem 'mailgun-ruby'
 
-gem 'react-rails'
+gem 'react_on_rails', '11.1.4'
+gem 'webpacker', '~> 3'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -67,3 +68,5 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara-screenshot'
 end
+
+gem 'mini_racer', platforms: :ruby

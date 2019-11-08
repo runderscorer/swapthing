@@ -1,4 +1,5 @@
 Swapthing::Application.routes.draw do
+  get 'hello_world', to: 'hello_world#index'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions',
