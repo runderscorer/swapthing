@@ -51,6 +51,4 @@ Swapthing::Application.configure do
     }
   }
 
-  config.react.variant = :development
-
 end
