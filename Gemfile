@@ -47,6 +47,9 @@ gem 'mailgun-ruby'
 gem 'react_on_rails', '11.1.4'
 gem 'webpacker', '~> 3'
 
+gem 'onebox'
+gem 'link_thumbnailer'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
