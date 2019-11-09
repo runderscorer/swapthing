@@ -1,4 +1,6 @@
-class ImagePreview extends React.Component {
+import React from 'react';
+
+export default class ImagePreview extends React.Component {
   validFileType(src) {
     return ['.jpg', '.jpeg', '.gif', '.png'].includes(src.substr(src.lastIndexOf('.'), src.length));
   }
