@@ -45,7 +45,7 @@ gem 'aws-sdk'
 gem 'mailgun-ruby'
 
 gem 'react_on_rails', '11.1.4'
-gem 'webpacker', '~> 3'
+gem 'webpacker', '~> 4.x'
 
 gem 'onebox'
 gem 'link_thumbnailer'
