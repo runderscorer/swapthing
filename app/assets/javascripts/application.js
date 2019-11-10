@@ -14,7 +14,4 @@
 //= require jquery_ujs
 //= require pickadate/picker 
 //= require pickadate/picker.date
-//= require react
-//= require react_ujs
-//= require components
 //= require_tree .

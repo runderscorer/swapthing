@@ -1,4 +1,6 @@
-class ListItem extends React.Component {
+import React from 'react';
+
+export default class ListItem extends React.Component {
   constructor() {
     super();
     this.clickHandler = this.clickHandler.bind(this);

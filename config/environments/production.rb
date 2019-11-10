@@ -102,6 +102,6 @@ Swapthing::Application.configure do
     }
   }
 
-  config.react.variant = :production
+  # config.react.variant = :production
   
 end

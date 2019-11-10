@@ -1,4 +1,6 @@
-class SingleInput extends React.Component {
+import React from 'react';
+
+export default class SingleInput extends React.Component {
   constructor() {
     super();
     this.state = {

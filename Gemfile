@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.0'
-ruby '2.2.2'
+gem 'rails', '5.0.1'
+ruby '2.6.5'
 
-gem 'pg'
-gem 'devise'
+gem 'pg', '~> 0.18'
+gem 'devise', ">= 4.7.1"
 gem 'devise_invitable'
 gem 'simple_form'
 gem 'dotenv-rails'
@@ -44,7 +44,11 @@ gem 'aws-sdk'
 
 gem 'mailgun-ruby'
 
-gem 'react-rails'
+gem 'react_on_rails', '11.1.4'
+gem 'webpacker', '~> 4.x'
+
+gem 'onebox'
+gem 'link_thumbnailer'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -68,14 +72,4 @@ group :development, :test do
   gem 'capybara-screenshot'
 end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'mini_racer', platforms: :ruby

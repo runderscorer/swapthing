@@ -1,4 +1,8 @@
-class InviteForm extends React.Component {
+import React from 'react';
+import ListItem from './ListItem';
+import SingleInput from './SingleInput';
+
+export default class InviteForm extends React.Component {
   constructor() {
     super();
     this.state = {

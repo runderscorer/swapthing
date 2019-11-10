@@ -1,4 +1,7 @@
-class ImageUrlField extends React.Component {
+import React from 'react';
+import ImagePreview from './ImagePreview';
+
+export default class ImageUrlField extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -24,7 +27,7 @@ class ImageUrlField extends React.Component {
 
     return(
       <div id='item_image_url'>
-        <div class='pizza'>
+        <div>
           <label name='item_image_url'>Image URL</label>
           <input
             name='item[image_url]'
