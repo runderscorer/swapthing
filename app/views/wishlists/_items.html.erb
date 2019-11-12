@@ -1,7 +1,8 @@
-<ul>
+<ul class='wishlist-items'>
 <%= @wishlist.show_add_item_card %>
 <% @wishlist.items.each do |item| %>
-  <div class='three columns card'>
+  <div class='wishlist-item'>
+    <div class='card'>
       <%= link_to item.url.presence, target:'_blank' do %>
         <div class='primary'>
           <% if item.image.present? %>
@@ -19,6 +20,10 @@
       </div>
       <%= @wishlist.show_delete_link item %>
       <%= @wishlist.show_edit_link item %>
+    </div>
+    <div class='mark-as-purchased'>
+      <%= react_component('MarkAsPurchasedLink', props: { id: item.id, purchased: item.purchased }) %>
+    </div>
   </div>
 <% end %>
 </ul>

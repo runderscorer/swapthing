@@ -1,0 +1,20 @@
+.wishlist-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wishlist-item {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+}
+
+.mark-as-purchased {
+  margin: auto;
+}
+
+@media (max-width: 736px) {
+  .wishlist-item {
+    margin: auto;
+  }
+}

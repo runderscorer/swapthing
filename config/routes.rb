@@ -32,4 +32,5 @@ Swapthing::Application.routes.draw do
   end
 
   get '/wishlist_reminder', to: 'wishlists#reminder'
+  post '/mark_as_purchased', to: 'items#mark_as_purchased'
 end

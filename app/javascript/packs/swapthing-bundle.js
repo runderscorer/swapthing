@@ -4,6 +4,7 @@ import ImagePreview from '../bundles/components/ImagePreview';
 import ImageUrlField from '../bundles/components/ImageUrlField';
 import InviteForm from '../bundles/components/InviteForm';
 import ListItem from '../bundles/components/ListItem';
+import MarkAsPurchasedLink from '../bundles/components/MarkAsPurchasedLink';
 import SingleInput from '../bundles/components/SingleInput';
 
 ReactOnRails.register({
@@ -11,5 +12,6 @@ ReactOnRails.register({
   ImageUrlField,
   InviteForm,
   ListItem,
+  MarkAsPurchasedLink,
   SingleInput,
 });
