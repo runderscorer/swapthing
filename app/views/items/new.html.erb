@@ -14,7 +14,7 @@
       <%= f.input_field :url, label: false, placeholder: 'www.amazon.com/movies/terminator_2' %>
       <%= f.error :url %>
 
-      <%= react_component('ImageUrlField', { imageUrl: @item.image_url, error: @item.errors[:image_url] }) %>
+      <%= react_component('ImageUrlField', props: { imageUrl: @item.image_url, error: @item.errors[:image_url] }) %>
 
       <%= f.label :price, 'Price' %>
       <%= f.input_field :price, label: false, placeholder: '20' %>

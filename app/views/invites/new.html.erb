@@ -1,5 +1,5 @@
 <h2>Invite people</h2>
 
 <div class='twelve columns form_container invites'>
-  <%= react_component 'InviteForm', eventId: @event.id, authenticityToken: form_authenticity_token %>
+  <%= react_component('InviteForm', props: { eventId: @event.id, authenticityToken: form_authenticity_token }) %>
 </div>
