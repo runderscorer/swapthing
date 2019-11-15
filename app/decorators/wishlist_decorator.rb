@@ -17,4 +17,8 @@ class WishlistDecorator < Draper::Decorator
   def show_reminder?
     render 'reminder' if self.items.empty?
   end
+
+  def show_mark_as_purchased_link(item)
+    react_component('MarkAsPurchasedLink', props: { id: item.id, purchased: item.purchased })
+  end
 end

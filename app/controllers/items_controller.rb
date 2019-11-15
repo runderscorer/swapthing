@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :get_item, except: [:new, :create]
   before_action :get_wishlist, only: [:new, :create]
   before_action :get_user, only: [:new, :create]
-  skip_before_action :verify_authenticity_token, if: :mark_as_purchased
+  skip_before_action :verify_authenticity_token, except: [:create, :update, :destroy]
 
   def new
     @item = @wishlist.items.new

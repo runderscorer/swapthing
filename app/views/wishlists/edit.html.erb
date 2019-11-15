@@ -2,6 +2,14 @@
   <h2>My Wishlist</h2>
   <p class='hint left'>View, edit, or add to your wishlist items</p>
 
-  <%= render 'items', wishlist: @wishlist %>
+  <%= react_component('WishlistItems', 
+    props: {
+      authenticityToken: form_authenticity_token,
+      items: @wishlist_items,
+      isOwner: params[:user_id].present?,
+      wishlistId: @wishlist.id,
+      userId: current_user.id
+    }
+  ) %>
 </div>
 

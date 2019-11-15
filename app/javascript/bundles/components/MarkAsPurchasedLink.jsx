@@ -6,7 +6,7 @@ export default class MarkAsPurchasedLink extends Component {
     super(props);
 
     this.state = {
-      id: this.props.id,
+      itemId: this.props.id,
       purchased: this.props.purchased
     };
   }
@@ -14,7 +14,7 @@ export default class MarkAsPurchasedLink extends Component {
   handleClick = async (e) => {
     e.preventDefault();
 
-    const { id } = this.state;
+    const { itemId } = this.state;
     const response = await axios.post('/mark_as_purchased', { item: { id } });
 
     this.setState({ purchased: response.data.purchased });
