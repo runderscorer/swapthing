@@ -1,5 +1,7 @@
 class WishlistsController < ApplicationController
-  before_action :get_items, only: [:show, :edit, :update]
+  include WishlistItemsSerializer
+
+  before_action :get_items, only: [:update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
   before_action :get_user, only: [:new, :create, :show, :edit, :update]
 
@@ -15,26 +17,11 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @wishlist_items = build_wishlist_items(@wishlist.items)
   end
 
   def edit
-    @wishlist_items = 
-      @wishlist.items.reduce([]) do |item_attrs, item|
-        item_attrs.push(
-          OpenStruct.new(
-            {
-              id: item.id,
-              name: item.name,
-              url: item.url,
-              price: item.price,
-              image: item.image(:original),
-              short_url: (item.url.present? ? item.short_url : ''),
-              notes: item.notes,
-              purchased: item.purchased,
-            }
-          )
-        )
-      end
+    @wishlist_items = build_wishlist_items(@wishlist.items)
   end
 
   def update

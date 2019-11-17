@@ -7,7 +7,8 @@ import ListItem from '../bundles/components/ListItem';
 import MarkAsPurchasedLink from '../bundles/components/MarkAsPurchasedLink';
 import SingleInput from '../bundles/components/SingleInput';
 import WishlistItem from '../bundles/components/WishlistItem';
-import WishlistItems from '../bundles/components/WishlistItems';
+import EditWishlistItems from '../bundles/components/EditWishlistItems';
+import ShowWishlistItems from '../bundles/components/ShowWishlistItems';
 import AddWishlistItem from '../bundles/components/AddWishlistItem';
 
 ReactOnRails.register({
@@ -18,6 +19,7 @@ ReactOnRails.register({
   MarkAsPurchasedLink,
   SingleInput,
   WishlistItem,
-  WishlistItems,
+  EditWishlistItems,
+  ShowWishlistItems,
   AddWishlistItem,
 });

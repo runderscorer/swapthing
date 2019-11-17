@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import WishlistItem from './WishlistItem';
 import AddWishlistItem from './AddWishlistItem';
 
-export default class WishlistItems extends Component {
+export default class EditWishlistItems extends Component {
   constructor(props) {
     super(props);
   }

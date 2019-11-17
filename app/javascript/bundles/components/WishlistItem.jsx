@@ -93,12 +93,13 @@ export default class WishlistItem extends Component {
             </div> }
         </div>
 
-        <div className='mark-as-purchased'>
-          <MarkAsPurchasedLink 
-            clickHandler={this.handlePurchasedCallback}
-            purchased={purchased} 
-          />
-        </div>
+        { !isOwner && 
+          <div className='mark-as-purchased'>
+            <MarkAsPurchasedLink 
+              clickHandler={this.handlePurchasedCallback}
+              purchased={purchased} 
+            />
+          </div> }
       </div>
     )
   }

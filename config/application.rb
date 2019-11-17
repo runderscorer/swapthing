@@ -21,6 +21,8 @@ module Swapthing
     # config.i18n.default_locale = :de
     config.paths['app/views'] << "app/views/devise"
 
+    config.autoload_paths += %W[#{config.root}/app/modules]
+
     config.before_configuration do
       env_file = File.join(Rails.root, 'config', 'local_env.yml')
       YAML.load(File.open(env_file)).each do |key, value|
