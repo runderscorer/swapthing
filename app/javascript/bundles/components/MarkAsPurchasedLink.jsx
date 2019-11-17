@@ -1,36 +1,21 @@
-import React, {Component} from 'react';
-import axios from 'axios';
+import React from 'react';
 
-export default class MarkAsPurchasedLink extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      itemId: this.props.id,
-      purchased: this.props.purchased
-    };
-  }
-
-  handleClick = async (e) => {
+export default function MarkAsPurchasedLink(props) {
+  const handleClick = (e) => {
     e.preventDefault();
 
-    const { itemId } = this.state;
-    const response = await axios.post('/mark_as_purchased', { item: { id } });
-
-    this.setState({ purchased: response.data.purchased });
+    props.clickHandler();
   }
 
-  displayLinkMessage = () => {
-    const { purchased } = this.state;
+  const displayLinkMessage = () => {
+    const { purchased } = props;
 
     return purchased ? 'Unmark as Purchased' : 'Mark as Purchased';
   }
 
-  render() {
-    return (
-      <a href='#' onClick={this.handleClick}>
-        { this.displayLinkMessage() }        
-      </a>
-    )
-  }
+  return (
+    <a href='#' onClick={handleClick}>
+      { displayLinkMessage() }        
+    </a>
+  )
 }

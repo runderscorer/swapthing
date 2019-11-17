@@ -5,6 +5,10 @@ import MarkAsPurchasedLink from './MarkAsPurchasedLink';
 export default class WishlistItem extends Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      purchased: props.item.table.purchased,
+    }
   }
   
   displayWishlistItemImage = () => {
@@ -31,6 +35,19 @@ export default class WishlistItem extends Component {
     window.location.reload(true);
   }
 
+  handlePurchasedCallback = async () => {
+    const { id } = this.props.item.table;
+    const response = await axios.post('/mark_as_purchased', { item: { id } });
+
+    this.setState({ purchased: response.data.purchased });
+  }
+
+  isPurchased = () => {
+    const { purchased } = this.state;
+
+    return purchased ? 'purchased' : '';
+  }
+
   render() {
     const {
       id: itemId,
@@ -39,9 +56,9 @@ export default class WishlistItem extends Component {
       short_url: itemShortUrl,
       name: itemName,
       notes: itemNotes,
-      purchased,
     } = this.props.item.table;
     const { isOwner, userId, wishlistId } = this.props;
+    const { purchased } = this.state;
 
     return (
       <div className='wishlist-item'>
@@ -49,16 +66,16 @@ export default class WishlistItem extends Component {
           <a href={itemUrl} target='_blank'>
             <div className='primary'>
               {this.displayWishlistItemImage()}
-              <div className='prod_price'>
+              <div className={`product_price ${this.isPurchased()}`}>
                 {productPrice}
               </div>
             </div>
           </a>
 
           <div className='secondary'>
-            <div className='prod_source'>{itemShortUrl}</div>
-            <div className='prod_name'>{itemName}</div>
-            <div className='prod_notes'>{itemNotes}</div>
+            <div className='product_source'>{itemShortUrl}</div>
+            <div className={`product_name ${this.isPurchased()}`}>{itemName}</div>
+            <div className='product_notes'>{itemNotes}</div>
           </div>
 
           { isOwner &&
@@ -77,7 +94,10 @@ export default class WishlistItem extends Component {
         </div>
 
         <div className='mark-as-purchased'>
-          <MarkAsPurchasedLink itemId={itemId} purchased={purchased} />
+          <MarkAsPurchasedLink 
+            clickHandler={this.handlePurchasedCallback}
+            purchased={purchased} 
+          />
         </div>
       </div>
     )
