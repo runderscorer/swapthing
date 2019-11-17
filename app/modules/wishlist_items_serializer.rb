@@ -9,7 +9,7 @@ module WishlistItemsSerializer
             name: item.name,
             url: item.url,
             price: item.price,
-            image: item.image(:original),
+            image: item.image_url,
             short_url: (item.url.present? ? item.short_url : ''),
             notes: item.notes,
             purchased: item.purchased,

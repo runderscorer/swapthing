@@ -22,7 +22,7 @@ class Item < ActiveRecord::Base
   end
 
   def image_remote_url
-    if self.image_url.present? 
+    if self.image_url.present? && self.image_url_was != self.image_url 
       self.image = URI.parse(self.image_url)
     else
       self.image = nil
