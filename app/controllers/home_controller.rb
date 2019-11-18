@@ -4,4 +4,7 @@ class HomeController < ApplicationController
       redirect_to events_path
     end
   end
+
+  def not_found
+  end
 end

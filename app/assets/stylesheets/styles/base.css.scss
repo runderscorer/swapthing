@@ -333,6 +333,21 @@ span.image img {
   }
 }
 
+.page-not-found {
+  text-align: center;
+  margin-top: 25px;
+
+  div:last-of-type {
+    margin-bottom: 25px;
+  }
+
+  @media (max-width: 629px) {
+    img {
+      width: 80vw;
+    }
+  }
+}
+
 @media (min-width: 938px) {
   .three.column.event_details, .three.columns.event_details {
     width: 45%;
