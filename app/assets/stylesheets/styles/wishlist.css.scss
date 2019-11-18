@@ -11,10 +11,25 @@
 
 .mark-as-purchased {
   margin: auto;
+
+  span {
+    display: flex;
+    align-items: center;
+
+    label {
+      margin: 0 0 .5em .5em;
+      width: 100%;
+    }
+
+    input[type='checkbox'] {
+      margin-bottom: .5em;
+    }
+  }
 }
 
 @media (max-width: 736px) {
   .wishlist-item {
     margin: auto;
+    padding: 15px 0;
   }
 }

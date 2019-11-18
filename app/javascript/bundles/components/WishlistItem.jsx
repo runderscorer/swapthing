@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import MarkAsPurchasedLink from './MarkAsPurchasedLink';
+import MarkAsPurchased from './MarkAsPurchased';
 
 export default class WishlistItem extends Component {
   constructor(props) {
@@ -67,7 +67,7 @@ export default class WishlistItem extends Component {
             <div className='primary'>
               {this.displayWishlistItemImage()}
               <div className={`product_price ${this.isPurchased()}`}>
-                {productPrice}
+                ${productPrice}
               </div>
             </div>
           </a>
@@ -95,8 +95,9 @@ export default class WishlistItem extends Component {
 
         { !isOwner && 
           <div className='mark-as-purchased'>
-            <MarkAsPurchasedLink 
+            <MarkAsPurchased 
               clickHandler={this.handlePurchasedCallback}
+              itemId={itemId}
               purchased={purchased} 
             />
           </div> }

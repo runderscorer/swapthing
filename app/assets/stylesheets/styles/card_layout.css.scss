@@ -75,7 +75,7 @@
   right: 2%;
   bottom: 5px;
   z-index: 11;
-  color: #fe6037;
+  color: $body_color;
   font-size: 20px;
   font-weight: 700;
 }
@@ -103,7 +103,7 @@
 }
 
 .product_name {
-  color: #fe6037;
+  color: $body_color;
   font-size: 20px;
 }
 
@@ -118,7 +118,7 @@
 
 .purchased {
   text-decoration: line-through;
-  color: $accent_color;
+  color: $error_red;
 }
 
 .center {
