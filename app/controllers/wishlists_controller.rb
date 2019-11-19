@@ -1,5 +1,7 @@
 class WishlistsController < ApplicationController
-  before_action :get_items, only: [:show, :edit, :update]
+  include WishlistItemsSerializer
+
+  before_action :get_items, only: [:update]
   before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
   before_action :get_user, only: [:new, :create, :show, :edit, :update]
 
@@ -15,9 +17,11 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    @wishlist_items = build_wishlist_items(@wishlist.items)
   end
 
   def edit
+    @wishlist_items = build_wishlist_items(@wishlist.items)
   end
 
   def update

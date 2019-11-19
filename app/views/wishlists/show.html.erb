@@ -1,6 +1,17 @@
-<h2>
-  <%= "#{@wishlist.user.full_name}'s Wishlist" %>
-</h2>
+<div id='wishlist'>
+  <h2>
+    <%= "#{@wishlist.user.full_name}'s Wishlist" %>
+  </h2>
+  <span class='hint'>
+    Mark an item as "purchased" to prevent others from purchasing the same item for <%= @wishlist.user.full_name %>.
+  </span>
 
-<%= @wishlist.show_reminder? %>
-<%= render 'items' %>
+  <%= @wishlist.show_reminder? %>
+
+  <%= react_component('ShowWishlistItems', 
+    props: {
+      items: @wishlist_items,
+      isOwner: false,
+    }) 
+  %>
+</div>
