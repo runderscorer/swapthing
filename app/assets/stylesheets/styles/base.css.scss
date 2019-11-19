@@ -23,6 +23,12 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 
 h2 {
   color: $accent_color;
+  font-family: 'Signika';
+  letter-spacing: 0;
+
+  @media (max-width: 629px) {
+    text-align: center;
+  }
 }
 
 label {
@@ -379,5 +385,4 @@ span.image img {
   .three.column, .three.columns {
     width: 30%;
   }
-
 }

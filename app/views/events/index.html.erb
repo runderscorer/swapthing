@@ -1,28 +1,31 @@
  <div id='events'>
-  <h2>My Events</h2>
+  <h2>Events</h2>
   <p class='hint left'>View the events you're a part of or add and edit an event of your own.</p>
 
-  <ul>
+  <div class='events'>
     <%= render 'add_event' %>
     <% @events.each do |event| %>
-    <div class='three columns card'>
-      <div class='primary'>
-        <div class='event_name'><%= event.name %></div>
-        <span class='event_date'><%= event.date.strftime('%b %d %Y') %></span>
-      </div>
-      <div class='secondary'>
-        <p><%= link_to 'View Event', event_path(event) %></p>
-      </div>
-      <% if event.admin == current_user %>
-      <div class='edit_actions'>
-        <div class='left_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-users'), event_users_path(event.id) %>
+      <div class='event'>
+        <div class='card'>
+          <div class='primary'>
+            <div class='event_name'><%= event.name %></div>
+            <span class='event_date'><%= event.date.strftime('%b %d %Y') %></span>
+          </div>
+          <div class='secondary'>
+            <p><%= link_to 'View Details', event_path(event) %></p>
+          </div>
+          <% if event.admin == current_user %>
+          <div class='edit_actions'>
+            <div class='left_icon'>
+              <%= link_to content_tag(:i, nil, class: 'fa fa-users'), event_users_path(event.id) %>
+            </div>
+            <div class='right_icon'>
+              <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o fa-lg'), edit_event_path(event), id: "edit-event-#{event.id}" %>
+            </div>
+          </div>
+          <% end %>
         </div>
-        <div class='right_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-pencil-square-o fa-lg'), edit_event_path(event), id: "edit-event-#{event.id}" %>
-        </div>
       </div>
-      <% end %>
-    </div>
     <% end %>
-  </ul>
+  </div>
+</div>

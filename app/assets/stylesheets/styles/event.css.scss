@@ -1,53 +1,79 @@
+#events {
+  @media (max-width: 629px) {
+    text-align: center;
+  }
+}
+
+.events {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 629px) {
+    justify-content: center;
+  }
+}
+
 #events a {
   text-decoration: none;
 }
 
+.event {
+  display: flex;
+  flex-direction: column;
+  margin-right: 25px;
+
+  @media (max-width: 629px) {
+    margin-right: 0;
+  }
+}
+
 .event_details {
-  height: 450px;
-  text-align: center;
-  color: $background_color;
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 629px) {
+    justify-content: center;
+  }
+}
+
+.event_details_card {
+  color: $body_color;
   min-width: 265px;
-  margin: 0 15px 15px 0;
+  margin: 5px;
+  border: 1px solid $border_color;
+  border-radius: 4px;
+  background: white;
+
+  @media (max-width: 629px) {
+    margin-bottom: 15px;
+  }
 }
 
 .event_details i {
   width: 80%;
   color: $background_color;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid $background_color;
+  padding: 40px 0;
 }
 
-.ev_desc {
+.event_details_icon {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  text-align: center;
+}
+
+.ev_desc .event_details_icon {
   background-color: $action_secondary;
 }
 
-.ev_desc div {
-  font-weight: 100;
-  padding: 15px;
-}
-
-.ev_date {
+.ev_date .event_details_icon {
   background-color: $action_primary;
 }
 
-.ev_date div {
-  padding-top: 75px;
-  position: relative;
-  vertical-align: middle;
-  font-size: 3em;
-}
-
-.ev_max div {
-  padding-top: 75px;
-  font-size: 3em;
-}
-
-.ev_max {
+.ev_max .event_details_icon {
   background-color: $accent_color;
 }
 
-.ev_users {
+.ev_users .event_details_icon {
   position: relative;
   background-color: $body_color;
 }
@@ -72,4 +98,13 @@
 
 .partner_info button a {
   color: $background_color;
+}
+
+.title {
+  font-weight: bold;
+  margin-bottom: .5em;
+}
+
+.event_details_info {
+  padding: 5px 10px;
 }
