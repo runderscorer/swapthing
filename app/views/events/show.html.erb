@@ -17,7 +17,10 @@
       </div>
       <div class='event_details_info'>
         <p class='title'>Your Partner</p>
-        <p>Some dude</p>
+        <p class='partner'><%= @current_user.show_partner_name(@event.id) %></p>
+        <div class='partner-wishlist-link'>
+          <%= @current_user.show_partner_wishlist_link(@event.id) %>
+        </div>
       </div>
     </div>
 

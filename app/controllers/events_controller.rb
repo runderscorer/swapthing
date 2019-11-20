@@ -16,7 +16,6 @@ class EventsController < ApplicationController
 
   def show
     @current_user = current_user.decorate
-    # @partner = GetPartner.call current_user, @event
   end
 
   def create
