@@ -7,7 +7,7 @@ class UserDecorator < Draper::Decorator
     if partner && partner.wishlist
       content_tag(:p, partner.fname) +
       button_tag do
-        link_to "View #{partner.full_name}'s wishlist", wishlist_path(partner.wishlist.id)
+        link_to "View #{partner.fname}'s Wishlist", wishlist_path(encode_wishlist_id(partner.wishlist.id))
       end
     else
       content_tag(:p, 'Unassigned')
