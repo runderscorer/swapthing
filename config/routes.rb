@@ -21,7 +21,7 @@ Swapthing::Application.routes.draw do
     resources :users, only: [:index]
   end
 
-  resources :wishlists, only: [:show]
+  get '/wishlist/:encoded_id', to: 'wishlists#show', as: 'wishlist'
 
   resources :users do
     get 'users/edit' => 'users/registrations#edit', :as => 'edit_user_registration'

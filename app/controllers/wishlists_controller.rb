@@ -1,8 +1,9 @@
 class WishlistsController < ApplicationController
   include WishlistItemsSerializer
+  include WishlistDecoder
 
   before_action :get_items, only: [:update]
-  before_action :get_wishlist, only: [:show, :edit, :update, :destroy]
+  before_action :get_wishlist, only: [:edit, :update, :destroy]
   before_action :get_user, only: [:new, :create, :show, :edit, :update]
 
   def new
@@ -17,6 +18,9 @@ class WishlistsController < ApplicationController
   end
 
   def show
+    wishlist_id = decode_string_to_wishlist_id(params[:encoded_id])
+
+    @wishlist = Wishlist.find(wishlist_id).decorate
     @wishlist_items = build_wishlist_items(@wishlist.items)
   end
 
