@@ -1,9 +1,13 @@
  <div id='events'>
   <h2>Events</h2>
-  <p class='hint left'>View the events you're a part of or add and edit an event of your own.</p>
+  <p class='hint'>
+    View event details or add and edit your own event.
+    <span>
+      <%= link_to 'Click here to see your archived events', archived_events_path, class: 'small' %>
+    </span>
+  </p>
 
   <div class='events'>
-    <%= render 'add_event' %>
     <% @events.each do |event| %>
       <div class='event'>
         <div class='card'>
@@ -27,5 +31,6 @@
         </div>
       </div>
     <% end %>
+    <%= render 'add_event' %>
   </div>
 </div>

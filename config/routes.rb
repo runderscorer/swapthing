@@ -21,8 +21,6 @@ Swapthing::Application.routes.draw do
     resources :users, only: [:index]
   end
 
-  get '/wishlist/:encoded_id', to: 'wishlists#show', as: 'wishlist'
-
   resources :users do
     get 'users/edit' => 'users/registrations#edit', :as => 'edit_user_registration'
     put 'users' => 'users/registrations#update', :as => 'user_registration'
@@ -31,6 +29,8 @@ Swapthing::Application.routes.draw do
     end
   end
 
+  get '/archived_events', to: 'events#archived', as: 'archived_events'
+  get '/wishlist/:encoded_id', to: 'wishlists#show', as: 'wishlist'
   get '/wishlist_reminder', to: 'wishlists#reminder'
   post '/mark_as_purchased', to: 'items#mark_as_purchased'
 

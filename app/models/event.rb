@@ -7,6 +7,16 @@ class Event < ActiveRecord::Base
   validates_presence_of :name, :description, :date, :max_spend
 
   def self.all_by_user(user)
-    joins(:memberships).where(memberships: { user_id: user.id }).order('date desc')
+    joins(:memberships)
+    .where(memberships: { user_id: user.id })
+    .where('date > ?', Date.today)
+    .order('date desc')
+  end
+
+  def self.archived_by_user(user)
+    joins(:memberships)
+    .where(memberships: { user_id: user.id })
+    .where('date < ?', Date.today)
+    .order('date desc')
   end
 end

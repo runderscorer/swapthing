@@ -14,7 +14,7 @@ class WishlistDecorator < Draper::Decorator
     render 'add_item' if params[:user_id].present?
   end
 
-  def show_reminder?
-    render 'reminder' if self.items.empty?
+  def show_instructions_or_reminder
+    self.items.empty? ? render('reminder') : render('instructions')
   end
 end
