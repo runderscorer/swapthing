@@ -6,6 +6,7 @@
       <li class='navbar-item'><%= link_to 'Events', events_path, class: 'navbar-link' %>
       <li class='navbar-item'><%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id), class: 'navbar-link' %>
       <li class='navbar-item'><%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'navbar-link' %></li>
+      <li class='nav-logo'><%= image_tag 'swap-thing-logo-gray.svg' %></li>
     </ul>
   </div>
 </nav>

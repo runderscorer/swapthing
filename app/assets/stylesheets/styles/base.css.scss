@@ -24,7 +24,9 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 h2 {
   color: $accent_color;
   font-family: 'Signika';
-  letter-spacing: 0;
+  font-weight: bold;
+  font-size: 2.7em;
+  letter-spacing: -1px;
 
   @media (max-width: 629px) {
     text-align: center;
@@ -63,6 +65,12 @@ a:hover {
 .navbar-list {
   list-style: none;
   margin-bottom: 0;
+
+  .nav-logo {
+    float: right;
+    width: 130px;
+    padding-top: 8px;
+  }
 }
 
 .navbar-item {
@@ -236,6 +244,10 @@ span.image img {
   margin-bottom: 0;
 }
 
+.sign_in img {
+  margin-bottom: 25px;
+}
+
 @media (max-width: 505px) {
   .navbar-item, .navbar-link {
     display: none;
@@ -303,6 +315,10 @@ span.image img {
 
   .image_url_preview {
     flex-direction: column;
+  }
+
+  .nav-logo {
+    display: none;
   }
 }
 
