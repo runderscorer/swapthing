@@ -23,6 +23,14 @@ input[type='text'], input[type='email'], input[type='url'], input[type='password
 
 h2 {
   color: $accent_color;
+  font-family: 'Signika';
+  font-weight: bold;
+  font-size: 2.7em;
+  letter-spacing: -1px;
+
+  @media (max-width: 629px) {
+    text-align: center;
+  }
 }
 
 label {
@@ -57,6 +65,12 @@ a:hover {
 .navbar-list {
   list-style: none;
   margin-bottom: 0;
+
+  .nav-logo {
+    float: right;
+    width: 130px;
+    padding-top: 10px;
+  }
 }
 
 .navbar-item {
@@ -230,7 +244,11 @@ span.image img {
   margin-bottom: 0;
 }
 
-@media (max-width: 505px) {
+.sign_in img {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 629px) {
   .navbar-item, .navbar-link {
     display: none;
   }
@@ -298,6 +316,12 @@ span.image img {
   .image_url_preview {
     flex-direction: column;
   }
+
+  .navbar-list {
+    .nav-logo {
+      width: 90px;
+    }
+  }
 }
 
 @media (min-width: 505px) {
@@ -348,6 +372,10 @@ span.image img {
   }
 }
 
+.small {
+  font-size: 13px;
+}
+
 @media (min-width: 938px) {
   .three.column.event_details, .three.columns.event_details {
     width: 45%;
@@ -379,5 +407,4 @@ span.image img {
   .three.column, .three.columns {
     width: 30%;
   }
-
 }

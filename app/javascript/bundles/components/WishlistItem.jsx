@@ -23,16 +23,20 @@ export default class WishlistItem extends Component {
     )
   }
 
-  handleDelete = (e) => {
+  handleDelete = async (e) => {
     e.preventDefault();
-    const { authenticityToken, userId, wishlistId } = this.props; 
+
+    confirm('Delete this item?');
+
+    const { authenticityToken, deleteItemCallback, userId, wishlistId } = this.props; 
     const { id: itemId } = this.props.item.table;
 
-    axios.delete(
+    const response = await axios.delete(
       `/users/${userId}/wishlists/${wishlistId}/items/${itemId}`,
       { headers: {'X-CSRF-Token': authenticityToken}}
     );
-    window.location.reload(true);
+
+    if (response.status === 200) { deleteItemCallback(itemId) };
   }
 
   handlePurchasedCallback = async () => {

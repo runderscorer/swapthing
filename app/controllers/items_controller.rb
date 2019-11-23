@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :get_item, except: [:new, :create, :mark_as_purchased]
-  before_action :get_wishlist, only: [:new, :create]
+  before_action :get_wishlist, only: [:new, :create, :destroy]
   before_action :get_user, only: [:new, :create]
   skip_before_action :verify_authenticity_token, except: [:create, :update, :destroy]
 
@@ -34,7 +34,7 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    redirect_to edit_user_wishlist_path(params[:user_id], params[:wishlist_id]) if @item.destroy
+    render json: { message: 'Successfully deleted', status: 200 } if @item.destroy
   end
 
   def mark_as_purchased

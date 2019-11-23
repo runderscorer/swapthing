@@ -2,14 +2,14 @@
   font-family: 'Lato',sans-serif;
   display: inline-block;
   width: 100%;
-  min-width: 265px;
   height: 400px;
   background: #fcfcfc;
   border-radius: 4px;
   position: relative;
   overflow: hidden;
-  border: 1px solid #e6e6e6;
-  margin: 15px 30px 15px 0;
+  border: 1px solid $border_color;
+  margin: 15px 0;
+  width: 290px;
 }
 
 .card > a {
@@ -60,7 +60,6 @@
 
 .primary .event_name {
   font-size: 2.5em;
-  text-transform: uppercase;
   font-weight: 100;
   line-height: 1.1em;
   margin: 15px;
@@ -84,8 +83,7 @@
 }
 
 .secondary {
-  margin-top: $medium_spacing;
-  padding: $small_spacing;
+  padding: .5em .75em;
   text-align: center;
 }
 
@@ -95,19 +93,20 @@
 }
 
 .product_source, .product_name {
-  text-transform: uppercase;
   font-weight: 900;
-  margin-left: 10px;
 }
 
 .product_source {
   color: #444;
   font-size: 15px;
+  text-transform: uppercase;
 }
 
 .product_name {
   color: $body_color;
   font-size: 20px;
+  line-height: 1;
+  margin: 10px 0;
 }
 
 .product_notes, .hint {
@@ -135,9 +134,7 @@
 }
 
 .secondary p:first-of-type {
-  font-color: #444;
   font-size: 1.5em;
-  text-transform: uppercase;
 }
 
 .pending {

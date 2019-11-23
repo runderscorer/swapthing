@@ -1,24 +1,47 @@
-<h2><%= @event.name %></h2>
-<ul>
-  <div class='three columns event_details ev_desc'>
-    <i class='fa fa-info-circle fa-4x'></i>
-    <div><%= @event.description %></div>
-  </div>
+<div id='events'>
+  <h2><%= @event.name %></h2>
+  <div class='event_details'>
+    <div class='event_details_card ev_desc'>
+      <div class='event_details_icon'>
+        <i class='fa fa-info-circle fa-3x'></i>
+      </div>
+      <div class='event_details_info'>
+        <p class='title'>Event Description</p>
+        <p><%= @event.description %></p>
+      </div>
+    </div>
 
-  <div class='three columns event_details ev_users'>
-    <i class='fa fa-user fa-4x'></i>
-    <div class='partner_info'>
-      <%= @current_user.show_partner(@event.id) %>
+    <div class='event_details_card ev_users'>
+      <div class='event_details_icon'>
+        <i class='fa fa-user fa-3x'></i>
+      </div>
+      <div class='event_details_info'>
+        <p class='title'>Your Partner</p>
+        <p class='partner'><%= @current_user.show_partner_name(@event.id) %></p>
+        <div class='partner-wishlist-link'>
+          <%= @current_user.show_partner_wishlist_link(@event.id) %>
+        </div>
+      </div>
+    </div>
+
+    <div class='event_details_card ev_date'>
+      <div class='event_details_icon'>
+        <i class='fa fa-calendar fa-3x'></i>
+      </div>
+      <div class='event_details_info'>
+        <p class='title'>Event Date</p>
+        <p><%= @event.date.strftime('%m/%d') %></p>
+      </div>
+    </div>
+
+    <div class='event_details_card ev_max'>
+      <div class='event_details_icon'>
+        <i class='fa fa-money fa-3x'></i>
+      </div>
+      <div class='event_details_info'>
+        <p class='title'>Max Spend</p>
+        <p><%= number_to_currency @event.max_spend, precision: 0 %></p>
+      </div>
     </div>
   </div>
-
-  <div class='three columns event_details ev_date'>
-    <i class='fa fa-calendar fa-4x'></i>
-    <div><%= @event.date.strftime('%m/%d') %></div>
-  </div>
-
-  <div class='three columns event_details ev_max'>
-    <i class='fa fa-money fa-4x'></i>
-    <div><%= number_to_currency @event.max_spend, precision: 0 %></div>
-  </div>
-</ul>
+</div>
