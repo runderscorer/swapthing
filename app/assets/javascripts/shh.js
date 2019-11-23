@@ -5,6 +5,8 @@ window.onload = function() {
     clicks += 1;
     if (clicks === 1) { console.log('Swap') }
     if (clicks === 2) { console.log('Thing') }
-    if (clicks === 7) { console.log('you make my heart sing')}
+    if (clicks === 6) { setTimeout(function() {
+      console.log('you make my heart sing')
+    }, 700 )};
   });
 };
