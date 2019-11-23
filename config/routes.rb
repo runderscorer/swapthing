@@ -7,9 +7,8 @@ Swapthing::Application.routes.draw do
 
   devise_scope :user do
     get '/forgot_password' => 'users/sessions#forgot_password', :as => 'forgot_password'
+    root to: 'devise/sessions#new'
   end
-
-  root 'home#index'
 
   resources :events do
     resources :partnerships, only: [:index, :show, :create]
@@ -34,5 +33,5 @@ Swapthing::Application.routes.draw do
   get '/wishlist_reminder', to: 'wishlists#reminder'
   post '/mark_as_purchased', to: 'items#mark_as_purchased'
 
-  match '*path', to: 'home#not_found', via: :all
+  match '*path', to: 'application#not_found', via: :all
 end

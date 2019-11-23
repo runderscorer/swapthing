@@ -9,9 +9,9 @@
   <%= render 'invite_users', event: @event %>
   <%= render 'shuffle_partners' %>
 
-  <div class='twelve columns'>
+  <div class=''>
     <% @users.each do |user| %>
-      <li class='three columns card'>
+      <li class='user-card card'>
         <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
         <div class='secondary'>
           <p><%= user.full_name %></p>
@@ -20,7 +20,7 @@
     <% end %>
 
     <% @pending_user_invites.each do |pending_user_invite| %>
-      <li class='three columns card pending'>
+      <li class='user-card card pending'>
         <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
         <div class='secondary'>
           <p>Pending</p>

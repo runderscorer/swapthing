@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
       CreateAdditionalMembership.call current_user.email, params[:event_id]
     end
 
-    root_path
+    events_path
   end
 
   def get_user
@@ -32,5 +32,8 @@ class ApplicationController < ActionController::Base
 
   def valid_email_format email
     email.scan(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/).any?
+  end
+
+  def not_found
   end
 end
