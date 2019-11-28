@@ -1,8 +1,10 @@
 class ItemsController < ApplicationController
-  before_action :get_item, except: [:new, :create, :mark_as_purchased]
+  include WishlistItemsSerializer
+
+  before_action :get_item, except: [:new, :create, :mark_as_purchased, :delete_items]
   before_action :get_wishlist, only: [:new, :create, :destroy]
   before_action :get_user, only: [:new, :create]
-  skip_before_action :verify_authenticity_token, except: [:create, :update, :destroy]
+  skip_before_action :verify_authenticity_token, except: [:create, :update, :destroy, :delete_items]
 
   def new
     @item = @wishlist.items.new
@@ -42,6 +44,17 @@ class ItemsController < ApplicationController
     item.update_attribute(:purchased, !item.purchased)
 
     render json: { purchased: item.purchased, status: 200 }
+  end
+
+  def delete_items
+    wishlist = Wishlist.find(request.params['wishlist_id'])
+    items = Item.where(id: request.params['item_ids'])
+
+    if items.delete_all
+      render json: { message: 'success', items: build_wishlist_items(wishlist.items) }
+    else
+      render json: { message: 'error deleting items' }
+    end
   end
 
   private

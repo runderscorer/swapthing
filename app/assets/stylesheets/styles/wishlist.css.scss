@@ -6,7 +6,7 @@
 .wishlist-item {
   display: flex;
   flex-direction: column;
-  margin-right: 25px;
+  margin-right: 10px;
 
   @media (max-width: 629px) {
     margin-right: 0;
@@ -28,6 +28,57 @@
     input[type='checkbox'] {
       margin-bottom: .5em;
     }
+  }
+}
+
+.controls {
+  display: flex;
+  align-items: baseline;
+
+  div:first-of-type {
+    display: flex;
+    align-items: baseline;
+  }
+
+  input[type='checkbox'] {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+
+  label {
+    width: unset;
+    margin-right: 40px;
+
+    @media (max-width: 629px) {
+      margin-bottom: 0;
+    }
+  }
+
+  .delete-selected {
+    i {
+      margin-right: 10px;
+    }
+
+    a {
+      text-decoration: none;;
+      color: unset;
+    }
+
+    span.label {
+      font-weight: bold;
+    }
+  }
+
+  @media (max-width: 629px) {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 164px;
+    background: $off_white_color;
+    border-bottom: 1px solid $border_color;
+    z-index: 9999;
+    margin: 0 -20px;
+    padding: 10px 20px;
+    justify-content: space-between;
   }
 }
 
