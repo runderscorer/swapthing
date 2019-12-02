@@ -10,10 +10,16 @@ class User < ActiveRecord::Base
   has_many :invitations, class_name: 'Invite', foreign_key: 'sender_id'
   has_many :sent_invites, class_name: 'Invite', foreign_key: 'recipient_id'
 
+  before_save :downcase_email
+
   validates_presence_of :fname, :lname, :email
 
 
   def full_name
     "#{fname} #{lname}"
+  end
+
+  def downcase_email
+    self.email.downcase!
   end
 end

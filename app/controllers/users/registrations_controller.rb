@@ -9,7 +9,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     invite = Invite.find_by(token: @token)
 
     if @token
-      exisiting_user = User.find_by email: invite.email
+      exisiting_user = User.find_by email: invite.email.downcase
 
       if exisiting_user
         redirect_to new_user_session_path email: invite.email, event_id: invite.event_id
