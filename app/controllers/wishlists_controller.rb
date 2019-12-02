@@ -47,7 +47,7 @@ class WishlistsController < ApplicationController
 
     redirect_back fallback_location: :show, id: params[:id]
   end
-  
+
   private
 
   def wishlist_params

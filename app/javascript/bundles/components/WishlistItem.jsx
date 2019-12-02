@@ -23,17 +23,24 @@ export default class WishlistItem extends Component {
     )
   }
 
+  handleChange = (e) => {
+    const { item: { table: { id: itemId } }, selectedItemCallback } = this.props;
+
+    selectedItemCallback(itemId, e.target.checked);
+  }
+
   handleDelete = async (e) => {
     e.preventDefault();
 
-    confirm('Delete this item?');
+    const result = confirm('Delete this item?');
+    if (!result) { return }; 
 
     const { authenticityToken, deleteItemCallback, userId, wishlistId } = this.props; 
     const { id: itemId } = this.props.item.table;
 
     const response = await axios.delete(
       `/users/${userId}/wishlists/${wishlistId}/items/${itemId}`,
-      { headers: {'X-CSRF-Token': authenticityToken}}
+      { headers: {'X-CSRF-Token': authenticityToken} }
     );
 
     if (response.status === 200) { deleteItemCallback(itemId) };
@@ -47,9 +54,10 @@ export default class WishlistItem extends Component {
   }
 
   isPurchased = () => {
+    const { isOwner } = this.props;
     const { purchased } = this.state;
 
-    return purchased ? 'purchased' : '';
+    return !isOwner && purchased ? 'purchased' : '';
   }
 
   render() {
@@ -61,7 +69,7 @@ export default class WishlistItem extends Component {
       name: itemName,
       notes: itemNotes,
     } = this.props.item.table;
-    const { isOwner, userId, wishlistId } = this.props;
+    const { isOwner, selected, userId, wishlistId } = this.props;
     const { purchased } = this.state;
 
     return (
@@ -69,7 +77,9 @@ export default class WishlistItem extends Component {
         <div className='card'>
           <a href={itemUrl} target='_blank'>
             <div className='primary'>
-              {this.displayWishlistItemImage()}
+              { isOwner && 
+                <input type='checkbox' onChange={this.handleChange} checked={selected} /> }
+              { this.displayWishlistItemImage() }
               <div className={`product_price ${this.isPurchased()}`}>
                 ${productPrice}
               </div>

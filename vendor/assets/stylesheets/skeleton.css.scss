@@ -220,8 +220,7 @@ input[type="submit"].button-primary:focus,
 input[type="reset"].button-primary:focus,
 input[type="button"].button-primary:focus {
   color: #FFF;
-  background-color: #1EAEDB;
-  border-color: #1EAEDB; }
+  background-color: #0fd581; }
 
 
 /* Forms
@@ -255,7 +254,6 @@ textarea {
      -moz-appearance: none;
           appearance: none; }
 textarea {
-  min-height: 65px;
   padding-top: 6px;
   padding-bottom: 6px; }
 input[type="email"]:focus,

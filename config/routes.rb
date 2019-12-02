@@ -32,6 +32,7 @@ Swapthing::Application.routes.draw do
   get '/wishlist/:encoded_id', to: 'wishlists#show', as: 'wishlist'
   get '/wishlist_reminder', to: 'wishlists#reminder'
   post '/mark_as_purchased', to: 'items#mark_as_purchased'
+  delete '/delete_items', to: 'items#delete_items'
 
   match '*path', to: 'application#not_found', via: :all
 end

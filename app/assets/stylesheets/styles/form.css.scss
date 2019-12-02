@@ -116,6 +116,10 @@ input[type=submit].button-primary:hover {
   overflow: auto;
 }
 
+label[name="item_image_url"] {
+  margin-right: 23px;
+}
+
 .image_url_preview {
   display: flex;
   margin-bottom: 15px;
