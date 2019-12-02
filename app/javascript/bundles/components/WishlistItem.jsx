@@ -54,9 +54,10 @@ export default class WishlistItem extends Component {
   }
 
   isPurchased = () => {
+    const { isOwner } = this.props;
     const { purchased } = this.state;
 
-    return purchased ? 'purchased' : '';
+    return !isOwner && purchased ? 'purchased' : '';
   }
 
   render() {
