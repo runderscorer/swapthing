@@ -17,7 +17,7 @@ export default class WishlistItem extends Component {
     return (
       itemImage ?
         <span className='image'>
-          <img src={itemImage} />
+          <img src={this.appendProtocolToURL(itemImage)} />
         </span> :
         <i className='fa fa-gift fa-10x' />
     )
@@ -60,6 +60,8 @@ export default class WishlistItem extends Component {
     return !isOwner && purchased ? 'purchased' : '';
   }
 
+  appendProtocolToURL = (itemUrl) => itemUrl.includes('http') ? itemUrl : 'http://' + itemUrl;
+
   render() {
     const {
       id: itemId,
@@ -75,7 +77,7 @@ export default class WishlistItem extends Component {
     return (
       <div className='wishlist-item'>
         <div className='card'>
-          <a href={itemUrl} target='_blank'>
+          <a href={this.appendProtocolToURL(itemUrl)} target='_blank'>
             <div className='primary'>
               { isOwner && 
                 <input type='checkbox' onChange={this.handleChange} checked={selected} /> }
