@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
 
   validates_presence_of :fname, :lname, :email
 
-
   def full_name
     "#{fname} #{lname}"
   end

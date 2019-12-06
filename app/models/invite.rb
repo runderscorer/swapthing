@@ -7,6 +7,7 @@ class Invite < ActiveRecord::Base
   validates_presence_of :token
 
   before_create :generate_token
+  before_save :downcase_email
 
   def self.pending
     where accepted_at: nil
@@ -16,5 +17,9 @@ class Invite < ActiveRecord::Base
 
   def generate_token
     self.token = SecureRandom.hex(16)
+  end
+
+  def downcase_email
+    self.email.downcase!
   end
 end

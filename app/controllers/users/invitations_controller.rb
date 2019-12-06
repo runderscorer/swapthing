@@ -9,7 +9,7 @@ class Users::InvitationsController < Devise::InvitationsController
   end
 
   def create
-    @user = User.invite!({email: user_params[:email]}, current_user) do |u|
+    @user = User.invite!({email: user_params[:email].downcase}, current_user) do |u|
       u.skip_invitation = true
     end
     email = NotificationMailer.invitation_instructions(@user).deliver
