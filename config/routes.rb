@@ -21,8 +21,6 @@ Swapthing::Application.routes.draw do
   end
 
   resources :users do
-    get 'users/edit' => 'users/registrations#edit', :as => 'edit_user_registration'
-    put 'users' => 'users/registrations#update', :as => 'user_registration'
     resources :wishlists do
       resources :items
     end
