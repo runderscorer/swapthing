@@ -29,8 +29,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
       invite.save
 
       Membership.create(user_id: @user.id, event_id: invite.event_id)
-      Wishlist.create(user_id: @user.id)
     end
+
+    Wishlist.create(user_id: @user.id)
   end
 
   def edit
