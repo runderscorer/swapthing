@@ -1,21 +1,29 @@
 <div class='pending-invites'>
   <h2>Pending Invites</h2>
-  <p class='hint'>
-    Click on an invite to accept an invitation to an event.
-  </p>
 
-  <% @pending_invites.each do |pending_invite| %>
-    <div class='card pending-invite'>
-      <%= link_to user_invite_path(current_user.id, pending_invite.id), method: :put do %>
-        <div class='primary'>
-          <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-envelope fa-10x') %></span>
-        </div>
+  <% if @pending_invites.any? %>
+    <p class='hint'>
+      Click on an invite to accept an invitation to an event.
+    </p>
 
-        <div class='secondary'>
-          <p><%= pending_invite.event.name %></p>
-          <p class='hint'><%= "Invited by #{pending_invite.sender.fname}" %></p>
-        </div>
-      <% end %>
-    </div>
+    <% @pending_invites.each do |pending_invite| %>
+      <div class='card pending-invite'>
+        <%= link_to user_invite_path(current_user.id, pending_invite.id), method: :put do %>
+          <div class='primary'>
+            <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-envelope fa-10x') %></span>
+          </div>
+
+          <div class='secondary'>
+            <p><%= pending_invite.event.name %></p>
+            <p class='hint'><%= "Invited by #{pending_invite.sender.fname}" %></p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <p class='hint'>
+      You don't have any pending invites.
+      <%= link_to 'Go to the Events page', events_path %>
+    </p>
   <% end %>
 </div>
