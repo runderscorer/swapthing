@@ -30,11 +30,6 @@ class InvitesController < ApplicationController
 
   def pending
     @pending_invites = Invite.where("recipient_id = ? OR email = ?", current_user.id.to_s, current_user.email).pending
-
-    if @pending_invites.empty?
-      flash[:notice] = "Nice job! You don't have any more pending invites."
-      redirect_to events_path
-    end
   end
 
   def update

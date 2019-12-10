@@ -9,6 +9,9 @@
     <%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id) %>
   </li>
   <li class='mobile-menu-item'>
+    <%= link_to 'Pending Invites', pending_invites_user_path(current_user.id) %>
+  </li>
+  <li class='mobile-menu-item'>
     <%= link_to 'Sign Out', destroy_user_session_path, method: 'delete' %>
   </li>
 </ul>
