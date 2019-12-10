@@ -24,6 +24,12 @@ Swapthing::Application.routes.draw do
     resources :wishlists do
       resources :items
     end
+    
+    resources :invites, only: [:update]
+
+    member do
+      get 'pending_invites', to: 'invites#pending'
+    end
   end
 
   get '/archived_events', to: 'events#archived', as: 'archived_events'

@@ -6,9 +6,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def new
     @user = User.new
     @token = params[:invite_token]
-    invite = Invite.find_by(token: @token)
 
     if @token
+      invite = Invite.find_by(token: @token)
       exisiting_user = User.find_by email: invite.email.downcase
 
       if exisiting_user
@@ -25,8 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     unless @token.blank?
       invite = Invite.find_by token: @token
-      invite.accepted_at = Time.now
-      invite.save
+      invite.update_attributes(accepted_at: Time.now)
 
       Membership.create(user_id: @user.id, event_id: invite.event_id)
     end

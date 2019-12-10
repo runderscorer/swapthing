@@ -1,0 +1,13 @@
+.pending-invites {
+  @media (max-width: 629px) {
+    text-align: center;
+  }
+}
+
+.pending-invite {
+  margin-right: 10px;
+
+  @media (max-width: 629px) {
+    margin-right: 0;
+  }
+}

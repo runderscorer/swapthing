@@ -10,7 +10,11 @@ class Invite < ActiveRecord::Base
   before_save :downcase_email
 
   def self.pending
-    where accepted_at: nil
+    where(accepted_at: nil)
+  end
+
+  def self.by_user_id_or_email user
+    where("recipient_id = ? OR email = ?", user.id.to_s, user.email)
   end
 
   private

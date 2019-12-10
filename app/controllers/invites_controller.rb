@@ -1,6 +1,7 @@
 class InvitesController < ApplicationController
-  before_action :get_event, except: [:reminder]
-  before_action :admin_check, except: [:reminder]
+  include InvitesHelper
+  before_action :get_event, except: [:reminder, :pending, :update]
+  before_action :admin_check, except: [:reminder, :pending, :update]
   before_action only: [:create] do
     validate_emails params[:emails]
   end
@@ -13,8 +14,9 @@ class InvitesController < ApplicationController
     params[:emails].each do |email|
       invite = Invite.new(email: email)
       token = SecureRandom.urlsafe_base64
+      existing_user_id = User.where(email: email.downcase).present? ? User.find_by(email: email.downcase).id : nil
 
-      invite.update_attributes! sender_id: current_user.id, event_id: @event.id, token: token
+      invite.update_attributes(sender_id: current_user.id, recipient_id: existing_user_id, event_id: @event.id, token: token)
 
       if invite.save
         InviteMailer.new_invitation(invite).deliver
@@ -24,6 +26,23 @@ class InvitesController < ApplicationController
       end
     end
     redirect_to new_event_invite_path
+  end
+
+  def pending
+    @pending_invites = Invite.where("recipient_id = ? OR email = ?", current_user.id.to_s, current_user.email).pending
+  end
+
+  def update
+    invite = Invite.find params[:id]
+    membership_invite_helper = InvitesHelper::MembershipInvite.new(invite)
+
+    if Invite.by_user_id_or_email(current_user).any? && membership_invite_helper.accept_and_create_membership?
+      flash[:notice] = "Great! You've accepted your invitation!"
+    else
+      flash[:error] = "Yikes. Something went wrong. Try again."
+    end
+
+    redirect_to pending_invites_user_path(current_user.id)
   end
 
   def destroy
