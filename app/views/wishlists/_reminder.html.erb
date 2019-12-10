@@ -1,13 +1,15 @@
-<div class='wishlist-item'>
-  <div class='card'>
-    <%= link_to wishlist_reminder_path(user_id: @wishlist.user_id) do %>
-      <div class='primary'>
-        <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-hand-o-right fa-10x') %></span>
-      </div>
-      <div class='secondary'>
-        <p>Nudge</p>
-        <p class='hint'>Send an anonymous reminder to <%= @wishlist.user.fname %> to add items</p>
-      </div>
-    <% end %>
+<div class='wishlist-items'>
+  <div class='wishlist-item'>
+    <div class='card'>
+      <%= link_to wishlist_reminder_path(user_id: @wishlist.user_id) do %>
+        <div class='primary'>
+          <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-hand-o-right fa-10x') %></span>
+        </div>
+        <div class='secondary'>
+          <p>Nudge</p>
+          <p class='hint'>Send an anonymous reminder to <%= @wishlist.user.fname %> to add items</p>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

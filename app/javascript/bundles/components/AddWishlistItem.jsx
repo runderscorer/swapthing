@@ -6,7 +6,7 @@ export default function AddWishlistItem(props) {
   return (
     <div className='wishlist-item'>
       <div className='card'>
-        <a href={`/users/${userId}/wishlists/${wishlistId}/items/new`} >
+        <a href={`/users/${userId}/wishlists/${wishlistId}/items/new`} title='Add Wishlist Item' >
           <div className='primary'>
             <span className='no_image'>
               <i className='fa fa-plus-circle fa-10x' />

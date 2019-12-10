@@ -1,10 +1,10 @@
 <div class='user-card card'>
-  <%= link_to new_event_invite_path(event) do %>
+  <%= link_to new_event_invite_path(event), title: 'Invite People' do %>
     <div class='primary'>
       <span class='no_image'><%= content_tag(:i, nil, class: 'fa fa-plus-circle fa-10x') %></span>
     </div>
     <div class='secondary'>
-      <p>Invite Users</p>
+      <p>Invite People</p>
       <p class='hint'>Invite people to your event.</p>
     </div>
   <% end %>
