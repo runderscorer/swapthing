@@ -5,6 +5,9 @@
       <li class='navbar-item'><%= link_to "Hi, #{current_user.fname}!", edit_user_registration_path, class: 'navbar-link' %></li>
       <li class='navbar-item'><%= link_to 'Events', events_path, class: 'navbar-link' %>
       <li class='navbar-item'><%= link_to 'My Wishlist', edit_user_wishlist_path(current_user.id, current_user.wishlist.id), class: 'navbar-link' %>
+      <% if current_user.has_pending_invites? %>
+        <li class='navbar-item'><%= link_to 'Pending Invites', pending_invites_user_path(current_user.id) , class: 'navbar-link' %>
+      <% end %>
       <li class='navbar-item'><%= link_to 'Sign Out', destroy_user_session_path, method: 'delete', class: 'navbar-link' %></li>
       <li class='nav-logo'><%= image_tag 'swap-thing-gray.svg' %></li>
     </ul>
