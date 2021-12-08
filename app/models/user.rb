@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :partnerships, class_name: 'Partnership', foreign_key: 'giver_id'
   has_one  :wishlist
   has_many :sent_invites, class_name: 'Invite', foreign_key: 'sender_id'
+  has_one :address
 
   before_save :downcase_email
 

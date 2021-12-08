@@ -40,7 +40,7 @@ gem 'paperclip'
 
 gem 'pickadate-rails'
 
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 
 gem 'mailgun-ruby'
 
@@ -66,7 +66,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'capybara-webkit'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
   gem 'capybara-screenshot'
