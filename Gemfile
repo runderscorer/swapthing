@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails', '6.1'
 ruby '2.6.5'
 
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.1'
 gem 'devise', ">= 4.7.1"
 gem 'devise_invitable'
 gem 'simple_form'
@@ -19,9 +19,6 @@ gem 'uglifier'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails'
 
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
@@ -33,8 +30,7 @@ gem 'jbuilder'
 
 gem 'font-awesome-sass'
 
-gem 'activemodel-serializers-xml', github: 'rails/activemodel-serializers-xml'
-gem 'draper', github: 'audionerd/draper', branch: 'rails5'
+gem 'draper'
 
 gem 'paperclip'
 
@@ -50,11 +46,6 @@ gem 'webpacker', '~> 4.x'
 gem 'onebox'
 gem 'link_thumbnailer'
 
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 group :production, :staging do
   gem 'rails_12factor'
 end
@@ -66,10 +57,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'
-  gem 'capybara-webkit'
   gem 'rails-controller-testing'
   gem 'database_cleaner'
-  gem 'capybara-screenshot'
 end
 
 gem 'mini_racer', platforms: :ruby
