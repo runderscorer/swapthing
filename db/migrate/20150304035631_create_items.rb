@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration[4.2]
       t.integer  :price
       t.string   :notes
       t.string   :url
+      t.text     :image_url
     end
   end
 end
