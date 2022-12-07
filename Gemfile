@@ -1,8 +1,11 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.0'
-ruby '2.6.5'
+gem 'rails', '6.1'
+ruby '3.0.5'
+
+# webrick isn't shipped with ruby 3
+gem 'webrick', '~> 1.7'
 
 gem 'pg', '~> 1.1'
 gem 'devise', ">= 4.7.1"
