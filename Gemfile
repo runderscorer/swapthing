@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '6.1'
-ruby '2.7.7'
+gem 'rails', '6.0'
+ruby '2.6.5'
 
 gem 'pg', '~> 1.1'
 gem 'devise', ">= 4.7.1"
@@ -40,7 +40,7 @@ gem 'aws-sdk'
 
 gem 'mailgun-ruby'
 
-gem 'react_on_rails', '11.1.4'
+gem 'react_on_rails'
 gem 'webpacker'
 
 gem 'onebox'
