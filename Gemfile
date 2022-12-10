@@ -35,18 +35,15 @@ gem 'font-awesome-sass'
 
 gem 'draper'
 
-gem 'paperclip'
-
 gem 'pickadate-rails'
 
-gem 'aws-sdk'
+gem 'aws-sdk-s3', require: false
 
 gem 'mailgun-ruby'
 
 gem 'react_on_rails'
 gem 'webpacker'
 
-gem 'onebox'
 gem 'link_thumbnailer'
 
 group :production, :staging do
