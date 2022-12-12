@@ -16,7 +16,7 @@ class InvitesController < ApplicationController
       token = SecureRandom.urlsafe_base64
       existing_user_id = User.where(email: email.downcase).present? ? User.find_by(email: email.downcase).id : nil
 
-      invite.update_attributes(sender_id: current_user.id, recipient_id: existing_user_id, event_id: @event.id, token: token)
+      invite.update(sender_id: current_user.id, recipient_id: existing_user_id, event_id: @event.id, token: token)
 
       if invite.save
         InviteMailer.new_invitation(invite).deliver
