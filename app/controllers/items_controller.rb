@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def update
-    if @item.update_attributes(item_params)
+    if @item.update(item_params)
       flash[:notice] = "Alright! #{@item.name} has been updated."
       redirect_to edit_user_wishlist_path(params[:user_id], params[:wishlist_id])
     else
@@ -40,8 +40,8 @@ class ItemsController < ApplicationController
   end
 
   def mark_as_purchased
-    item = Item.find params[:item][:id]
-    item.update_attribute(:purchased, !item.purchased)
+    item = Item.find params[:id]
+    item.update(purchased: !item.purchased)
 
     render json: { purchased: item.purchased, status: 200 }
   end

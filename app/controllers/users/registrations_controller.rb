@@ -25,7 +25,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
     unless @token.blank?
       invite = Invite.find_by token: @token
-      invite.update_attributes(accepted_at: Time.now)
+      invite.update(accepted_at: Time.now)
 
       Membership.create(user_id: @user.id, event_id: invite.event_id)
     end
@@ -40,7 +40,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = current_user
 
     if user_params[:password].present?
-      @user.update_attributes(user_params)
+      @user.update(user_params)
     else
       @user.update_without_password(user_params)
     end

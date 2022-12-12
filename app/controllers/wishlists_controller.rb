@@ -29,7 +29,7 @@ class WishlistsController < ApplicationController
   end
 
   def update
-    if @wishlist.update_attributes(wishlist_params)
+    if @wishlist.update(wishlist_params)
       redirect_to edit_user_wishlist_path(@user.id, @wishlist)
     else
       redirect_to wishlists_path
