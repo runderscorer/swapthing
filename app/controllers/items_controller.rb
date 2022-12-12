@@ -40,8 +40,8 @@ class ItemsController < ApplicationController
   end
 
   def mark_as_purchased
-    item = Item.find params[:item][:id]
-    item.update(:purchased, !item.purchased)
+    item = Item.find params[:id]
+    item.update(purchased: !item.purchased)
 
     render json: { purchased: item.purchased, status: 200 }
   end
