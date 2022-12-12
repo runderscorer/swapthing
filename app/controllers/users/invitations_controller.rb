@@ -13,7 +13,7 @@ class Users::InvitationsController < Devise::InvitationsController
       u.skip_invitation = true
     end
     email = NotificationMailer.invitation_instructions(@user).deliver
-    if @user.update_attributes(invited_by_id: current_user, invitation_sent_at: Time.now)
+    if @user.update(invited_by_id: current_user, invitation_sent_at: Time.now)
       Membership.create(user_id: @user.id, event_id: @event.id)
 
       redirect_to new_user_invitation_path

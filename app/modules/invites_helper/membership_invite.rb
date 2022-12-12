@@ -5,7 +5,7 @@ module InvitesHelper
     end
 
     def accept_and_create_membership?
-      @invite.update_attributes(accepted_at: Time.now)
+      @invite.update(accepted_at: Time.now)
       user = User.where("id = ? OR email = ?", @invite.recipient_id, @invite.email)
 
       if user.any?
