@@ -20,6 +20,8 @@ class ItemsController < ApplicationController
       flash.now[:error] = 'Your item was not saved. Please review the errors below.'
       render :new
     end
+  rescue
+    Rails.logger.info { "ERROR - #{@item.errors.full_messages}" }
   end
 
   def edit
