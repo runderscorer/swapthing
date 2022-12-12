@@ -30,11 +30,14 @@ class Item < ActiveRecord::Base
     # Match a forward slash \/
     # End negative lookahead )
     # Match one or more characters .+
+    Rails.logger.info { "Attaching file - #{filename}..." }
 
     # Create ActiveStorage records and upload to S3
     image.attach(io: downloaded_image, filename: filename)
-  rescue
-    errors.add(:image_url, 'There was a problem attaching an image')
+  rescue => e
+    Rails.logger.info { "Error attaching image - #{e}" }
+    errors.add(:image_url, image&.error)
+    false
   end
 
   def image_url_format
