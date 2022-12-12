@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     @pending_user_invites = @event.invites.where(accepted_at: nil)
     @users = @event.users
-    @user = User.find(current_user).decorate
+    @user = User.find(current_user.id).decorate
   end
 
   def edit

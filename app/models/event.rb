@@ -1,8 +1,8 @@
 class Event < ActiveRecord::Base
+  has_many :memberships
   has_many :users, through: :memberships
   has_many :partnerships
   has_many :invites
-  has_many :memberships
   belongs_to :admin, class_name: 'User', foreign_key: 'admin_id'
   validates_presence_of :name, :description, :date, :max_spend
 

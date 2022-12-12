@@ -48,7 +48,7 @@ export default class WishlistItem extends Component {
 
   handlePurchasedCallback = async () => {
     const { id } = this.props.item.table;
-    const response = await axios.post('/mark_as_purchased', { item: { id } });
+    const response = await axios.post('/mark_as_purchased', { id });
 
     this.setState({ purchased: response.data.purchased });
   }
