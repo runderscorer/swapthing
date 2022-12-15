@@ -1,13 +1,14 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  around_action :check_user_memberships, except: [:index, :new, :create, :archived]
+  around_action :check_user_memberships, except: [:index, :new, :create]
   before_action :get_event, only: [:show, :edit, :update]
   before_action :admin_check, only: [:edit]
   before_action :format_date, only: [:create, :update]
   before_action :clear_event_session, only: [:index]
 
   def index
-    @events = Event.all_by_user(current_user)
+    @show_archived = params[:archived] == 'true'
+    @events =  @show_archived ? Event.archived_by_user(current_user) : Event.all_by_user(current_user)
   end
 
   def new
@@ -49,10 +50,6 @@ class EventsController < ApplicationController
     memberships = Membership.where(event_id: @event.id).each {|membership| membership.destroy}
     @event.destroy
     redirect_to events_path
-  end
-
-  def archived
-    @events = Event.archived_by_user(current_user)
   end
 
   private

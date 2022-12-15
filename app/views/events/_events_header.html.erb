@@ -1,0 +1,13 @@
+<% if show_archived %>
+  <h2>Archived Events</h2>
+  <p class='hint'>View or edit your archived events.</p>
+<% else %>
+  <h2>Events</h2>
+  <p class='hint'>
+    View event details or add and edit your own event.
+    <span>
+      <%= link_to 'Click here to see your archived events', archived_events_path, class: 'small' %>
+    </span>
+  </p>
+<% end %>
+

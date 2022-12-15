@@ -1,12 +1,5 @@
  <div id='events'>
-  <h2>Events</h2>
-  <p class='hint'>
-    View event details or add and edit your own event.
-    <span>
-      <%= link_to 'Click here to see your archived events', archived_events_path, class: 'small' %>
-    </span>
-  </p>
-
+  <%= render 'events_header', show_archived: @show_archived %>
   <div class='events'>
     <% @events.each do |event| %>
       <div class='event'>
@@ -19,7 +12,7 @@
             <p><%= link_to 'View Details', event_path(event) %></p>
           </div>
           <% if event.admin == current_user %>
-          <div class='edit_actions'>
+          <div class='actions'>
             <div class='left_icon'>
               <%= link_to content_tag(:i, nil, class: 'fa fa-users'), event_users_path(event.id), title: 'Add Participants' %>
             </div>
@@ -31,6 +24,8 @@
         </div>
       </div>
     <% end %>
-    <%= render 'add_event' %>
+    <% if !@show_archived %>
+      <%= render 'add_event' %>
+    <% end %>
   </div>
 </div>
