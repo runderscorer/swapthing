@@ -11,7 +11,20 @@ table tr.partner-row {
 }
 
 .event-participants {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
   @media (max-width: 767px) {
     text-align: center;
   }
+}
+
+.event-participants .actions {
+  display: flex;
+}
+
+.event-participants .users {
+  display: flex;
+  flex-wrap: wrap;
 }

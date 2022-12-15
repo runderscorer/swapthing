@@ -1,3 +1,0 @@
-<div class='left_icon'>
-  <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), user_wishlist_item_path(wishlist_id: params[:id], id: item.id), id: "delete-item-#{item.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-</div>

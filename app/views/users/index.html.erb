@@ -6,10 +6,12 @@
 <% end %>
 
 <div class='event-participants'>
-  <%= render 'invite_users', event: @event %>
-  <%= render 'shuffle_partners' %>
+  <div class='actions'>
+    <%= render 'invite_users', event: @event %>
+    <%= render 'shuffle_partners' %>
+  </div>
 
-  <div class=''>
+  <div class='users'>
     <% @users.each do |user| %>
       <li class='user-card card'>
         <div class='primary'><%= content_tag(:i, nil, class: 'fa fa-user fa-10x') %></div>
@@ -26,11 +28,13 @@
           <p>Pending</p>
           <p><%= pending_user_invite.email %></p>
         </div>
-        <div class='left_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id), id: "delete-item-#{pending_user_invite.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
-        <div class='right_icon'>
-          <%= link_to content_tag(:i, nil, class: 'fa fa-hand-o-right fa-lg'), reminder_event_invite_path(event_id: @event.id, id: pending_user_invite.id) %>
+        <div class='actions'>
+          <div class='left_icon'>
+            <%= link_to content_tag(:i, nil, class: 'fa fa-trash-o fa-lg'), event_invite_path(event_id: @event.id, id: pending_user_invite.id), id: "delete-item-#{pending_user_invite.id}", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+          <div class='right_icon'>
+            <%= link_to content_tag(:i, nil, class: 'fa fa-hand-o-right fa-lg'), reminder_event_invite_path(event_id: @event.id, id: pending_user_invite.id) %>
+          </div>
         </div>
       </li>
     <% end %>
