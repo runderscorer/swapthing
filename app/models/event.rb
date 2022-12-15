@@ -28,6 +28,6 @@ class Event < ActiveRecord::Base
   def format_date
     return unless date
 
-    self.date = date.gsub('-', '/')
+    self.date = date.to_s.gsub('-', '/')
   end
 end
