@@ -72,5 +72,4 @@ class WishlistsController < ApplicationController
       Rails.logger.debug 'User does not have access to this wishlist'
     end
   end
-
 end

@@ -70,6 +70,7 @@ export default class WishlistItem extends Component {
       short_url: itemShortUrl,
       name: itemName,
       notes: itemNotes,
+      date_added: dateAdded
     } = this.props.item.table;
     const { isOwner, selected, userId, wishlistId } = this.props;
     const { purchased } = this.state;
@@ -94,19 +95,25 @@ export default class WishlistItem extends Component {
             <div className='product_notes'>{itemNotes}</div>
           </div>
 
-          { isOwner &&
-            <div className='left_icon'>
-              <a href='#' onClick={this.handleDelete}>
-                <i className='fa fa-trash-o fa-lg' />
-              </a>
-            </div> }
+          <div className='date_added'>
+            <div>{`Added on ${dateAdded}`}</div>
+          </div>
 
-          { isOwner &&
-            <div className='right_icon'>
-              <a href={`/users/${userId}/wishlists/${wishlistId}/items/${itemId}/edit`}>
-                <i className='fa fa-pencil-square-o fa-lg' id={`edit-item-${itemId}`}/>
-              </a>
-            </div> }
+          <div className='actions'>
+            { isOwner &&
+              <div className='left_icon'>
+                <a href='#' onClick={this.handleDelete}>
+                  <i className='fa fa-trash-o fa-lg' />
+                </a>
+              </div> }
+
+            { isOwner &&
+              <div className='right_icon'>
+                <a href={`/users/${userId}/wishlists/${wishlistId}/items/${itemId}/edit`}>
+                  <i className='fa fa-pencil-square-o fa-lg' id={`edit-item-${itemId}`}/>
+                </a>
+              </div> }
+          </div>
         </div>
 
         { !isOwner && 

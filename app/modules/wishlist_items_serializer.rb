@@ -13,6 +13,7 @@ module WishlistItemsSerializer
             short_url: (item.url.present? ? item.short_url : ''),
             notes: item.notes,
             purchased: item.purchased,
+            date_added: item.created_at.strftime("%m/%d/%Y")
           }
         )
       )
