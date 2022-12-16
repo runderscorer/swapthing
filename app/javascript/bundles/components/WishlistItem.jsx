@@ -60,7 +60,13 @@ export default class WishlistItem extends Component {
     return !isOwner && purchased ? 'purchased' : '';
   }
 
-  appendProtocolToURL = (itemUrl) => itemUrl.includes('http') ? itemUrl : 'http://' + itemUrl;
+  appendProtocolToURL = (itemUrl) => {
+    if (itemUrl) {
+      return itemUrl.includes('http') ? itemUrl : 'http://' + itemUrl;
+    }
+
+    return '';
+  }
 
   render() {
     const {
