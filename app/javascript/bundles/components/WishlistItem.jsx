@@ -73,7 +73,7 @@ export default class WishlistItem extends Component {
       id: itemId,
       url: itemUrl,
       price: productPrice,
-      short_url: itemShortUrl,
+      vendor_name: vendorName,
       name: itemName,
       notes: itemNotes,
       date_added: dateAdded
@@ -96,7 +96,7 @@ export default class WishlistItem extends Component {
           </a>
 
           <div className='secondary'>
-            <div className='product_source'>{itemShortUrl}</div>
+            <div className='product_source'>{vendorName}</div>
             <div className={`product_name ${this.isPurchased()}`}>{itemName}</div>
             <div className='product_notes'>{itemNotes}</div>
           </div>

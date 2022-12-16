@@ -10,7 +10,7 @@ module WishlistItemsSerializer
             url: item.url,
             price: item.price,
             image: item.image_url,
-            short_url: (item.url.present? ? item.short_url : ''),
+            vendor_name: item.vendor_name,
             notes: item.notes,
             purchased: item.purchased,
             date_added: item.created_at.strftime("%m/%d/%Y")

@@ -10,8 +10,10 @@ class Item < ActiveRecord::Base
 
   scope :ordered_by_name, -> { order(name: :asc) }
 
-  def short_url
-    self.url.split('.')[1]
+  def vendor_name
+    return '' unless url
+
+    URI.parse(url).host
   end
 
   private
