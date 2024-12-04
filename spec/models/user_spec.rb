@@ -14,5 +14,6 @@ describe User, type: :model do
     it { should have_many :sent_invites }
     it { should have_many :received_invites }
     it { should have_one :wishlist }
+    it { should have_one :exclusion }
   end
 end
