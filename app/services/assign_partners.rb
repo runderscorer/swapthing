@@ -1,18 +1,29 @@
 class AssignPartners
-  def self.call(partnerships)
-    # the rules are that every participant must have a partner
-    # and that participants cannot be assigned to themselves
-    participant_ids = partnerships.collect(&:giver_id).shuffle
-    participant_ids << participant_ids.first
+  def self.call(event_id, attempts = 0)
+    return false if attempts > 5
 
-    pairs = participant_ids.each_cons 2
+    event = Event.find event_id
+    users = event.users
 
-    pairs.each do |pair|
-      partnerships.each do |partnership|
-        if pair.first == partnership.giver_id
-          partnership.getter_id = pair.last
-          partnership.save!
-        end
+    exclusions = users.each_with_object({}) do |user, hash|
+      hash[user.id] = user.exclusion.excluded_user_id if user.has_exclusion?
+    end
+
+    users = users.shuffle
+
+    assigned = Set.new
+    
+    users.each do |user|
+      partner = users.find do |u|
+        u.id != user.id && u.id != exclusions[user.id] && !assigned.include?(u.id)
+      end
+
+      if partner
+        assigned.add(partner.id)
+        Partnership.create!(event_id: event_id, giver_id: user.id, getter_id: partner.id)
+      else
+        event.partnerships.destroy_all
+        AssignPartners.call(event_id, attempts + 1)
       end
     end
   end
