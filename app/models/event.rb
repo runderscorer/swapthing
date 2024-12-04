@@ -23,6 +23,10 @@ class Event < ActiveRecord::Base
     .order('date desc')
   end
 
+  def partners_assigned?
+    partnerships.present?
+  end
+
   private
 
   def format_date

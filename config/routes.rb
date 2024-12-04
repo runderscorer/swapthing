@@ -32,6 +32,8 @@ Swapthing::Application.routes.draw do
     end
   end
 
+  resources :exclusions, only: [:create, :destroy]
+
   get '/archived_events', to: redirect('/events?archived=true'), as: 'archived_events'
   get '/wishlist/:encoded_id', to: 'wishlists#show', as: 'wishlist'
   get '/wishlist_reminder', to: 'wishlists#reminder'

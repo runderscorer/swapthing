@@ -25,4 +25,8 @@ class User < ActiveRecord::Base
     user_invite_helper = InvitesHelper::UserInvite.new(self)
     user_invite_helper.pending.any?
   end
+
+  def has_exclusion?
+    exclusion.present?
+  end
 end

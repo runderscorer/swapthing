@@ -21,6 +21,16 @@
         <div class='partner-wishlist-link'>
           <%= @current_user.show_partner_wishlist_link(@event.id) %>
         </div>
+
+        <div class='exclusions'>
+          <% if @current_user.has_exclusion? %>
+            <p class='title'>You won't be partnered with:</p>
+            <p><%= @current_user.exclusion.excluded_user.fname %></p>
+          <% else %>
+            <p class='title'>Need to Exclude Someone?</p>
+            <%= @current_user.show_exclude_link(@event.id, @current_user.id) %>
+          <% end %>
+        </div>
       </div>
     </div>
 
