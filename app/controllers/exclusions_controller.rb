@@ -8,7 +8,7 @@ class ExclusionsController < ApplicationController
     if exclusion.save && partner_exclusion.save
       flash[:notice] = 'Yay. Excluded successfully!'
     else
-      flash[:error] = 'Uh oh. Something went wrong. Try again.'
+      flash[:error] = exclusion&.errors&.full_messages&.first || 'Uh oh. Something went wrong.'
     end
 
     redirect_to session.delete(:return_to)

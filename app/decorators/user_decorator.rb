@@ -22,7 +22,6 @@ class UserDecorator < Draper::Decorator
     simple_form_for Exclusion.new do |f|
       form_html = ''
       form_html += f.input :excluded_user_id, collection: eligible_users_for_exclusion, prompt: 'Pick a person', label: false
-      form_html += f.input :event_id, input_html: { value: event_id }, as: :hidden
       form_html += f.input :user_id, input_html: { value: user_id }, as: :hidden
       form_html += f.submit 'Exclude', class: 'btn btn-primary'
       form_html.html_safe
