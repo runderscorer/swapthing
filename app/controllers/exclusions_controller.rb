@@ -3,8 +3,9 @@ class ExclusionsController < ApplicationController
     session[:return_to] ||= request.referer
 
     exclusion = Exclusion.new(exclusion_params)
+    partner_exclusion = exclusion.build_partner_exclusion!
 
-    if exclusion.save
+    if exclusion.save && partner_exclusion.save
       flash[:notice] = 'Yay. Excluded successfully!'
     else
       flash[:error] = 'Uh oh. Something went wrong. Try again.'

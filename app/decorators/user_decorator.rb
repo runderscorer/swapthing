@@ -16,8 +16,8 @@ class UserDecorator < Draper::Decorator
 
   def show_exclude_link(event_id, user_id)
     event = Event.find(event_id)
-    user = User.find(user_id)
-    eligible_users_for_exclusion = (event.users - [user]).pluck(:fname, :id)
+    users = event.users.left_joins(:exclusion).where(exclusions: { id: nil }).where.not(id: user_id)
+    eligible_users_for_exclusion = users.pluck(:fname, :id)
 
     simple_form_for Exclusion.new do |f|
       form_html = ''
