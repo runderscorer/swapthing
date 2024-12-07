@@ -13,7 +13,7 @@ class PartnershipsController < ApplicationController
     @event.partnerships.delete_all if @event.partnerships.present?
 
     if AssignPartners.call(event_id)
-      @event.partnerships.each do |partnership|
+      @event.reload.partnerships.each do |partnership|
         NotificationMailer.partner_assignment_mail(partnership).deliver
       end
       flash[:notice] = 'High five! Partners have been assigned.'
