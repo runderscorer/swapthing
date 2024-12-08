@@ -5,6 +5,8 @@ class AssignPartners
     event = Event.find(event_id)
     givers = event.users
 
+    return false if givers.count < 2
+
     getters = Set.new
 
     givers.each do |giver|
