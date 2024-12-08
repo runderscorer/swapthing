@@ -70,6 +70,9 @@ RSpec.configure do |config|
 
   # Include helper modules
   config.include NavigationHelper
+
+  # FactoryBot helpers
+  config.include FactoryBot::Syntax::Methods
 end
 
 Shoulda::Matchers.configure do |config|
@@ -79,8 +82,5 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
-Capybara.javascript_driver = :webkit
+Capybara.javascript_driver = :chrome
 
-Capybara::Webkit.configure do |config|
-  config.allow_unknown_urls
-end

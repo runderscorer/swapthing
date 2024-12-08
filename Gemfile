@@ -53,7 +53,7 @@ end
 group :development, :test do
   gem 'pry'
   gem 'launchy'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'capybara'

@@ -1,8 +1,18 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
-    fname 'Freddy'
-    lname 'Krueger'
-    email 'test@email.com'
-    password 'passwordy'
+    sequence(:email) { |n| "freddy#{n}@elmst.com" }
+    fname { 'Freddy' }
+    lname { 'Krueger' }
+    password { 'passwordy' }
+
+    trait :with_membership do
+      transient do
+        event_id { create(:event).id }
+      end
+
+      after(:create) do |user, evaluator|
+        create(:membership, user: user, event_id: evaluator.event_id)
+      end
+    end
   end
 end

@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :partnership do
     sequence(:giver_id) { |n| n}
-    event_id '1000'
+    event_id { create(:event).id }
   end
 end
