@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   has_one_attached :image, service: :amazon
 
   validates_presence_of :name, :price, :wishlist_id
+  validate :url_format
   validate :image_url_format
   validate :image_file_type
 
@@ -42,10 +43,22 @@ class Item < ActiveRecord::Base
     false
   end
 
+  def url_format
+    return if url.blank?
+
+    errors.add(:url, 'Enter a valid URL or leave this blank') unless URI::regexp =~ url
+  end
+
   def image_url_format
-    if self.image_url.present? && !URI.parse(self.image_url).is_a?(URI::HTTP || URI::HTTPS)
-      errors.add(:image_url, 'Enter a valid image URL')
+    return if image_url.blank?
+
+    image_uri = URI.parse(image_url)
+
+    if image_uri && !image_uri.is_a?(URI::HTTP || URI::HTTPS)
+      errors.add(:image_url, 'Enter a valid image URL or leave this blank')
     end
+  rescue
+    errors.add(:image_url, 'Enter a valid image URL or leave this blank')
   end
 
   def image_file_type
