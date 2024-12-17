@@ -5,22 +5,26 @@ class Item < ActiveRecord::Base
   validates_presence_of :name, :price, :wishlist_id
   validate :url_format
   validate :image_url_format
-  validate :image_file_type
 
-  before_save :attach_image
+  before_validation :attach_image
 
   scope :ordered_by_name, -> { order(name: :asc) }
+
+  ALLOWED_TYPES = %w(image/jpg image/jpeg image/png image/svg image/gif)
 
   def vendor_name
     return '' unless url
 
     URI.parse(url).host
+  rescue
+    nil
   end
 
   private
 
   def attach_image
-    return unless image_url
+    return if image_url.blank?
+    return unless image_url_changed?
 
     # Parse string and download image
     parser = URI::Parser.new
@@ -33,13 +37,20 @@ class Item < ActiveRecord::Base
     # Match a forward slash \/
     # End negative lookahead )
     # Match one or more characters .+
+
+    unless ALLOWED_TYPES.include?(downloaded_image.content_type)
+      errors.add(:image_url, 'Enter a valid image URL or leave this blank')
+      self.image_url = nil
+      return false
+    end
+
     Rails.logger.info { "Attaching file - #{filename}..." }
 
     # Create ActiveStorage records and upload to S3
     image.attach(io: downloaded_image, filename: filename)
   rescue => e
     Rails.logger.info { "Error attaching image - #{e}" }
-    errors.add(:image_url, image&.error)
+    errors.add(:image_url, image&.errors&.first)
     false
   end
 
@@ -59,11 +70,5 @@ class Item < ActiveRecord::Base
     end
   rescue
     errors.add(:image_url, 'Enter a valid image URL or leave this blank')
-  end
-
-  def image_file_type
-    if image.attached? && !image.content_type.in?(%w(image/jpeg image/png image/svg image/gif))
-      errors.add(:image_url, 'Enter a URL for a valid image file type')
-    end
   end
 end
